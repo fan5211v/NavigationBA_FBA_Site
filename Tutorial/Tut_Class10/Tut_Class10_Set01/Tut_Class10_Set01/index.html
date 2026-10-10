@@ -1,0 +1,6427 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Foundations of Business Analytics">
+      
+      
+      
+        <link rel="canonical" href="https://NavigationBA.github.io/NavigationBA_FBA/Tutorial/Tut_Class10/Tut_Class10_Set01/Tut_Class10_Set01/">
+      
+      
+        <link rel="prev" href="../../../Tut_Class09/Tut_Class09_Set01/Tut_Class09_Set01/">
+      
+      
+        <link rel="next" href="../../../Tut_Class11/Tut_Class11_Set01/Tut_Class11_Set01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>📝 Tut Class 10 Set 01 - Foundations of Business Analytics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-class-10-set-01-storing-retrieving-data" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-header__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Business Analytics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📝 Tut Class 10 Set 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Classes/Class01/Class01_00/Class01_00/" class="md-tabs__link">
+          
+  
+  
+  Classes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Tut_Class01/Tut_Class01_Set01/Tut_Class01_Set01/" class="md-tabs__link">
+          
+  
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Quiz/Quiz_Class03/Quiz_Class03/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Mid/Mid_01/Mid_01/" class="md-tabs__link">
+          
+  
+  
+  Mid Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-tabs__link">
+          
+  
+  
+  Assignments
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-tabs__link">
+          
+  
+  
+  Final Exam
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-nav__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Business Analytics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Classes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 1 - 商业分析简介
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 1 - 商业分析简介
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class01/Class01_00/Class01_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 1 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class01/Class01_01/Class01_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.1 - 商业分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class01/Class01_02/Class01_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.2 - 商业分析师的核心技能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class01/Class01_03/Class01_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.3 - 商业分析中的伦理问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 2 - R 语言基本介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 2 - R 语言基本介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_00/Class02_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 2 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_01/Class02_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.1 - R 语言简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_02/Class02_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.2 - R 代码运行的方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_03/Class02_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.3 - R 语言的基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_04/Class02_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.4 - R 中的数据类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class02/Class02_05/Class02_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.5 - R 中的数据结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 3 - R 数据可视化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 3 - R 数据可视化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class03/Class03_00/Class03_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 3 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class03/Class03_01/Class03_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.1 - 数据可视化的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class03/Class03_02/Class03_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.2 - R 数据可视化基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class03/Class03_03/Class03_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.3 - R 中图像的修饰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class03/Class03_04/Class03_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.4 - 完整的图像构建展示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 4 - R 数据整理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 4 - R 数据整理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class04/Class04_00/Class04_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 4 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class04/Class04_01/Class04_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.1 - 数据筛选与排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class04/Class04_02/Class04_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.2 - 数据列操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class04/Class04_03/Class04_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.3 - 数据分组统计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 5 - 数据整理：数据重塑与连接
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 5 - 数据整理：数据重塑与连接
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class05/Class05_00/Class05_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 5 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class05/Class05_01/Class05_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 5.1 - 数据重构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class05/Class05_02/Class05_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 5.2 - 数据连接
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 6 - R 数据类型
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 6 - R 数据类型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_00/Class06_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 6 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_01/Class06_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.1 - 数据类型划分概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_02/Class06_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.2 - 横截面数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_03/Class06_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.3 - 时间序列数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_04/Class06_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.4 - 面板数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_Extension01/Class06_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 6 Extension 1 - 获取金融数据：单只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class06/Class06_Extension02/Class06_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 6 Extension 2 - 获取金融数据：多只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 7 - 数据分析 - 描述性分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 7 - 数据分析 - 描述性分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_00/Class07_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 7 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_01/Class07_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.1 - 描述性分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_02/Class07_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.2 - 基于规则的分群方法 - RFM 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_03/Class07_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.3 - 基于数据的分群方法 - K-Means 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_Extension01/Class07_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 7 Extension 1 - K-Means 聚类算法详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class07/Class07_Extension02/Class07_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 7 Extension 2 - K-Means 与 PCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 8 - 数据分析 - 因果分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 8 - 数据分析 - 因果分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class08/Class08_00/Class08_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 8 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class08/Class08_01/Class08_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.1 - 因果分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class08/Class08_02/Class08_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.2 - 基于模型的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class08/Class08_03/Class08_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.3 - 基于设计的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 9 - 数据分析 - 预测分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 9 - 数据分析 - 预测分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class09/Class09_00/Class09_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 9 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class09/Class09_01/Class09_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.1 - 预测分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class09/Class09_02/Class09_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.2 - 预测分析的方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class09/Class09_03/Class09_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.3 - 预测分析的评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10 - 数据存储
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10 - 数据存储
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class10/Class10_00/Class10_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 10 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class10/Class10_01/Class10_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.1 - 数据存储方式概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class10/Class10_02/Class10_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.2 - 数据存储：电子表格与平面文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class10/Class10_03/Class10_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.3 - 数据存储：JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class10/Class10_04/Class10_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.4 - 数据存储：数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11 - 数据获取
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11 - 数据获取
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class11/Class11_00/Class11_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 11 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class11/Class11_01/Class11_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 11.1 - 数据的三种类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Classes/Class11/Class11_02/Class11_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 11.2 - 使用 API 获取数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class01/Tut_Class01_Set01/Tut_Class01_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 01 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class02/Tut_Class02_Set01/Tut_Class02_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 02 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class03/Tut_Class03_Set01/Tut_Class03_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 03 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class04/Tut_Class04_Set01/Tut_Class04_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 04 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class05/Tut_Class05_Set01/Tut_Class05_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 05 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class06/Tut_Class06_Set01/Tut_Class06_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 06 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class07/Tut_Class07_Set01/Tut_Class07_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 07 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class08/Tut_Class08_Set01/Tut_Class08_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 08 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class09/Tut_Class09_Set01/Tut_Class09_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 09 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 10 Set 01
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 10 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge-identifying-shill-bidding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge: Identifying Shill Bidding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data-auction-bids-and-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Data: Auction Bids and Devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-method-wrangling-data-across-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Method: Wrangling Data Across Backends
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-auction-results-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Auction Results Baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-digging-deeper-into-user-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Digging Deeper into User Behaviour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-opening-the-auction-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Opening the auction database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-measuring-bidder-seller-concentration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Measuring bidder-seller concentration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-combining-concentration-with-win-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Combining concentration with win rates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Class11/Tut_Class11_Set01/Tut_Class11_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 11 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class03/Quiz_Class03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class04/Quiz_Class04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class05/Quiz_Class05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class06/Quiz_Class06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class07/Quiz_Class07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class08/Quiz_Class08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class09/Quiz_Class09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class10/Quiz_Class10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class11/Quiz_Class11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class12/Quiz_Class12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mid Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mid Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Mid/Mid_01/Mid_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Mid Exam Question Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment - Expedia Case
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignment - Expedia Case
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Demo1/Assign_Demo1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Final Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Choice Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multiple Choice Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_02/MC_Set_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_03/MC_Set_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_04/MC_Set_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Short Answer Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Short Answer Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q01/ES_Q01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q02/ES_Q02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q03/ES_Q03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q04/ES_Q04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge-identifying-shill-bidding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge: Identifying Shill Bidding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data-auction-bids-and-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Data: Auction Bids and Devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-method-wrangling-data-across-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Method: Wrangling Data Across Backends
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-auction-results-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Auction Results Baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-digging-deeper-into-user-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Digging Deeper into User Behaviour
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-opening-the-auction-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Opening the auction database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-measuring-bidder-seller-concentration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Measuring bidder-seller concentration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-combining-concentration-with-win-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Combining concentration with win rates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-class-10-set-01-storing-retrieving-data">Tutorial Class 10 Set 01 - Storing &amp; Retrieving Data<a class="headerlink" href="#tutorial-class-10-set-01-storing-retrieving-data" title="Permanent link">&para;</a></h1>
+<h2 id="learning-goals">Learning Goals<a class="headerlink" href="#learning-goals" title="Permanent link">&para;</a></h2>
+<p>By the end of this tutorial, you should be able to:</p>
+<ul>
+<li>Apply tidyverse workflows across alternative data sources (CSV, JSON Lines, DuckDB) to wrangle, flatten, and join auction data into tidy tables suitable for analysis.</li>
+<li>Analyse outcomes and telemetry by creating visuals and simple metrics (<code>seller_share</code>, <code>win_rate</code>) to identify patterns that could indicate shill behaviour.</li>
+</ul>
+<h2 id="the-business-challenge-identifying-shill-bidding">The Business Challenge: Identifying Shill Bidding<a class="headerlink" href="#the-business-challenge-identifying-shill-bidding" title="Permanent link">&para;</a></h2>
+<p>Online auctions are big business. Platforms like eBay, Yahoo! Auctions, and specialist marketplaces connect millions of buyers and sellers every day. But with opportunity comes risk: not every bidder is playing fair.</p>
+<p>One form of fraud is called <strong>shill bidding</strong>. This happens when sellers (or their associates) secretly bid on their own items. The goal isn’t to win the auction, but to drive up the price and trick genuine buyers into paying more than they otherwise would. Shill bidders might:</p>
+<ul>
+<li>Place bids just high enough to outbid real customers, forcing them to keep bidding.</li>
+<li>Use multiple accounts or devices to hide their identity.</li>
+<li>Bid early and often to create the illusion of demand.</li>
+</ul>
+<p>For an auction platform, shill bidding creates serious problems:</p>
+<ul>
+<li>It damages buyer trust, which can reduce participation and long-term revenue.</li>
+<li>It raises legal and reputational risks if fraud is not detected.</li>
+<li>It can distort the competitive landscape for honest sellers.</li>
+</ul>
+<p>Your task in this exercise is to step into the role of an analyst at an online auction company. You’ve been asked to examine bidding data and look for patterns that might indicate suspicious activity. To do this, you’ll need to:</p>
+<ol>
+<li>Explore the auctions data provided in multiple formats (CSV, JSON, database).</li>
+<li>Use wrangling and visualisation tools to spot differences between ordinary buyers and suspicious bidders.</li>
+<li>Interpret these patterns in business terms: would a manager at the auction platform be worried?</li>
+</ol>
+<h2 id="the-data-auction-bids-and-devices">The Data: Auction Bids and Devices<a class="headerlink" href="#the-data-auction-bids-and-devices" title="Permanent link">&para;</a></h2>
+<p>We’ll be working with synthetic data that simulates an online auction platform. It comes in a few different formats:</p>
+<ul>
+<li>CSV / DuckDB: structured data on auctions, bidders, bid amounts, and timestamps.</li>
+<li>JSON: extra details about each bidder’s activity, such as the devices or sessions they used.</li>
+</ul>
+<p>Together, these files let us see not just who is bidding and how much, but also how they are bidding, which can be a clue for spotting suspicious behaviour.</p>
+<h2 id="the-method-wrangling-data-across-backends">The Method: Wrangling Data Across Backends<a class="headerlink" href="#the-method-wrangling-data-across-backends" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, the focus isn’t just on wrangling data. It is on seeing how the same tidyverse tools work across different backends. We’ll be using:</p>
+<ul>
+<li><code>dplyr</code>: to filter, group, summarise, and join data.</li>
+<li><code>tidyr</code>: to reshape nested or messy data into tidy tables.</li>
+</ul>
+<p>You’ll apply these verbs on top of different data sources:</p>
+<ul>
+<li>Flat files (CSV)</li>
+<li>Databases (DuckDB)</li>
+<li>Nested structures (JSON)</li>
+</ul>
+<p>The key idea is that once you know the tidyverse workflow, it carries over no matter where the data lives.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w"> </span><span class="c1"># Core tidyverse for wrangling and plotting</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span><span class="w"> </span><span class="c1"># Combine multiple plots</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span><span class="w">  </span><span class="c1"># For reading JSON files</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">DBI</span><span class="p">)</span><span class="w">       </span><span class="c1"># For working with databases</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">duckdb</span><span class="p">)</span><span class="w">    </span><span class="c1"># For working with duckdb databases</span>
+</code></pre></div>
+<h2 id="prepare-these-exercises-before-class">Prepare these Exercises before Class<a class="headerlink" href="#prepare-these-exercises-before-class" title="Permanent link">&para;</a></h2>
+<p>Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.</p>
+<h3 id="exercise-1-auction-results-baseline">Exercise 1: Auction Results Baseline<a class="headerlink" href="#exercise-1-auction-results-baseline" title="Permanent link">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>Read the CSV file located at <code>data/auction_results.csv</code> and examine its structure by completing the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load the data</span>
+<span class="n">auction_results</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="s">&quot;data/auction_results.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Examine the structure</span>
+<span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">auction_results</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(b)</strong></p>
+<p>What does one row represent in the dataset? Which columns look most informative for understanding auction outcomes?</p>
+<p><strong>(c)</strong></p>
+<p>Produce 3 plots using the starter code below:</p>
+<ol>
+<li>A histogram of <code>final_price</code></li>
+<li>A histogram of <code>num_bids</code></li>
+<li>A scatterplot of the relationship between <code>final_price</code> and <code>num_bids</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">p1</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p2</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p3</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p3</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>Provide a short explanation of your findings from (c). Are there any patterns that are suggestive of shill bidding?</p>
+<p><strong>(e)</strong></p>
+<p>Next, let’s explore how certain auction outcomes vary across sellers. Complete the starter code below to produce summary statistics by seller:</p>
+<div class="highlight"><pre><span></span><code><span class="n">seller_profile</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">seller_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">n_auctions</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_CODE</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">median_price</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">final_price</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">median_bids</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">num_bids</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">share_missing_winner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n_auctions</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">n_auctions</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(f)</strong></p>
+<p>Based on the seller profiles in (e), are there any patterns suggestive of shill bidding? What further information would you need to confirm any suspicion?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load the data</span>
+<span class="n">auction_results</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/auction_results.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Examine the structure</span>
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auction_results</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 7,463
+Columns: 7
+$ auction_id       &lt;chr&gt; &quot;A00001&quot;, &quot;A00002&quot;, &quot;A00003&quot;, &quot;A00004&quot;, &quot;A00005&quot;, ...
+$ item_id          &lt;chr&gt; &quot;I00001&quot;, &quot;I00002&quot;, &quot;I00003&quot;, &quot;I00004&quot;, &quot;I00005&quot;, ...
+$ seller_id        &lt;chr&gt; &quot;S00032&quot;, &quot;S00027&quot;, &quot;S00012&quot;, &quot;S00027&quot;, &quot;S00003&quot;, ...
+$ final_price      &lt;dbl&gt; 141.3800, 110.4400, 286.0400, 172.5300, 195.2600, ...
+$ num_bids         &lt;dbl&gt; 15, 10, 17, 12, 14, 13, 9, 20, 14, 17, 19, 16, 10, ...
+$ winner_id        &lt;chr&gt; &quot;B00038&quot;, &quot;B00084&quot;, &quot;B00093&quot;, &quot;B00133&quot;, &quot;B00049&quot;, ...
+$ auction_end_date &lt;dttm&gt; 2024-12-04 06:00:00, 2024-12-20 18:00:00, ...
+</code></pre></div>
+<p><strong>(b)</strong></p>
+<p>One row = one auction outcome for a specific <code>item_id</code> run by a <code>seller_id</code>.</p>
+<p>Most informative for outcomes: <code>final_price</code> (price result), <code>num_bids</code> (competitive intensity) and <code>seller_id</code> (lets us compare performance across sellers).</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">p1</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">final_price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p2</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_bids</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p3</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_bids</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">final_price</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+
+<span class="n">p1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">p3</span>
+</code></pre></div>
+<div align="center">
+  <img src="../p1.png" width="600">
+</div>
+
+<p><strong>(d)</strong></p>
+<p>Findings from (c):</p>
+<ul>
+<li><strong>num_bids histogram</strong>: there’s a big spike at exactly ~15 bids and a sharp drop beyond ~20. That heap at one count is unusual—could be a platform rule, data artifact, or coordinated behaviour to hit a target count. Worth a note.</li>
+<li><strong>num_bids vs final_price</strong>: clear positive trend (more bids → higher price), but with wide vertical spread at each bid count. In the far right columns (20–27 bids) there are still relatively low closing prices, which fits the “many bids, modest price” review pattern.</li>
+</ul>
+<p>For part (d), the main review signals are (i) the heap at 15 bids and (ii) high-bid-count auctions that still close near the lower half of prices. These are suggestive patterns, not proof.</p>
+<p><strong>(e)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">seller_profile</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auction_results</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">seller_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">n_auctions</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">median_price</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="n">final_price</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">median_bids</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">median</span><span class="p">(</span><span class="n">num_bids</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">share_missing_winner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">winner_id</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n_auctions</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n_auctions</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(f)</strong></p>
+<p>Interpreting seller profiles and additional evidence needed</p>
+<p>Possibly suggestive seller patterns (from <code>n_auctions</code>, <code>median_price</code>, <code>median_bids</code>):</p>
+<ul>
+<li>High <code>median_bids</code> but low median_price across many auctions.</li>
+<li>Extreme <code>median_price</code> (much higher/lower than peers) given similar <code>median_bids</code>.</li>
+<li>Further information required to assess/confirm, such as:</li>
+<li>Bid-level timelines (who bid, when, increments, rapid back-and-forth patterns).</li>
+<li>Repeated bidder–seller ties (same bidder frequently active in the same seller’s auctions).</li>
+<li>Device/IP or account linkage between seller and active bidders (from JSON/telemetry).</li>
+</ul>
+<h3 id="exercise-2-digging-deeper-into-user-behaviour">Exercise 2: Digging Deeper into User Behaviour<a class="headerlink" href="#exercise-2-digging-deeper-into-user-behaviour" title="Permanent link">&para;</a></h3>
+<p>In Exercise 1, we built a market baseline from auction outcomes: prices, bid counts, and seller summaries. That showed us where to look, but not how those outcomes happened. Next, we’ll bring in behavioural telemetry from a JSON file (devices/sessions). Using <code>dplyr</code>/<code>tidyr</code> verbs, we’ll flatten the nested JSON and link it to our auctions so we can ask: who was active, on which devices, and how activity clustered around particular sellers.</p>
+<p><strong>(a)</strong></p>
+<p>An example record in the JSON file <code>data/bids.jsonl</code> is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;auction_id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;A00001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;bid_time&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;2024-11-28T23:27:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;bidder&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;B00153&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;rating&quot;</span><span class="o">:</span><span class="w"> </span><span class="m">83</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;country&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;AU&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="m">21.43</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;device&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;iOS&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;browser&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Firefox&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s">&quot;auto_bid_flag&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;ip_address&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;203.0.113.189&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Explain the structure of this record in words (what’s at the top level vs. what’s nested, and what fields each nested object contains).</p>
+<p><strong>(b)</strong></p>
+<p>Now let’s load the data from the file <code>data/bids.jsonl</code> and examine the first two rows. Complete the starter code below and identify any nested columns:</p>
+<p>Streaming JSON has a different structure.</p>
+<p>This JSON file has a different structure than we saw in the reading and in the lecture. It’s called streaming JSON (or sometimes “JSON Lines”): one complete JSON record per line, with no surrounding <code>[]</code> array and no commas between records.</p>
+<p>Think of it like a log file: one complete JSON record per line. (Regular JSON is often one big list: <code>[{...}, {...}, ...]</code>.)</p>
+<p>Why it is used: it handles large files smoothly because you can read it line by line without loading everything.</p>
+<p>How to load in R: use <code>stream_in()</code> (not <code>read_json()</code>).</p>
+<p>Common gotcha: don’t add brackets or commas between lines; each line must be valid JSON on its own.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bids_json</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">stream_in</span><span class="p">(</span><span class="nf">file</span><span class="p">(</span><span class="s">&quot;YOUR_FILE_NAME&quot;</span><span class="p">))</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">YOUR_DATA_SET</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong> </p>
+<p>Complete the code below to unnest the JSON data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">bids_json</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>One possible review signal is multiple bidders using the same IP address. Explain why this could matter, then complete the code below to isolate those instances.</p>
+<p><strong>Tip</strong>- What’s an IP address (and why we care)?</p>
+<ul>
+<li>Think of an IP address like a street address for a device on the internet. It helps websites know where to send data.</li>
+<li>On most shared Wi-Fi (homes, offices, libraries), many people/devices can appear under the same public IP. So “same IP” ≠ “same person.”</li>
+<li>IPs can change over time (dynamic addresses) and can be hidden/changed with VPNs — so they’re imperfect identity signals.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">same_ip</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">ip_address</span><span class="p">,</span><span class="w"> </span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">YOUR_CONDITION</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(e)</strong></p>
+<p>Another possible review signal is auto-bidding. Explain when auto-bids might be consistent with shill bidding versus legitimate behaviour. Complete the code below to measure the share of auto-bids per auction.</p>
+<p><strong>Tip</strong> - What is auto-bidding (proxy bidding)?</p>
+<ul>
+<li>It’s a feature where you set a maximum price you’re willing to pay and the system bids for you automatically in small steps to keep you on top—without you watching the auction.</li>
+<li>Why people use it: convenience and to avoid overbidding in the moment.</li>
+<li>What it looks like in the data: a series of quick, incremental bids appearing from the same bidder as others place bids.</li>
+<li>Important: auto-bidding is normal. It’s only review-worthy if you also see other flags (e.g., shared IPs, unusual timing patterns, repeated ties to the same seller).</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">auto_bids</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">auction_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">num_auto_bids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">total_bids</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">share_auto</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">num_auto_bids</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(f)</strong> </p>
+<p>Let’s combine the data on shared IP addresses and auto-bids into one data frame. Complete the code below, and then identify any auctions that might warrant review. Explain your answer.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># aggregate IP data to the auction level for easy join</span>
+<span class="n">same_ip_auctions</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">same_ip</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">auction_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">n_shared_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span><span class="w">           </span><span class="c1"># how many IPs in this auction were used by 2+ bidders</span>
+<span class="w">    </span><span class="n">max_shared_n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w">        </span><span class="c1"># largest number of bidders sharing a single IP</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="n">shill_signals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">same_ip_auctions</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">YOUR_DATA</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n_shared_ips</span><span class="p">),</span><span class="w"> </span><span class="nf">desc</span><span class="p">(</span><span class="n">share_auto</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>Top level: <code>auction_id</code>, <code>bid_time</code>, <code>amount</code>, <code>auto_bid_flag</code>, <code>ip_address</code>.</p>
+<p>Nested objects:</p>
+<ul>
+<li>
+<p>bidder → id, rating, country</p>
+</li>
+<li>
+<p>device → os, browser</p>
+</li>
+</ul>
+<p>After flattening, you’d expect columns like <code>bidder_id</code>, <code>bidder_rating</code>, <code>device_os</code>, <code>device_browser</code>.</p>
+<p><strong>(b)</strong></p>
+<p>The nested columns are bidder and device (each is a small object that needs unnesting). Everything else is top-level.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bids_json</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">stream_in</span><span class="p">(</span><span class="nf">file</span><span class="p">(</span><span class="s">&quot;data/bids.jsonl&quot;</span><span class="p">))</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">bids_json</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">bids_json</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">bidder</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>Multiple bidders on the same IP within the same auction can indicate coordinated accounts or one person switching identities. However, shared Wi-Fi (homes, offices, libraries) and VPNs mean it’s only a weak signal—use it to review, not to conclude.</p>
+<div class="highlight"><pre><span></span><code><span class="n">same_ip</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">ip_address</span><span class="p">,</span><span class="w"> </span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">ip_address</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(e)</strong></p>
+<p>Auto-bidding is a normal feature (proxy bidding up to a limit). It’s review-worthy when the share of auto-bids is unusually high and coincides with other flags (e.g., shared IPs, repeated bidder–seller ties, tight timing bursts); otherwise it’s often just convenience.</p>
+<div class="highlight"><pre><span></span><code><span class="n">auto_bids</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">bids_json</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">auction_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">num_auto_bids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">auto_bid_flag</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">total_bids</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">share_auto</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">num_auto_bids</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total_bids</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">num_auto_bids</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(f)</strong></p>
+<p>Focus on auctions where (i) at least one IP is shared by 2+ bidders in the same auction and (ii) the auto-bid share is high. Discuss what you think valid auto-bid shares are in class.</p>
+<div class="highlight"><pre><span></span><code><span class="n">same_ip_auctions</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">same_ip</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">auction_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">n_shared_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span><span class="w">           </span><span class="c1"># how many IPs in this auction were used by 2+ bidders</span>
+<span class="w">    </span><span class="n">max_shared_n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w">        </span><span class="c1"># largest number of bidders sharing a single IP</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="n">shill_signals</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">same_ip_auctions</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">auto_bids</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n_shared_ips</span><span class="p">),</span><span class="w"> </span><span class="nf">desc</span><span class="p">(</span><span class="n">share_auto</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="in-class-exercises">In-Class Exercises<a class="headerlink" href="#in-class-exercises" title="Permanent link">&para;</a></h2>
+<p>You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above. You will get the most value from the class if you have completed those above before coming to class.</p>
+<h3 id="exercise-3-opening-the-auction-database">Exercise 3: Opening the auction database<a class="headerlink" href="#exercise-3-opening-the-auction-database" title="Permanent link">&para;</a></h3>
+<p>So far, we have worked with an auction-level CSV file and bid-level JSON Lines data. Those files are useful, but they each give us only one view of the platform.</p>
+<p>The database gives us several linked tables: bids, auctions, items, users, and orders. This lets us ask relational questions, such as which bidder appears in which seller’s auctions, without loading every table into memory at once. In this exercise, the goal is to orient yourself to the database and create a bidder-level activity summary that we will reuse in the next exercises.</p>
+<p>Quarto gotcha: close your DuckDB connection before you Render</p>
+<p>Quarto renders your document in a fresh R session. If you opened a DuckDB connection in the Console (or earlier chunk) and leave it open, that session may lock the <code>.duckdb</code> file, causing errors like “database is locked” or “unable to open database file.”</p>
+<p>You can fix this by following one of these routes: Manage the connection inside the document and close it at the end</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">DBI</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">duckdb</span><span class="p">)</span>
+<span class="n">con</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dbConnect</span><span class="p">(</span><span class="nf">duckdb</span><span class="p">(),</span><span class="w"> </span><span class="n">dbdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;data/auctions.duckdb&quot;</span><span class="p">)</span>
+
+<span class="c1"># ... your analysis ...</span>
+
+<span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>If you connected in the Console, run:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p>before clicking Render.</p>
+<p>If you still see a lock, especially on Windows, restart R and render again.</p>
+<p><strong>(a)</strong></p>
+<p>Explain how a database differs from the CSV and JSON data sources we have used so far. Why is a database useful for this part of the shill-bidding investigation?</p>
+<p><strong>(b)</strong></p>
+<p>Connect to the database stored in <code>data/auctions.duckdb</code> and list the tables present in it by completing the code below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">con</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dbConnect</span><span class="p">(</span><span class="nf">duckdb</span><span class="p">(),</span><span class="w"> </span><span class="n">dbdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_FILENAME&quot;</span><span class="p">)</span>
+
+<span class="nf">dbListTables</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<p>Inspect the tables. For each table, write a short note describing what one row appears to represent and which key column could link it to another table.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w">       </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+<span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YOUR_TABLE&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+<span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YOUR_TABLE&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">()</span>
+<span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YOUR_TABLE&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">()</span>
+<span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_OBJECT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;YOUR_TABLE&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>The first review question is simple: which bidders are most active? Complete the code below to count each bidder’s total number of bids and the number of auctions they have participated in.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bidder_activity</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_VARIABLE</span><span class="p">(</span>
+<span class="w">    </span><span class="n">total_bids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">auctions_participated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(e)</strong></p>
+<p>Inspect <code>bidder_activity</code>. Why is high activity useful as a starting point for review, and why is it not enough to suggest shill bidding on its own?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>A database holds multiple related tables linked by keys such as <code>auction_id</code> and <code>item_id</code>; CSV and JSON files are usually single data sources. The database is useful here because shill-bidding questions often require joins: bids need to be linked to auctions, auctions to items, items to sellers, and orders to winners.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">con</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dbConnect</span><span class="p">(</span><span class="nf">duckdb</span><span class="p">(),</span><span class="w"> </span><span class="n">dbdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;data/auctions.duckdb&quot;</span><span class="p">)</span>
+
+<span class="nf">dbListTables</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w">     </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: ??
+Columns: 4
+Database: DuckDB 1.5.2 [root@Darwin 25.5.0:R 4.5.2//Users/.../data/auctions.duckdb]
+$ auction_id &lt;chr&gt; &quot;A00001&quot;, &quot;A00001&quot;, &quot;A00001&quot;, &quot;A00001&quot;, &quot;A00001&quot;, &quot;A00001&quot;, ...
+$ user_id    &lt;chr&gt; &quot;B00153&quot;, &quot;B00062&quot;, &quot;B00029&quot;, &quot;B00084&quot;, &quot;B00017&quot;, &quot;B00027&quot;, ...
+$ bid_time   &lt;dbl&gt; 1732836420, 1732864260, 1732904640, 1732906740, 1732921920, ...
+$ amount     &lt;dbl&gt; 21.43, 35.52, 37.67, 47.99, 59.90, 62.62, 76.15, 85.74, ...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;auctions&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: ??
+Columns: 4
+Database: DuckDB 1.5.2 [root@Darwin 25.5.0:R 4.5.2//Users/.../data/auctions.duckdb]
+$ auction_id &lt;chr&gt; &quot;A00001&quot;, &quot;A00002&quot;, &quot;A00003&quot;, &quot;A00004&quot;, &quot;A00005&quot;, &quot;A00006&quot;, ...
+$ item_id    &lt;chr&gt; &quot;I00001&quot;, &quot;I00002&quot;, &quot;I00003&quot;, &quot;I00004&quot;, &quot;I00005&quot;, &quot;I00006&quot;, ...
+$ start_time &lt;dbl&gt; 1732831200, 1734433200, 1735948800, 1731920400, 1735542000, ...
+$ end_time   &lt;dbl&gt; 1733292000, 1734717600, 1736211600, 1732273200, 1735894800, ...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;users&quot;</span><span class="p">)</span><span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: ??
+Columns: 5
+Database: DuckDB 1.5.2 [root@Darwin 25.5.0:R 4.5.2//Users/.../data/auctions.duckdb]
+$ user_id        &lt;chr&gt; &quot;S00001&quot;, &quot;S00002&quot;, &quot;S00003&quot;, &quot;S00004&quot;, &quot;S00005&quot;, &quot;S00006&quot;, ...
+$ role           &lt;chr&gt; &quot;seller&quot;, &quot;seller&quot;, &quot;seller&quot;, &quot;seller&quot;, &quot;seller&quot;, &quot;seller&quot;, ...
+$ join_date      &lt;int&gt; 19987, 19903, 19986, 20039, 19962, 19897, 19965, 20013, ...
+$ feedback_score &lt;int&gt; 157, 103, 3, 186, 160, 51, 27, 172, 100, 11, 110, 133, ...
+$ country        &lt;chr&gt; &quot;US&quot;, &quot;AU&quot;, &quot;GB&quot;, &quot;SG&quot;, &quot;GB&quot;, &quot;SG&quot;, &quot;AU&quot;, &quot;US&quot;, &quot;SG&quot;, ...
+
+```r
+tbl(con, &quot;items&quot;)    |&gt; glimpse()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: ??
+Columns: 4
+Database: DuckDB 1.5.2 [root@Darwin 25.5.0:R 4.5.2//Users/.../data/auctions.duckdb]
+$ item_id       &lt;chr&gt; &quot;I00001&quot;, &quot;I00002&quot;, &quot;I00003&quot;, &quot;I00004&quot;, &quot;I00005&quot;, &quot;I00006&quot;, ...
+$ category      &lt;chr&gt; &quot;Home&quot;, &quot;Electronics&quot;, &quot;Apparel&quot;, &quot;Toys&quot;, &quot;Home&quot;, &quot;Collectibles&quot;, ...
+$ reserve_price &lt;dbl&gt; 35.65, 64.72, 170.63, 87.50, 123.34, 65.95, 23.21, 98.37, ...
+$ seller_id     &lt;chr&gt; &quot;S00032&quot;, &quot;S00027&quot;, &quot;S00012&quot;, &quot;S00027&quot;, &quot;S00003&quot;, ...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span><span class="w">   </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">glimpse</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: ??
+Columns: 3
+Database: DuckDB 1.5.2 [root@Darwin 25.5.0:R 4.5.2//Users/.../data/auctions.duckdb]
+$ auction_id  &lt;chr&gt; &quot;A00001&quot;, &quot;A00002&quot;, &quot;A00003&quot;, &quot;A00004&quot;, &quot;A00005&quot;, &quot;A00006&quot;, ...
+$ winner_id   &lt;chr&gt; &quot;B00038&quot;, &quot;B00084&quot;, &quot;B00093&quot;, &quot;B00133&quot;, &quot;B00049&quot;, &quot;B00092&quot;, ...
+$ final_price &lt;dbl&gt; 141.3800, 110.4400, 286.0400, 172.5300, 195.2600, 151.3100, ...
+</code></pre></div>
+<p>Likely units of observation:</p>
+<ul>
+<li><code>bids</code>: one bid event in one auction by one user.</li>
+<li><code>auctions</code>: one auction and its linked item.</li>
+<li><code>items</code>: one item, including category, reserve price, and seller.</li>
+<li><code>orders</code>: one completed auction outcome and winner.</li>
+<li><code>users</code>: one platform user.</li>
+</ul>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">bidder_activity</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">total_bids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">auctions_participated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n_distinct</span><span class="p">(</span><span class="n">auction_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(e)</strong></p>
+<p>High activity helps identify bidders worth reviewing because coordinated accounts often need to bid repeatedly to influence prices. But high activity alone is not enough: a bidder may simply be a frequent buyer, a specialist in a category, or a reseller. We need relationship and outcome evidence before interpreting the behaviour as suspicious.</p>
+<h3 id="exercise-4-measuring-bidder-seller-concentration">Exercise 4: Measuring bidder-seller concentration<a class="headerlink" href="#exercise-4-measuring-bidder-seller-concentration" title="Permanent link">&para;</a></h3>
+<p>Activity tells us who bids a lot, but it does not tell us whether a bidder repeatedly supports the same seller. For shill-bidding review, that relationship matters: a bidder who focuses heavily on one seller’s auctions may be more interesting than an equally active bidder who spreads bids across many sellers.</p>
+<p>In this exercise, we will link bid events to sellers and compute each bidder’s highest seller concentration: the share of that bidder’s bids that go to their top seller.</p>
+<p><strong>(a)</strong></p>
+<p>A colleague suggests counting how often the same bidder bids against the same seller and across how many auctions. Why might these metrics be useful for identifying possible shill bidding behaviour? What innocent explanation could produce the same pattern?</p>
+<p><strong>(b)</strong></p>
+<p>We will instead compute the share of one bidder’s bids that go to their top seller. What is the advantage of using a share rather than only raw bidder-seller counts?</p>
+<p><strong>(c)</strong></p>
+<p>Complete the code below. As you work through it, write one sentence explaining what each step contributes to the final <code>concentration</code> table.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: rename to make easier to track</span>
+<span class="n">bids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">rename</span><span class="p">(</span><span class="n">bidder_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="c1"># Step 2: link bids to the seller whose auction they are participating in</span>
+<span class="n">bids_items</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;auctions&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">item_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;items&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span><span class="w"> </span><span class="n">seller_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;item_id&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="c1"># Step 3: how many bids does each bidder make in total?</span>
+<span class="n">total_bids_per_bidder</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;total_bids&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: how many bids does each bidder make to each seller?</span>
+<span class="n">bidder_seller_bids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bids_to_seller&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 5: find each bidder&#39;s highest concentration on one seller</span>
+<span class="n">concentration</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_DATASET</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_DATASET</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bidder_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">seller_share</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">slice_max</span><span class="p">(</span><span class="n">seller_share</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>Inspect <code>concentration</code>. Do any concentration ratios appear high enough to review? Identify a small set of bidders whose behaviour you would explore more closely, and explain your decision rule.</p>
+<p><strong>(e)</strong></p>
+<p>Why might a possible shill bidder’s share of bids to one seller be an intermediate value, such as 20-30 percent, rather than above 50 percent?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>Repeated bidder-seller ties across many auctions can suggest coordination or price support for that seller. Innocent explanations include loyal customers, specialist collectors, repeat buyers in a niche category, local preference, or a small market where the same users often interact.</p>
+<p><strong>(b)</strong></p>
+<p>A share normalises for activity. Raw counts tend to rank very active bidders highly, even when they spread bids widely. <code>seller_share</code> asks a more comparable question: what proportion of this bidder’s activity is focused on their top seller?</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: rename to make easier to track</span>
+<span class="n">bids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bids&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">rename</span><span class="p">(</span><span class="n">bidder_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="c1"># Step 2: link bids to the seller whose auction they are participating in</span>
+<span class="n">bids_items</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;auctions&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">item_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;items&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span><span class="w"> </span><span class="n">seller_id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;item_id&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="c1"># Step 3: how many bids does each bidder make in total?</span>
+<span class="n">total_bids_per_bidder</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;total_bids&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: how many bids does each bidder make to each seller?</span>
+<span class="n">bidder_seller_bids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">,</span><span class="w"> </span><span class="n">seller_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bids_to_seller&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 5: find each bidder&#39;s highest concentration on one seller</span>
+<span class="n">concentration</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bidder_seller_bids</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">total_bids_per_bidder</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bidder_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">seller_share</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bids_to_seller</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total_bids</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">slice_max</span><span class="p">(</span><span class="n">seller_share</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>A reasonable first pass is to use a relative cutoff and a minimum activity check. For example, inspect bidders whose <code>seller_share</code> is well above the median and who have enough total bids for the ratio to be meaningful.</p>
+<div class="highlight"><pre><span></span><code><span class="n">median_concentration</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">median</span><span class="p">(</span><span class="n">concentration</span><span class="o">$</span><span class="n">seller_share</span><span class="p">)</span>
+
+<span class="n">questionable_bidders</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">concentration</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span>
+<span class="w">    </span><span class="n">seller_share</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">median_concentration</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total_bids</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">10</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>This creates review candidates, not conclusions. A high concentration could still reflect legitimate specialisation.</p>
+<p><strong>(e)</strong></p>
+<p>A shill account may try to blend in by bidding across several sellers or product lines. A very active account can also place many bids with one seller while the percentage remains moderate. For review, an intermediate share can still be meaningful when combined with low win rates, timing patterns, or device/IP overlap.</p>
+<h3 id="exercise-5-combining-concentration-with-win-rates">Exercise 5: Combining concentration with win rates<a class="headerlink" href="#exercise-5-combining-concentration-with-win-rates" title="Permanent link">&para;</a></h3>
+<p>Concentration is useful, but it is still incomplete. A genuine buyer may focus on one seller because they like that seller’s products. A possible shill bidder is more concerning when they appear often in a seller’s auctions but rarely win. That pattern is consistent with pushing prices up while avoiding the final purchase.</p>
+<p>In this exercise, we will compute bidder win rates, combine them with seller concentration, and use the result to identify review candidates.</p>
+<p><strong>(a)</strong></p>
+<p>Explain why win rate adds useful context to the concentration metric. Why should win rate be calculated using distinct auctions rather than raw bid rows?</p>
+<p><strong>(b)</strong></p>
+<p>Calculate how often bidders win the auctions they participate in.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: winners per auction</span>
+<span class="n">winners</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">winner_id</span><span class="p">)</span>
+
+<span class="c1"># Step 2: distinct auctions each bidder joined</span>
+<span class="n">bidder_auctions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">,</span><span class="w"> </span><span class="n">auction_id</span><span class="p">)</span>
+
+<span class="c1"># Step 3: join winners and compute win_rate</span>
+<span class="n">win_rates</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bidder_auctions</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">winners</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">won</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bidder_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">winner_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">auctions_participated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">auctions_won</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">win_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<p>Join the <code>win_rates</code> data to the <code>concentration</code> data and save the combined dataset to <code>data/shill_metrics.csv</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">shill_metrics</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">YOUR_DATASET</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_DATASET</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bidder_id&quot;</span><span class="p">)</span>
+
+<span class="nf">YOUR_FUNCTION</span><span class="p">(</span><span class="n">YOUR_DATASET</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;data/shill_metrics.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>Create a scatter plot showing the relationship between <code>win_rate</code> and <code>seller_share</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">ggplot</span><span class="p">(</span><span class="n">shill_metrics</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_VARIABLE</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<p>Which region of this plot would you treat as the strongest review zone for possible shill bidding? Explain why, and name one piece of additional evidence you would want before escalating the case.</p>
+<p><strong>(e)</strong></p>
+<p>Write a short manager-facing summary. Identify the type of bidder you would review first and explain why your language should describe the result as a review flag rather than proof of fraud.</p>
+<p><strong>(f)</strong> </p>
+<p>Propose an alternative way to use the <code>win_rate</code> and <code>concentration</code> data, along with any other data you have access to in the exercise, to identify possible shill bidders. Explain why your method works. You can explain your method intuitively; you do not need to code a solution.</p>
+<p>When you finish the database work, close the DuckDB connection:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>Win rate helps distinguish buyers who focus on a seller and actually buy from bidders who focus on a seller but rarely win. Win rate should use distinct auctions because one auction is one opportunity to win. Counting raw bids would make a bidder who places many bids in one auction look as if they had many separate chances to win.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: winners per auction</span>
+<span class="n">winners</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">auction_id</span><span class="p">,</span><span class="w"> </span><span class="n">winner_id</span><span class="p">)</span>
+
+<span class="c1"># Step 2: distinct auctions each bidder joined</span>
+<span class="n">bidder_auctions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bids_items</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">,</span><span class="w"> </span><span class="n">auction_id</span><span class="p">)</span>
+
+<span class="c1"># Step 3: join winners and compute win_rate</span>
+<span class="n">win_rates</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">bidder_auctions</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">winners</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auction_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">won</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bidder_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">winner_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">bidder_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">auctions_participated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">auctions_won</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">won</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">win_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">auctions_won</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">auctions_participated</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">collect</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">shill_metrics</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">win_rates</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">concentration</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bidder_id&quot;</span><span class="p">)</span>
+
+<span class="nf">write_csv</span><span class="p">(</span><span class="n">shill_metrics</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;data/shill_metrics.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nf">ggplot</span><span class="p">(</span><span class="n">shill_metrics</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">win_rate</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seller_share</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<div align="center">
+  <img src="../p2.png" width="600">
+</div>
+
+<p>The strongest review zone is high <code>seller_share</code> and low <code>win_rate</code>: bidders who focus on one seller but rarely win. This is consistent with price support, but it is still only a flag. Additional evidence could include bid timing, repeated rapid outbidding, shared IP/device signals, account links, or whether the same bidder appears across many auctions from the same seller.</p>
+<p><strong>(e)</strong></p>
+<p>A suitable manager-facing summary would be:</p>
+<p>“The first review group should be bidders with unusually high concentration on one seller and unusually low win rates. This pattern is consistent with accounts that help raise prices without intending to buy. It is not proof of fraud, because loyal bidders, niche markets, and small samples can produce similar patterns. We should treat these users as review candidates and check bid timing, device/IP overlap, and repeated seller links before escalating.”</p>
+<p><strong>(f)</strong></p>
+<p>One option is an excess win-rate approach. For each auction with <code>k</code> bidders, a neutral fair-chance win rate is roughly <code>1 / k</code>. For each bidder, average that expected win rate across the auctions they entered, then compare actual win rate with expected win rate. Bidders with high seller concentration and actual win rates well below their expected win rates would be strong review candidates.</p>
+<p>This is useful because it adjusts for auction crowding: a bidder who usually enters auctions with many competitors should naturally win less often than a bidder who enters small auctions.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "toc.follow", "toc.sticky"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,6391 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Foundations of Business Analytics">
+      
+      
+      
+        <link rel="canonical" href="https://NavigationBA.github.io/NavigationBA_FBA/Classes/Class10/Class10_03/Class10_03/">
+      
+      
+        <link rel="prev" href="../../Class10_02/Class10_02/">
+      
+      
+        <link rel="next" href="../../Class10_04/Class10_04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>✅ Class 10.3 - 数据存储：JSON - Foundations of Business Analytics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-103-json" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-header__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Business Analytics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ✅ Class 10.3 - 数据存储：JSON
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Class01/Class01_00/Class01_00/" class="md-tabs__link">
+          
+  
+  
+  Classes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Tutorial/Tut_Class01/Tut_Class01_Set01/Tut_Class01_Set01/" class="md-tabs__link">
+          
+  
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Quiz/Quiz_Class03/Quiz_Class03/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Mid/Mid_01/Mid_01/" class="md-tabs__link">
+          
+  
+  
+  Mid Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-tabs__link">
+          
+  
+  
+  Assignments
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-tabs__link">
+          
+  
+  
+  Final Exam
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-nav__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Business Analytics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Classes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 1 - 商业分析简介
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 1 - 商业分析简介
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class01/Class01_00/Class01_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 1 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class01/Class01_01/Class01_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.1 - 商业分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class01/Class01_02/Class01_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.2 - 商业分析师的核心技能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class01/Class01_03/Class01_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 1.3 - 商业分析中的伦理问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 2 - R 语言基本介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 2 - R 语言基本介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_00/Class02_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 2 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_01/Class02_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.1 - R 语言简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_02/Class02_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.2 - R 代码运行的方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_03/Class02_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.3 - R 语言的基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_04/Class02_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.4 - R 中的数据类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class02/Class02_05/Class02_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 2.5 - R 中的数据结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 3 - R 数据可视化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 3 - R 数据可视化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class03/Class03_00/Class03_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 3 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class03/Class03_01/Class03_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.1 - 数据可视化的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class03/Class03_02/Class03_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.2 - R 数据可视化基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class03/Class03_03/Class03_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.3 - R 中图像的修饰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class03/Class03_04/Class03_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 3.4 - 完整的图像构建展示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 4 - R 数据整理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 4 - R 数据整理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class04/Class04_00/Class04_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 4 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class04/Class04_01/Class04_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.1 - 数据筛选与排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class04/Class04_02/Class04_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.2 - 数据列操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class04/Class04_03/Class04_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 4.3 - 数据分组统计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 5 - 数据整理：数据重塑与连接
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 5 - 数据整理：数据重塑与连接
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class05/Class05_00/Class05_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 5 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class05/Class05_01/Class05_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 5.1 - 数据重构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class05/Class05_02/Class05_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 5.2 - 数据连接
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 6 - R 数据类型
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 6 - R 数据类型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_00/Class06_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 6 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_01/Class06_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.1 - 数据类型划分概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_02/Class06_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.2 - 横截面数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_03/Class06_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.3 - 时间序列数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_04/Class06_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 6.4 - 面板数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_Extension01/Class06_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 6 Extension 1 - 获取金融数据：单只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class06/Class06_Extension02/Class06_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 6 Extension 2 - 获取金融数据：多只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 7 - 数据分析 - 描述性分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 7 - 数据分析 - 描述性分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_00/Class07_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 7 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_01/Class07_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.1 - 描述性分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_02/Class07_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.2 - 基于规则的分群方法 - RFM 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_03/Class07_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 7.3 - 基于数据的分群方法 - K-Means 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_Extension01/Class07_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 7 Extension 1 - K-Means 聚类算法详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class07/Class07_Extension02/Class07_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Class 7 Extension 2 - K-Means 与 PCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 8 - 数据分析 - 因果分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 8 - 数据分析 - 因果分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class08/Class08_00/Class08_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 8 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class08/Class08_01/Class08_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.1 - 因果分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class08/Class08_02/Class08_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.2 - 基于模型的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class08/Class08_03/Class08_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 8.3 - 基于设计的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 9 - 数据分析 - 预测分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 9 - 数据分析 - 预测分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class09/Class09_00/Class09_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 9 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class09/Class09_01/Class09_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.1 - 预测分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class09/Class09_02/Class09_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.2 - 预测分析的方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class09/Class09_03/Class09_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 9.3 - 预测分析的评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10 - 数据存储
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10 - 数据存储
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Class10_00/Class10_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 10 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Class10_01/Class10_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.1 - 数据存储方式概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Class10_02/Class10_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.2 - 数据存储：电子表格与平面文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.3 - 数据存储：JSON
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.3 - 数据存储：JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. JSON 数据的概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. JSON 数据的概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1) JSON 数据简介
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2) JSON 数据的层次结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-r-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 在 R 中处理 JSON 数据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 在 R 中处理 JSON 数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1) 读取 JSON 文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tibble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2) 将列表包装成 Tibble
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(2) 将列表包装成 Tibble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (a) 拆解顶层键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (b) 拆解相同长度嵌套键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (c) 拆解不同长度嵌套键
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Class10_04/Class10_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 10.4 - 数据存储：数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11 - 数据获取
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11 - 数据获取
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class11/Class11_00/Class11_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Class 11 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class11/Class11_01/Class11_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 11.1 - 数据的三种类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Class11/Class11_02/Class11_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Class 11.2 - 使用 API 获取数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class01/Tut_Class01_Set01/Tut_Class01_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 01 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class02/Tut_Class02_Set01/Tut_Class02_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 02 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class03/Tut_Class03_Set01/Tut_Class03_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 03 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class04/Tut_Class04_Set01/Tut_Class04_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 04 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class05/Tut_Class05_Set01/Tut_Class05_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 05 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class06/Tut_Class06_Set01/Tut_Class06_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 06 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class07/Tut_Class07_Set01/Tut_Class07_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 07 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class08/Tut_Class08_Set01/Tut_Class08_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 08 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class09/Tut_Class09_Set01/Tut_Class09_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 09 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class10/Tut_Class10_Set01/Tut_Class10_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 10 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tutorial/Tut_Class11/Tut_Class11_Set01/Tut_Class11_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Class 11 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class03/Quiz_Class03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class04/Quiz_Class04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class05/Quiz_Class05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class06/Quiz_Class06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class07/Quiz_Class07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class08/Quiz_Class08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class09/Quiz_Class09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class10/Quiz_Class10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class11/Quiz_Class11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class 12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Class 12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Class12/Quiz_Class12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Class 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mid Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mid Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Mid/Mid_01/Mid_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Mid Exam Question Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment - Expedia Case
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignment - Expedia Case
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Demo1/Assign_Demo1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Final Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Choice Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multiple Choice Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_02/MC_Set_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_03/MC_Set_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_04/MC_Set_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Short Answer Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Short Answer Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q01/ES_Q01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q02/ES_Q02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q03/ES_Q03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q04/ES_Q04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. JSON 数据的概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. JSON 数据的概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1) JSON 数据简介
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2) JSON 数据的层次结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-r-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 在 R 中处理 JSON 数据
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 在 R 中处理 JSON 数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-json_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1) 读取 JSON 文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tibble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2) 将列表包装成 Tibble
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(2) 将列表包装成 Tibble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (a) 拆解顶层键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (b) 拆解相同长度嵌套键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (c) 拆解不同长度嵌套键
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="class-103-json">Class 10.3 - 数据存储：JSON<a class="headerlink" href="#class-103-json" title="Permanent link">&para;</a></h1>
+<h2 id="1-json">1. JSON 数据的概念<a class="headerlink" href="#1-json" title="Permanent link">&para;</a></h2>
+<h3 id="1-json_1">(1) JSON 数据简介<a class="headerlink" href="#1-json_1" title="Permanent link">&para;</a></h3>
+<p>JSON 的全称是 JavaScript Object Notation，是一种专为存储结构化数据设计的文本格式</p>
+<ul>
+<li>JSON 最大的特点就是支持多层嵌套结构，可以将相关的数据存储在一个对象中，而不需要重复字段</li>
+<li>
+<p>嵌套结构其实是为了解决 Excel 或 CSV 这类表格数据的局限性：</p>
+<ul>
+<li>表格都是有行有列的，这就限制了所有观测都必须共享相同的列，并且一行一列的一个单元格内只能存储一个值</li>
+<li>但现实中的数据往往具有层次结构</li>
+<li>比方说网购这个情景，如果我们用一行代表一个商品的信息，那么商品的名称、分类、价格这些信息倒是能放在一个单元格里，但是评论就不太好放了</li>
+<li>每个商品可能有不同数量的评论，每条评论又包含评论人、评分、评论内容等多个属性，这些信息很难用表格来存储</li>
+</ul>
+</li>
+<li>
+<p>这时候我们就需要一种更加灵活的数据格式来存储这些信息</p>
+</li>
+</ul>
+<p>JSON 就是这样一种格式：</p>
+<ul>
+<li>JSON 使用<strong>键值对</strong>来存储数据</li>
+<li>键指的是数据的属性名称，通常是字符串，例如 "item_id"、"title"、"seller" 等</li>
+<li>值指的是数据的具体内容，可以是各种各样的数据类型，包括字符串、数字、列表、甚至是另一个 JSON 对象</li>
+</ul>
+<h3 id="2-json">(2) JSON 数据的层次结构<a class="headerlink" href="#2-json" title="Permanent link">&para;</a></h3>
+<p>我们首先来看一下 JSON 文件长什么样子，以本节课要使用的 <code>ebay_auctions.json</code> 文件为例：</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUC00000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Samsung Galaxy S22&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Electronics&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;start_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T08:04:31.226153&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;end_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T08:04:31.226153&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;seller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pray&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;rating&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.63</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AE&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;bids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;istevens&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">94.61</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T10:41:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mendozajasmine&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">97.73</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T13:27:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;james22&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T16:10:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wnunez&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">119.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T16:34:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;paynejoshua&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">123.86</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T18:32:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yolanda40&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.3</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T19:26:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;julie11&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">122.36</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-19T20:50:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pbrown&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T02:24:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aklein&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">156.74</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T02:42:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bjones&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">177.3</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T04:09:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qchen&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">155.73</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T05:50:31.226153&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;smithkayla&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">161.57</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-20T06:31:31.226153&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;final_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">161.57</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;winner_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;smithkayla&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUC00001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Casio G-Shock Watch&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fashion&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;start_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T00:50:00.330964&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;end_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-27T00:50:00.330964&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;seller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vgomez&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;rating&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.6</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;bids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qklein&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">97.48</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T02:22:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hmullins&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">105.83</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T02:46:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mjones&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.08</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T03:41:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;johnsondavid&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">124.66</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T06:57:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yjennings&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">122.02</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T10:34:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane43&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">129.85</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T10:44:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joshuamartin&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.91</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T12:44:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kathyking&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">166.49</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T13:02:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jesse98&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">142.47</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T15:26:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;byrdamanda&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">108.18</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T15:54:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;huntwendy&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">127.15</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T21:43:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;osmith&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">145.82</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-24T22:55:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kmorgan&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">174.14</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-25T00:26:00.330964&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;bidder_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mayercheyenne&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">135.53</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-04-25T00:42:00.330964&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;final_price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">135.53</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;winner_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mayercheyenne&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>结构解析：</p>
+<ul>
+<li>最外层的 <code>[]</code> 表示这是一个 JSON 数组，里面包括了多个 JSON 对象</li>
+<li>每个 JSON 对象用 <code>{}</code> 包裹，在这里代表一条拍卖记录，包含了商品的 ID、标题、分类、卖家信息、出价历史等属性</li>
+<li>有些属性是单层结构的键值对，例如 <code>item_id</code>、<code>title</code>、<code>category</code> 等</li>
+<li>
+<p>但有些属性是嵌套结构的，例如：</p>
+<ul>
+<li><code>seller</code> 嵌套了一个 JSON 对象</li>
+<li><code>bids</code> 嵌套了一个包含多个 JSON 对象的 JSON 数组，数组中的每个元素又是一个 JSON 对象，代表一条出价记录</li>
+</ul>
+</li>
+</ul>
+<p>大家看到这个结构可以感受到：</p>
+<ul>
+<li>JSON 的记录方式是很灵活的，可以存储非常复杂的数据结构</li>
+<li>但是有个问题就是这种数据处理起来是不太方便的</li>
+<li>因此我们后续的任务还是想把它尽可能地转化为我们熟悉的表格形式，这样不管是行操作还是列操作都更方便一些</li>
+<li>这就是我们后续要介绍的<strong>数据矩形化</strong>的概念</li>
+</ul>
+<h2 id="2-r-json">2. 在 R 中处理 JSON 数据<a class="headerlink" href="#2-r-json" title="Permanent link">&para;</a></h2>
+<h3 id="1-json_2">(1) 读取 JSON 文件<a class="headerlink" href="#1-json_2" title="Permanent link">&para;</a></h3>
+<p>将 JSON 文件读入 R 中，使用的是 <code>jsonlite</code> 包中的 <code>read_json()</code> 函数：</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
+
+<span class="n">auctions_nested</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_json</span><span class="p">(</span><span class="s">&quot;ebay_auctions.json&quot;</span><span class="p">)</span>
+
+<span class="nf">typeof</span><span class="p">(</span><span class="n">auctions_nested</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] &quot;list&quot;
+</code></pre></div>
+<p>可以看到，<code>auctions_nested</code> 读取进来以后是一个拍卖记录的列表</p>
+<ul>
+<li>
+<p>事实上，它是一个 R 中列表套列表的结构：</p>
+<ul>
+<li>最外层的 JSON 数组是一个 R 列表</li>
+<li>这个 JSON 数组中的每个元素，在 R 中又是一个列表，代表一条拍卖记录</li>
+<li>在每条拍卖记录的列表中，又有一些键对应的值是单层结构的，例如 <code>item_id</code>、<code>title</code> 等，这些键对应的值在 R 中就是单个的值</li>
+<li>但也有一些键对应的值是嵌套结构的，例如 <code>seller</code> 和 <code>bids</code>，在 R 中它们又是一个列表，分别代表卖家信息和出价历史</li>
+</ul>
+</li>
+<li>
+<p>大家不要试着把这个对象打印在控制台，因为它包含了上千条拍卖记录，打印出来会很占用资源的</p>
+</li>
+<li>我们可以做的是打印其中的一个拍卖记录</li>
+</ul>
+<p>在 R 中，列表的访问方式是：</p>
+<ul>
+<li>用双中括号 <code>[[ ]]</code> 来访问顺序元素</li>
+<li>用美元符号 <code>$</code> 来访问命名元素</li>
+</ul>
+<p>我们可以查看第一条拍卖记录，它是整个 <code>auctions_nested</code> 列表的第一个顺序元素，因此可以用 <code>[[1]]</code> 来访问：</p>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_nested</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$item_id
+  &#39;AUC00000&#39;
+$title
+  &#39;Samsung Galaxy S22&#39;
+$category
+  &#39;Electronics&#39;
+$start_time
+  &#39;2025-07-19T08:04:31.226153&#39;
+$end_time
+  &#39;2025-07-20T08:04:31.226153&#39;
+$seller
+  $user_id
+    &#39;pray&#39;
+  $rating
+    4.63
+  $country
+    &#39;AE&#39;
+$bids
+  1.
+    $bidder_id
+      &#39;istevens&#39;
+    $amount
+      94.61
+    $time
+      &#39;2025-07-19T10:41:31.226153&#39;
+  2. 
+    $bidder_id
+      &#39;mendozajasmine&#39;
+    $amount
+      97.73
+    $time
+      &#39;2025-07-19T13:27:31.226153&#39;
+  3. 
+    $bidder_id
+      &#39;james22&#39;
+    $amount
+      103.28
+    $time
+      &#39;2025-07-19T16:10:31.226153&#39;
+  4. 
+    $bidder_id
+      &#39;wnunez&#39;
+    $amount
+      119.04
+    $time
+      &#39;2025-07-19T16:34:31.226153&#39;
+  5. 
+    $bidder_id
+      &#39;paynejoshua&#39;
+    $amount
+      123.86
+    $time
+      &#39;2025-07-19T18:32:31.226153&#39;
+  6. 
+    $bidder_id
+      &#39;yolanda40&#39;
+    $amount
+      127.3
+    $time
+      &#39;2025-07-19T19:26:31.226153&#39;
+  7. 
+    $bidder_id
+      &#39;julie11&#39;
+    $amount
+      122.36
+    $time
+      &#39;2025-07-19T20:50:31.226153&#39;
+  8. 
+    $bidder_id
+      &#39;pbrown&#39;
+    $amount
+      103.2
+    $time
+      &#39;2025-07-20T02:24:31.226153&#39;
+  9. 
+    $bidder_id
+      &#39;aklein&#39;
+    $amount
+      156.74
+    $time
+      &#39;2025-07-20T02:42:31.226153&#39;
+  10. 
+    $bidder_id
+      &#39;bjones&#39;
+    $amount
+      177.3
+    $time
+      &#39;2025-07-20T04:09:31.226153&#39;
+  11. 
+    $bidder_id
+      &#39;qchen&#39;
+    $amount
+      155.73
+    $time
+      &#39;2025-07-20T05:50:31.226153&#39;
+  12. 
+    $bidder_id
+      &#39;smithkayla&#39;
+    $amount
+      161.57
+    $time
+      &#39;2025-07-20T06:31:31.226153&#39;
+$final_price
+  161.57
+$winner_id
+  &#39;smithkayla&#39;
+</code></pre></div>
+<ul>
+<li>可以看到，JSON 文件中的层次结构在 R 的列表中被完整地保留了下来</li>
+<li>虽然不如 JSON 直观，但也基本能看出 R 的列表中有哪些键，以及每个键对应的值是什么类型的数据</li>
+</ul>
+<p>除此之外，我们还可以查看更深入的层次结构，例如：</p>
+<ul>
+<li>查看第一条拍卖记录中包含哪些键，使用 <code>names()</code> 函数：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nf">names</span><span class="p">(</span><span class="n">auctions_nested</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] &quot;item_id&quot; &quot;title&quot; &quot;category&quot; &quot;start_time&quot; &quot;end_time&quot; &quot;seller&quot; &quot;bids&quot; &quot;final_price&quot; &quot;winner_id&quot;
+</code></pre></div>
+<ul>
+<li>查看第一条拍卖记录的标题：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_nested</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span><span class="n">title</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] &quot;Samsung Galaxy S22&quot;
+</code></pre></div>
+<ul>
+<li>拍卖记录中的 <code>bids</code> 也是个顺序列表，当中每个元素又是列表，因此我们可以查看第一条拍卖记录中的第一条出价，看看它包含哪些键：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nf">names</span><span class="p">(</span><span class="n">auctions_nested</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span><span class="n">bids</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] &quot;bidder_id&quot; &quot;amount&quot; &quot;time&quot;
+</code></pre></div>
+<ul>
+<li>接着，我们可以查看这一条出价的金额，就是调用 <code>amount</code> 键：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_nested</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span><span class="n">bids</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span><span class="n">amount</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] 94.61
+</code></pre></div>
+<p>到这里我们还停留在原始的 JSON 数据的层级结构中</p>
+<ul>
+<li>大家其实可以感受到，这种层级结构虽然很灵活，但在 R 中处理起来是非常麻烦的</li>
+<li>因此我们后续的任务就是要把它转化为我们熟悉的表格形式</li>
+</ul>
+<h3 id="2-tibble">(2) 将列表包装成 Tibble<a class="headerlink" href="#2-tibble" title="Permanent link">&para;</a></h3>
+<p>将 R 中的列表转换为 tibble，其实就是将这个列表的嵌套结构层层拆解的过程</p>
+<ul>
+<li>在将列表生硬地转换为 tibble 时，整个 tibble 只有一列，列名是 <code>record</code>，整个列表都塞到了一个单元格内</li>
+<li>之后，我们就要将这个列表的层次结构逐层拆解</li>
+<li>由于列表是嵌套结构，第一次拆解，可能只能将第一层的键展开成列</li>
+<li>但有些列的值仍然是列表，这时候就需要继续拆解，直到所有的列都不是列表为止</li>
+</ul>
+<p>我们可以先将整个拍卖记录都转成一个 tibble，并概览一下它的结构：</p>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tibble</span><span class="p">(</span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">auctions_nested</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 1,000
+Columns: 1
+$ record &lt;list&gt; [&quot;AUC00000&quot;, &quot;Samsung Galaxy S22&quot;, &quot;Electronics&quot;, &quot;2025-07-19T, ...]
+</code></pre></div>
+<ul>
+<li>这里，我们得到了一个 1000 行 1 列的 tibble，每行代表一条拍卖记录</li>
+<li>但所有的信息都被塞在了 <code>record</code> 这一列的单元格里</li>
+</ul>
+<h4 id="a">(a) 拆解顶层键<a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>
+<p>首先，我们来展开顶层键，我们使用 <code>unnest_wider()</code> 将 <code>record</code> 列中的顶层键展开为各自的列：</p>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 1,000
+Columns: 9
+$ item_id     &lt;chr&gt;  &quot;AUC00000&quot;, &quot;AUC00001&quot;, &quot;AUC00002&quot;, ...
+$ title       &lt;chr&gt;  &quot;Samsung Galaxy S22&quot;, &quot;Casio G-Shock Watch&quot;, &quot;Louis Vuitton Handbag&quot;, ...
+$ category    &lt;chr&gt;  &quot;Electronics&quot;, &quot;Fashion&quot;, &quot;Fashion&quot;, ...
+$ start_time  &lt;chr&gt;  &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-04-24T00:50:00.330964&quot;, ...
+$ end_time    &lt;chr&gt;  &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-04-27T00:50:00.330964&quot;, ...
+$ seller      &lt;list&gt; [&quot;pray&quot;, 4.63, &quot;AE&quot;], [&quot;vgomez&quot;, 3.6, &quot;MY&quot;], ...
+$ bids        &lt;list&gt; [[&quot;istevens&quot;, 94.61, &quot;2025-07-19T10:41:31.226153&quot;], [&quot;mendozajasmine&quot;, 97.73, &quot;2025-07-19T13:27:31.226153&quot;], ...]
+$ final_price &lt;dbl&gt;  161.57, 135.53, 37.19, ...
+$ winner_id   &lt;chr&gt;  &quot;smithkayla&quot;, &quot;mayercheyenne&quot;, &quot;jessica58&quot;, ...
+</code></pre></div>
+<p>到了这一步，我们发现：</p>
+<ul>
+<li>列表的顶层键：<code>item_id</code>、<code>title</code>、<code>category</code>、<code>start_time</code>、<code>end_time</code>、<code>seller</code>、<code>bids</code>、<code>final_price</code>、<code>winner_id</code> 都被展开成了独立的列</li>
+<li>之后，还需要继续拆解 <code>seller</code> 和 <code>bids</code> 这两列，因为它们的值仍然是列表</li>
+<li><code>seller</code> 这一列中的每个元素依然是一个列表</li>
+<li><code>bids</code> 这一列中的每个元素更复杂，每个元素都是列表套列表的结构</li>
+</ul>
+<p>并且，<code>seller</code> 和 <code>bids</code> 这两列在后续展开的时候，应对方式是不同的：</p>
+<ul>
+<li><code>seller</code> 属于是长度相同的嵌套键，它的每个列表元素都包括了相同的键，因此我们在展开时可以将这些键直接展开成独立的列</li>
+<li><code>bids</code> 属于是长度不相同的嵌套键，因为每条拍卖记录的出价数量不同，因此我们在展开时需要将每条出价展开成独立的行，而不是独立的列</li>
+</ul>
+<h4 id="b">(b) 拆解相同长度嵌套键<a class="headerlink" href="#b" title="Permanent link">&para;</a></h4>
+<p>之后，我们先将 <code>seller</code> 列展开成独立的列，这一列中的每个列表都有相同的键：</p>
+<ul>
+<li><code>unnest_wider()</code> 会将 <code>seller</code> 列中的每个列表元素的键展开成独立的列</li>
+<li>指定 <code>names_sep = "_"</code> 参数的作用是将列名以 <code>seller_</code> 开头：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">seller</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 1,000
+Columns: 11
+$ item_id         &lt;chr&gt;  &quot;AUC00000&quot;, &quot;AUC00001&quot;, &quot;AUC00002&quot;, ...
+$ title           &lt;chr&gt;  &quot;Samsung Galaxy S22&quot;, &quot;Casio G-Shock Watch&quot;, &quot;Louis Vuitton Handbag&quot;, ...
+$ category        &lt;chr&gt;  &quot;Electronics&quot;, &quot;Fashion&quot;, &quot;Fashion&quot;, ...
+$ start_time      &lt;chr&gt;  &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-04-24T00:50:00.330964&quot;, ...
+$ end_time        &lt;chr&gt;  &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-04-27T00:50:00.330964&quot;, ...
+$ seller_user_id  &lt;chr&gt;  &quot;pray&quot;, &quot;vgomez&quot;, &quot;rodrigueznicholas&quot;, &quot;tylercook&quot;, &quot;beverlylee&quot;, ...
+$ seller_rating   &lt;dbl&gt;  4.63, 3.60, 4.88, 4.85, 4.56, 3.88, 4.14, 4.63, 4.03, 4.95, ...
+$ seller_country  &lt;chr&gt;  &quot;AE&quot;, &quot;MY&quot;, &quot;CH&quot;, &quot;FM&quot;, &quot;GM&quot;, &quot;CR&quot;, &quot;LK&quot;, &quot;DM&quot;, &quot;LC&quot;, &quot;US&quot;, ...
+$ bids            &lt;list&gt; [[&quot;istevens&quot;, 94.61, &quot;2025-07-19T10:41:31.226153&quot;], [&quot;mendozajasmine&quot;, 97.73, &quot;2025-07-19T13:27:31.226153&quot;], ...]
+$ final_price     &lt;dbl&gt;  161.57, 135.53, 37.19, ...
+$ winner_id       &lt;chr&gt;  &quot;smithkayla&quot;, &quot;mayercheyenne&quot;, &quot;jessica58&quot;, ...
+</code></pre></div>
+<p>这时候，现在卖家信息：<code>seller_user_id</code>、<code>seller_rating</code>、<code>seller_country</code> 已经被展开成了独立的列了</p>
+<h4 id="c">(c) 拆解不同长度嵌套键<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<p>对于 <code>bids</code> 列，来说：</p>
+<ul>
+<li>
+<p>如果和 <code>seller</code> 列一样用 <code>unnest_wider()</code> 将每条出价展开成独立的<strong>列</strong>，那么就会变得非常复杂：</p>
+<ul>
+<li>每条出价都需要展开成独立的列，例如 <code>bids_1</code>、<code>bids_2</code> 等</li>
+<li>
+<p>比方说，第1条拍卖记录有 2 条出价，第2条拍卖记录有 3 条出价，那么就需要创建 <code>bids_1</code>、<code>bids_2</code>、<code>bids_3</code> 等列：</p>
+<ul>
+<li>这时第一条拍卖记录的 <code>bids_3</code> 列就会是 NA，因为它只有 2 条出价</li>
+<li>这时第二条拍卖记录的 <code>bids_3</code> 列就会有值，因为它有 3 条出价</li>
+</ul>
+</li>
+<li>
+<p>而整个数据集中，<code>bids_</code> 会展开到多少呢，这取决于最多出价数量的那一条拍卖记录有多少条出价，这个我们是事先不知道的</p>
+</li>
+</ul>
+</li>
+<li>
+<p>并且，由于每条出价又是一个列表，里面包含了 <code>bidder_id</code>、<code>amount</code>、<code>time</code> 等键：</p>
+<ul>
+<li>因此每条出价展开成独立的列以后，这些列本身又是列表，这就需要继续使用 <code>unnest_wider()</code> 函数展开</li>
+<li>而我们并不知道 <code>bids_</code> 列会展开成多少列，所以我们不知道要调用多少次 <code>unnest_wider()</code> 函数</li>
+</ul>
+</li>
+</ul>
+<p>这里，我们尝试一下，将 <code>bids</code> 再按列展开，再使用一些高级管道操作将每条出价展开成独立的列，会发现结果特别的混乱复杂：</p>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl_wide</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl_wide</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 1,000
+Columns: 35
+$ item_id         &lt;chr&gt;  &quot;AUC00000&quot;, &quot;AUC00001&quot;, &quot;AUC00002&quot;, ...
+$ title           &lt;chr&gt;  &quot;Samsung Galaxy S22&quot;, &quot;Casio G-Shock Watch&quot;, &quot;Louis Vuitton Handbag&quot;, ...
+$ category        &lt;chr&gt;  &quot;Electronics&quot;, &quot;Fashion&quot;, &quot;Fashion&quot;, ...
+$ start_time      &lt;chr&gt;  &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-04-24T00:50:00.330964&quot;, ...
+$ end_time        &lt;chr&gt;  &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-04-27T00:50:00.330964&quot;, ...
+$ seller_user_id  &lt;chr&gt;  &quot;pray&quot;, &quot;vgomez&quot;, &quot;rodrigueznicholas&quot;, &quot;tylercook&quot;, &quot;beverlylee&quot;, ...
+$ seller_rating   &lt;dbl&gt;  4.63, 3.60, 4.88, 4.85, 4.56, 3.88, 4.14, 4.63, 4.03, 4.95, ...
+$ seller_country  &lt;chr&gt;  &quot;AE&quot;, &quot;MY&quot;, &quot;CH&quot;, &quot;FM&quot;, &quot;GM&quot;, &quot;CR&quot;, &quot;LK&quot;, &quot;DM&quot;, &quot;LC&quot;, &quot;US&quot;, ...
+$ bids_1         &lt;list&gt;  [&quot;istevens&quot;, 94.61, &quot;2025-07-19T10:41:31.226153&quot;], ...
+$ bids_2         &lt;list&gt;  [&quot;mendozajasmine&quot;, 97.73, &quot;2025-07-19T13:27:31.226153&quot;], ...
+...
+$ bids_24        &lt;list&gt;  &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, ...
+$ bids_25        &lt;list&gt;  &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, &lt;NULL&gt;, ...
+$ final_price    &lt;dbl&gt; 161.57, 135.53, 37.19, 218.83, 91.82, 107.92, 120.55, ...
+$ winner_id      &lt;chr&gt; &quot;smithkayla&quot;, &quot;mayercheyenne&quot;, &quot;jessica58&quot;, ...
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">bid_cols</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auctions_tbl_wide</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="nf">starts_with</span><span class="p">(</span><span class="s">&quot;bids_&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="nf">where</span><span class="p">(</span><span class="n">is.list</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">names</span><span class="p">()</span>
+
+<span class="n">auctions_tbl_wide</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">reduce</span><span class="p">(</span>
+<span class="w">    </span><span class="n">bid_cols</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">auctions_tbl_wide</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nf">unnest_wider</span><span class="p">(</span>
+<span class="w">        </span><span class="n">df</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">col</span><span class="p">),</span><span class="w"> </span>
+<span class="w">        </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">names_repair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;unique&quot;</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl_wide</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 1,000
+Columns: 85
+$ item_id           &lt;chr&gt;  &quot;AUC00000&quot;, &quot;AUC00001&quot;, &quot;AUC00002&quot;, ...
+$ title             &lt;chr&gt;  &quot;Samsung Galaxy S22&quot;, &quot;Casio G-Shock Watch&quot;, &quot;Louis Vuitton Handbag&quot;, ...
+$ category          &lt;chr&gt;  &quot;Electronics&quot;, &quot;Fashion&quot;, &quot;Fashion&quot;, ...
+$ start_time        &lt;chr&gt;  &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-04-24T00:50:00.330964&quot;, ...
+$ end_time          &lt;chr&gt;  &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-04-27T00:50:00.330964&quot;, ...
+$ seller_user_id    &lt;chr&gt;  &quot;pray&quot;, &quot;vgomez&quot;, &quot;rodrigueznicholas&quot;, &quot;tylercook&quot;, &quot;beverlylee&quot;, ...
+$ seller_rating     &lt;dbl&gt;  4.63, 3.60, 4.88, 4.85, 4.56, 3.88, 4.14, 4.63, 4.03, 4.95, ...
+$ seller_country    &lt;chr&gt;  &quot;AE&quot;, &quot;MY&quot;, &quot;CH&quot;, &quot;FM&quot;, &quot;GM&quot;, &quot;CR&quot;, &quot;LK&quot;, &quot;DM&quot;, &quot;LC&quot;, &quot;US&quot;, ...
+$ bids_1_bidder_id  &lt;chr&gt;  &quot;istevens&quot;, &quot;qklein&quot;, &quot;pamela98&quot;, &quot;karalopez&quot;, &quot;thom…
+$ bids_1_amount     &lt;dbl&gt;  94.61, 97.48, 26.31, 63.39, 75.96, 85.91, 32.88, 56.…
+$ bids_1_time       &lt;chr&gt;  &quot;2025-07-19T10:41:31.226153&quot;, &quot;2025-04-24T02:22:00.3…
+$ bids_2_bidder_id  &lt;chr&gt;  &quot;mendozajasmine&quot;, &quot;hmullins&quot;, &quot;brookserin&quot;, &quot;echurch…
+$ bids_2_amount     &lt;dbl&gt;  97.73, 105.83, 35.51, 67.65, 85.15, 94.12, 38.27, 58…
+$ bids_2_time       &lt;chr&gt;  &quot;2025-07-19T13:27:31.226153&quot;, &quot;2025-04-24T02:46:00.3…
+...
+$ bids_24_bidder_id &lt;chr&gt; NA, NA, NA, ... 
+$ bids_24_amount    &lt;dbl&gt; NA, NA, NA, ...
+$ bids_24_time      &lt;chr&gt; NA, NA, NA, ...
+$ bids_25_bidder_id &lt;chr&gt; NA, NA, NA, ...
+$ bids_25_amount    &lt;dbl&gt; NA, NA, NA, ...
+$ bids_25_time      &lt;chr&gt; NA, NA, NA, ...
+$ final_price    &lt;dbl&gt; 161.57, 135.53, 37.19, 218.83, 91.82, 107.92, 120.55, ...
+$ winner_id      &lt;chr&gt; &quot;smithkayla&quot;, &quot;mayercheyenne&quot;, &quot;jessica58&quot;, ...
+</code></pre></div>
+<p>因此，我们可以用另一个思路，将 <code>bids</code> 列按行展开，使用 <code>unnest_longer()</code> 将每条出价展开成独立的行：</p>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl_long</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">auctions_tbl</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">unnest_longer</span><span class="p">(</span><span class="n">bids</span><span class="p">)</span><span class="w"> </span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl_long</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 13,414
+Columns: 11
+$ item_id        &lt;chr&gt; &quot;AUC00000&quot;, &quot;AUC00000&quot;, &quot;AUC00000&quot;, ...
+$ title          &lt;chr&gt; &quot;Samsung Galaxy S22&quot;, &quot;Samsung Galaxy S22&quot;, &quot;Samsung Galaxy S22&quot;, ...
+$ category       &lt;chr&gt; &quot;Electronics&quot;, &quot;Electronics&quot;, &quot;Electronics&quot;, ...
+$ start_time     &lt;chr&gt; &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-07-19T08:04:31.226153&quot;, ...
+$ end_time       &lt;chr&gt; &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-07-20T08:04:31.226153&quot;, ...
+$ seller_user_id &lt;chr&gt; &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, ... 
+$ seller_rating  &lt;dbl&gt; 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, ...
+$ seller_country &lt;chr&gt; &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, ...
+$ bids           &lt;list&gt; [&quot;istevens&quot;, 94.61, &quot;2025-07-19T10:41:31.226153&quot;], [&quot;mendozajasmine&quot;, 97.73, &quot;2025-07-19T13:27:31.226153&quot;], [&quot;james22&quot;, 103.28, &quot;2025-07-19T16:10:31.226153&quot;], ...
+$ final_price    &lt;dbl&gt; 161.57, 161.57, 161.57, 161.57, 161.57, 161.57, 161.57, ...
+$ winner_id      &lt;chr&gt; &quot;smithkayla&quot;, &quot;smithkayla&quot;, &quot;smithkayla&quot;, &quot;smithkayla&quot;, ...
+</code></pre></div>
+<p>从这个结果大家可以看到：</p>
+<ul>
+<li>按行展开的效果是行数变多了，因为每条出价都被展开成了独立的行了</li>
+<li>这时每一行就不代表一个商品了，而是代表一条出价了</li>
+<li>而原来的其他列的值都被复制了，因为每条出价都对应着同一条拍卖记录了，它的效果类似于以下表格：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Product ID</th>
+<th>Product Name</th>
+<th>Bidder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUC00000</td>
+<td>Samsung S22</td>
+<td>istevens</td>
+</tr>
+<tr>
+<td>AUC00000</td>
+<td>Samsung S22</td>
+<td>mendozajasmine</td>
+</tr>
+<tr>
+<td>AUC00000</td>
+<td>Samsung S22</td>
+<td>james22</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>AUC00000</td>
+<td>Samsung S22</td>
+<td>smithkayla</td>
+</tr>
+<tr>
+<td>AUC00001</td>
+<td>Casio Watch</td>
+<td>qklein</td>
+</tr>
+<tr>
+<td>AUC00001</td>
+<td>Casio Watch</td>
+<td>hmullins</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>AUC00001</td>
+<td>Casio Watch</td>
+<td>mayercheyenne</td>
+</tr>
+</tbody>
+</table>
+<p>之后，我们再将 <code>bids</code> 列中的每条出价展开成独立的列：</p>
+<ul>
+<li>因为 <code>bids</code> 列中的每个元素都是一个列表，包含了 <code>bidder_id</code>、<code>amount</code>、<code>time</code> 这三个键</li>
+<li>因此我们可以直接使用 <code>unnest_wider()</code> 将它们展开成独立的列：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">auctions_tbl_long</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">    </span><span class="n">auctions_tbl_long</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">unnest_wider</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span><span class="w"> </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">auctions_tbl_long</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 13,414
+Columns: 13
+$ item_id        &lt;chr&gt; &quot;AUC00000&quot;, &quot;AUC00000&quot;, &quot;AUC00000&quot;, ...
+$ title          &lt;chr&gt; &quot;Samsung Galaxy S22&quot;, &quot;Samsung Galaxy S22&quot;, &quot;Samsung Galaxy S22&quot;, ...
+$ category       &lt;chr&gt; &quot;Electronics&quot;, &quot;Electronics&quot;, &quot;Electronics&quot;, ...
+$ start_time     &lt;chr&gt; &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-07-19T08:04:31.226153&quot;, &quot;2025-07-19T08:04:31.226153&quot;, ...
+$ end_time       &lt;chr&gt; &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-07-20T08:04:31.226153&quot;, &quot;2025-07-20T08:04:31.226153&quot;, ...
+$ seller_user_id &lt;chr&gt; &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, &quot;pray&quot;, ... 
+$ seller_rating  &lt;dbl&gt; 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, 4.63, ...
+$ seller_country &lt;chr&gt; &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, ...
+$ bids_bidder_id &lt;chr&gt; &quot;istevens&quot;, &quot;mendozajasmine&quot;, &quot;james22&quot;, &quot;wnunez&quot;, ...
+$ bids_amount    &lt;dbl&gt; 94.61, 97.73, 103.28, 119.04, 123.86, 127.30, 122.36, ...
+$ bids_time      &lt;chr&gt; &quot;2025-07-19T10:41:31.226153&quot;, &quot;2025-07-19T13:27:31.226153&quot;, &quot;2025-07-19T16:10:31.226153&quot;, &quot;2025-07-19T16:34:31.226153&quot;, ...
+$ final_price    &lt;dbl&gt; 161.57, 161.57, 161.57, 161.57, 161.57, 161.57, 161.57, ...
+$ winner_id      &lt;chr&gt; &quot;smithkayla&quot;, &quot;smithkayla&quot;, &quot;smithkayla&quot;, &quot;smithkayla&quot;, ...
+</code></pre></div>
+<p>最后的这个结果，就是我们想要的表格形式了：</p>
+<ul>
+<li>每一行代表一个出价记录</li>
+<li>因此每一行的出价者、出价金额、出价时间是不同的</li>
+<li>但是每一行的商品信息、卖家信息、最终价格、赢家 ID 在同一商品层面是相同的，因为它们都对应着同一条拍卖记录</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "toc.follow", "toc.sticky"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
