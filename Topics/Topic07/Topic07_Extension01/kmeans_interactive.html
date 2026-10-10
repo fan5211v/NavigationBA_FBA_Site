@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-Means 聚类算法可视化</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111;
+  }
+
+  header p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+
+  .canvas-wrap {
+    background: #fff;
+    border: 1px solid #e5e3de;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    cursor: crosshair;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-top: 1px solid #e5e3de;
+    flex-wrap: wrap;
+  }
+
+  button {
+    padding: 7px 18px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid #d0cec9;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+
+  button:hover { background: #f2f0ec; border-color: #b0ada8; }
+  button:active { background: #e8e5e0; }
+
+  button.primary {
+    background: #2c2c2a;
+    color: #fff;
+    border-color: #2c2c2a;
+  }
+  button.primary:hover { background: #444441; border-color: #444441; }
+  button.primary:disabled {
+    background: #b4b2a9;
+    border-color: #b4b2a9;
+    cursor: not-allowed;
+  }
+
+  .k-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    font-size: 0.82rem;
+    color: #555;
+  }
+
+  .k-control label { white-space: nowrap; }
+
+  .k-control select {
+    padding: 6px 10px;
+    border: 1px solid #d0cec9;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .step-info {
+    background: #fff;
+    border: 1px solid #e5e3de;
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 14px;
+    min-height: 72px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .step-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #2c2c2a;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .step-text h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 3px;
+  }
+
+  .step-text p {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.55;
+  }
+
+  .legend {
+    display: flex;
+    gap: 18px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.78rem;
+    color: #555;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-centroid {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .converged-badge {
+    display: inline-block;
+    background: #E1F5EE;
+    color: #0F6E56;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .iter-counter {
+    font-size: 0.78rem;
+    color: #888;
+    margin-left: auto;
+    padding-right: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .k-control { margin-left: 0; }
+    .controls { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>K-Means 聚类算法 — 逐步可视化</h1>
+    <p>选择 K 值，点击"初始化"开始，然后逐步执行每个迭代阶段</p>
+  </header>
+
+  <div class="canvas-wrap">
+    <canvas id="canvas" height="460"></canvas>
+    <div class="controls">
+      <button id="btnInit" class="primary">初始化 / 重置</button>
+      <button id="btnStep" disabled>下一步</button>
+      <button id="btnAuto" disabled>自动运行</button>
+      <div class="k-control">
+        <label for="kSelect">K 值：</label>
+        <select id="kSelect">
+          <option value="2">K = 2</option>
+          <option value="3" selected>K = 3</option>
+          <option value="4">K = 4</option>
+          <option value="5">K = 5</option>
+        </select>
+      </div>
+      <span class="iter-counter" id="iterCounter"></span>
+    </div>
+  </div>
+
+  <div class="step-info" id="stepInfo">
+    <div class="step-badge" id="stepBadge">—</div>
+    <div class="step-text">
+      <h3 id="stepTitle">准备开始</h3>
+      <p id="stepDesc">选择 K 值后，点击"初始化"随机生成数据点，并随机放置初始质心。</p>
+    </div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+const COLORS = [
+  { fill: '#7F77DD', light: '#EEEDFE', dark: '#3C3489', name: '簇 1' },
+  { fill: '#1D9E75', light: '#E1F5EE', dark: '#085041', name: '簇 2' },
+  { fill: '#D85A30', light: '#FAECE7', dark: '#712B13', name: '簇 3' },
+  { fill: '#D4537E', light: '#FBEAF0', dark: '#72243E', name: '簇 4' },
+  { fill: '#BA7517', light: '#FAEEDA', dark: '#633806', name: '簇 5' },
+];
+
+const UNASSIGNED = '#B4B2A9';
+
+let W, H;
+let points = [];
+let centroids = [];
+let phase = 'idle';
+let iteration = 0;
+let autoTimer = null;
+let converged = false;
+let prevCentroids = [];
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  W = rect.width;
+  H = 460;
+  canvas.width = W;
+  canvas.height = H;
+  draw();
+}
+
+function randBetween(a, b) { return a + Math.random() * (b - a); }
+
+function generatePoints(n) {
+  const pts = [];
+  const k = parseInt(document.getElementById('kSelect').value);
+  const clusters = Array.from({length: k}, () => ({
+    cx: randBetween(0.15, 0.85),
+    cy: randBetween(0.15, 0.85),
+    spread: randBetween(0.06, 0.11)
+  }));
+  for (let i = 0; i < n; i++) {
+    const c = clusters[Math.floor(Math.random() * clusters.length)];
+    pts.push({
+      x: Math.max(0.03, Math.min(0.97, c.cx + (Math.random()-0.5)*2*c.spread)),
+      y: Math.max(0.03, Math.min(0.97, c.cy + (Math.random()-0.5)*2*c.spread)),
+      cluster: -1
+    });
+  }
+  return pts;
+}
+
+function initCentroids(k) {
+  const used = new Set();
+  const cs = [];
+  while (cs.length < k) {
+    const idx = Math.floor(Math.random() * points.length);
+    if (!used.has(idx)) {
+      used.add(idx);
+      cs.push({ x: points[idx].x, y: points[idx].y });
+    }
+  }
+  return cs;
+}
+
+function dist(a, b) {
+  return Math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2);
+}
+
+function assignPoints() {
+  let changed = false;
+  for (const p of points) {
+    let best = 0, bestD = Infinity;
+    for (let i = 0; i < centroids.length; i++) {
+      const d = dist(p, centroids[i]);
+      if (d < bestD) { bestD = d; best = i; }
+    }
+    if (p.cluster !== best) { p.cluster = best; changed = true; }
+  }
+  return changed;
+}
+
+function updateCentroids() {
+  prevCentroids = centroids.map(c => ({...c}));
+  const k = centroids.length;
+  const sums = Array.from({length: k}, () => ({x:0, y:0, n:0}));
+  for (const p of points) {
+    if (p.cluster >= 0) {
+      sums[p.cluster].x += p.x;
+      sums[p.cluster].y += p.y;
+      sums[p.cluster].n++;
+    }
+  }
+  for (let i = 0; i < k; i++) {
+    if (sums[i].n > 0) {
+      centroids[i].x = sums[i].x / sums[i].n;
+      centroids[i].y = sums[i].y / sums[i].n;
+    }
+  }
+}
+
+function checkConverged() {
+  return prevCentroids.length === centroids.length &&
+    centroids.every((c, i) => dist(c, prevCentroids[i]) < 0.001);
+}
+
+function px(xn) { return xn * W; }
+function py(yn) { return yn * H; }
+
+function drawStar(x, y, r, color) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const angle = (i * Math.PI) / 4;
+    const len = i % 2 === 0 ? r : r * 0.45;
+    const xi = Math.cos(angle) * len;
+    const yi = Math.sin(angle) * len;
+    i === 0 ? ctx.moveTo(xi, yi) : ctx.lineTo(xi, yi);
+  }
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.restore();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, W, H);
+
+  for (const p of points) {
+    const col = p.cluster >= 0 ? COLORS[p.cluster % COLORS.length] : null;
+    const fillC = col ? col.fill : UNASSIGNED;
+    const lightC = col ? col.light : '#f1efe8';
+
+    if (phase === 'assigned' || phase === 'updated' || phase === 'converged') {
+      if (col) {
+        ctx.beginPath();
+        ctx.arc(px(p.x), py(p.y), 14, 0, Math.PI*2);
+        ctx.fillStyle = lightC + '55';
+        ctx.fill();
+      }
+    }
+
+    ctx.beginPath();
+    ctx.arc(px(p.x), py(p.y), 5, 0, Math.PI*2);
+    ctx.fillStyle = fillC;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  if (phase === 'updated' && prevCentroids.length) {
+    for (let i = 0; i < centroids.length; i++) {
+      if (prevCentroids[i]) {
+        ctx.beginPath();
+        ctx.moveTo(px(prevCentroids[i].x), py(prevCentroids[i].y));
+        ctx.lineTo(px(centroids[i].x), py(centroids[i].y));
+        ctx.strokeStyle = COLORS[i % COLORS.length].fill + 'aa';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([4, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+  }
+
+  for (let i = 0; i < centroids.length; i++) {
+    drawStar(px(centroids[i].x), py(centroids[i].y), 11, COLORS[i % COLORS.length].dark);
+  }
+}
+
+function setInfo(badge, title, desc) {
+  document.getElementById('stepBadge').textContent = badge;
+  document.getElementById('stepTitle').innerHTML = title;
+  document.getElementById('stepDesc').textContent = desc;
+}
+
+function updateIterCounter() {
+  const el = document.getElementById('iterCounter');
+  el.textContent = iteration > 0 ? `第 ${iteration} 轮迭代` : '';
+}
+
+function buildLegend() {
+  const k = centroids.length;
+  const leg = document.getElementById('legend');
+  leg.innerHTML = '';
+  for (let i = 0; i < k; i++) {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<span class="legend-dot" style="background:${COLORS[i].fill}"></span>${COLORS[i].name}`;
+    leg.appendChild(item);
+  }
+  const starItem = document.createElement('div');
+  starItem.className = 'legend-item';
+  starItem.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,1 8.5,5.5 13,5.5 9.5,8.5 11,13 7,10 3,13 4.5,8.5 1,5.5 5.5,5.5" fill="#444441"/></svg> 质心`;
+  leg.appendChild(starItem);
+}
+
+function doInit() {
+  if (autoTimer) { clearInterval(autoTimer); autoTimer = null; document.getElementById('btnAuto').textContent = '自动运行'; }
+  const k = parseInt(document.getElementById('kSelect').value);
+  points = generatePoints(120);
+  centroids = initCentroids(k);
+  phase = 'initialized';
+  iteration = 0;
+  converged = false;
+  prevCentroids = [];
+  draw();
+  buildLegend();
+  updateIterCounter();
+  document.getElementById('btnStep').disabled = false;
+  document.getElementById('btnAuto').disabled = false;
+  setInfo('0', '随机初始化', `已随机生成 120 个数据点，并在数据中随机选取 ${k} 个点作为初始质心（星形标记）。下一步：将每个数据点分配到最近的质心。`);
+}
+
+function doStep() {
+  if (converged) return;
+
+  if (phase === 'initialized' || phase === 'updated') {
+    assignPoints();
+    phase = 'assigned';
+    iteration++;
+    updateIterCounter();
+    draw();
+    setInfo(iteration, '分配数据点', `第 ${iteration} 轮：计算每个数据点到所有质心的距离，将其分配给最近的质心。颜色表示所属的簇。下一步：重新计算每个簇的中心位置。`);
+
+  } else if (phase === 'assigned') {
+    updateCentroids();
+    converged = checkConverged();
+    phase = converged ? 'converged' : 'updated';
+    draw();
+    if (converged) {
+      document.getElementById('btnStep').disabled = true;
+      document.getElementById('btnAuto').disabled = true;
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; document.getElementById('btnAuto').textContent = '自动运行'; }
+      setInfo('✓', '算法收敛 <span class="converged-badge">已完成</span>', `质心位置不再移动，算法已收敛。共进行了 ${iteration} 轮迭代，最终得到 ${centroids.length} 个稳定的簇。`);
+    } else {
+      setInfo(iteration, '更新质心', `第 ${iteration} 轮：将每个质心移动到其簇内所有点的均值位置（虚线显示移动轨迹）。下一步：根据新的质心重新分配数据点。`);
+    }
+  }
+}
+
+document.getElementById('btnInit').addEventListener('click', doInit);
+document.getElementById('btnStep').addEventListener('click', doStep);
+document.getElementById('btnAuto').addEventListener('click', function() {
+  if (autoTimer) {
+    clearInterval(autoTimer);
+    autoTimer = null;
+    this.textContent = '自动运行';
+  } else {
+    this.textContent = '暂停';
+    autoTimer = setInterval(() => {
+      if (converged || phase === 'idle') {
+        clearInterval(autoTimer); autoTimer = null;
+        document.getElementById('btnAuto').textContent = '自动运行';
+        return;
+      }
+      doStep();
+    }, 900);
+  }
+});
+
+window.addEventListener('resize', resize);
+resize();
+setInfo('—', '准备开始', '选择 K 值后，点击"初始化"随机生成数据点，并随机放置初始质心。');
+</script>
+</body>
+</html>

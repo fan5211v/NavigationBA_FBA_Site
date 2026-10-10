@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA 降维可视化 — 3D → 2D</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#ffffff;color:#1a1a1a;padding:2rem 1rem;min-height:100vh;}
+.container{max-width:900px;margin:0 auto;}
+header{margin-bottom:1.5rem;}
+header h1{font-size:1.5rem;font-weight:600;letter-spacing:-0.02em;}
+header p{font-size:0.88rem;color:#666;margin-top:0.3rem;}
+.top-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.top-row label{font-size:13px;color:#666;}
+button{padding:6px 16px;font-size:12px;font-weight:500;border-radius:8px;border:1px solid #d0cec9;background:#fff;color:#333;cursor:pointer;transition:background 0.15s;}
+button:hover{background:#f2f0ec;}
+button.active{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+.canvases{display:flex;gap:12px;}
+.panel{flex:1;min-width:0;}
+.panel-label{font-size:11px;color:#888;margin-bottom:5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;}
+canvas{display:block;width:100%;border:1px solid #e5e3de;border-radius:8px;background:#fff;cursor:grab;}
+canvas:active{cursor:grabbing;}
+.sliders{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.slider-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#666;}
+.slider-row label{min-width:72px;}
+.slider-row input{flex:1;}
+.slider-row span{min-width:32px;text-align:right;font-size:12px;color:#111;}
+.stat-row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.stat{background:#f5f4f0;border-radius:8px;padding:8px 12px;flex:1;min-width:90px;}
+.stat-label{font-size:11px;color:#888;margin-bottom:2px;}
+.stat-val{font-size:16px;font-weight:500;color:#111;}
+.hint{font-size:12px;color:#777;margin-top:8px;line-height:1.6;padding:8px 12px;background:#f9f8f6;border-radius:8px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>PCA 降维可视化 — 3D → 2D</h1>
+    <p>手动调整投影平面，或让 PCA 自动找到最优平面</p>
+  </header>
+  <div class="top-row">
+    <label>投影方式：</label>
+    <button id="btnManual" class="active">手动调整</button>
+    <button id="btnPCA">自动 PCA</button>
+    <button id="btnRegen" style="margin-left:auto;">重新生成</button>
+  </div>
+  <div class="canvases">
+    <div class="panel">
+      <div class="panel-label">三维空间（拖动旋转视角）</div>
+      <canvas id="c3d" height="320"></canvas>
+    </div>
+    <div class="panel">
+      <div class="panel-label">投影到平面后的二维分布</div>
+      <canvas id="c2d" height="320"></canvas>
+    </div>
+  </div>
+  <div class="sliders" id="sliderBox">
+    <div class="slider-row"><label>平面方位角</label><input type="range" id="sAz" min="0" max="314" step="1" value="60"><span id="sAzV">60°</span></div>
+    <div class="slider-row"><label>平面仰角</label><input type="range" id="sEl" min="-90" max="90" step="1" value="30"><span id="sElV">30°</span></div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-label">PC1 方差</div><div class="stat-val" id="v1">—</div></div>
+    <div class="stat"><div class="stat-label">PC2 方差</div><div class="stat-val" id="v2">—</div></div>
+    <div class="stat"><div class="stat-label">保留方差</div><div class="stat-val" id="vTot">—</div></div>
+    <div class="stat"><div class="stat-label">投影误差</div><div class="stat-val" id="mse">—</div></div>
+  </div>
+  <div class="hint" id="hint">左图拖动旋转三维视角。调整滑块改变投影平面方向，或点击"自动 PCA"找到保留信息最多的平面。</div>
+</div>
+<script>
+const c3d=document.getElementById('c3d'),c2d=document.getElementById('c2d');
+const ctx3=c3d.getContext('2d'),ctx2=c2d.getContext('2d');
+let W3=0,H3=320,W2=0,H2=320;
+let points=[];
+let viewAz=0.6,viewEl=0.35;
+let planeAz=Math.PI/3,planeEl=Math.PI/6;
+let pcaAxes=null,mode='manual';
+let drag3={on:false,sx:0,sy:0,az:0,el:0};
+let animFrame=null;
+
+function seededRand(seed){
+  let s=seed>>>0;
+  return ()=>{s=(Math.imul(1664525,s)+1013904223)>>>0;return s/4294967296;};
+}
+
+function generatePoints(seed){
+  const r=seededRand(seed||((Date.now()*999983)&0xffff));
+  const a1=r()*Math.PI,a2=r()*Math.PI;
+  const u=[Math.cos(a1),Math.sin(a1)*Math.cos(a2),Math.sin(a1)*Math.sin(a2)];
+  const tmp=[r()-0.5,r()-0.5,r()-0.5];
+  const d=tmp[0]*u[0]+tmp[1]*u[1]+tmp[2]*u[2];
+  const v0=[tmp[0]-d*u[0],tmp[1]-d*u[1],tmp[2]-d*u[2]];
+  const vl=Math.sqrt(v0[0]**2+v0[1]**2+v0[2]**2)||1;
+  const v=v0.map(x=>x/vl);
+  const w=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
+  const pts=[];
+  for(let i=0;i<10;i++){
+    const s1=(r()-0.5)*2,s2=(r()-0.5)*0.7,s3=(r()-0.5)*0.2;
+    pts.push([u[0]*s1+v[0]*s2+w[0]*s3,u[1]*s1+v[1]*s2+w[1]*s3,u[2]*s1+v[2]*s2+w[2]*s3]);
+  }
+  return pts;
+}
+
+function mean3(pts){
+  const m=[0,0,0];
+  for(const p of pts){m[0]+=p[0];m[1]+=p[1];m[2]+=p[2];}
+  return m.map(v=>v/pts.length);
+}
+
+function computePCA3D(pts){
+  const m=mean3(pts);
+  const c=pts.map(p=>[p[0]-m[0],p[1]-m[1],p[2]-m[2]]);
+  let cov=[[0,0,0],[0,0,0],[0,0,0]];
+  for(const p of c)for(let i=0;i<3;i++)for(let j=0;j<3;j++)cov[i][j]+=p[i]*p[j];
+  for(let i=0;i<3;i++)for(let j=0;j<3;j++)cov[i][j]/=pts.length;
+  let V=[[1,0,0],[0,1,0],[0,0,1]],A=cov.map(r=>[...r]);
+  for(let iter=0;iter<150;iter++){
+    let mx=0,p=0,q=1;
+    for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)if(Math.abs(A[i][j])>mx){mx=Math.abs(A[i][j]);p=i;q=j;}
+    if(mx<1e-12)break;
+    const th=(A[q][q]-A[p][p])/(2*A[p][q]);
+    const t=Math.sign(th||1)/(Math.abs(th)+Math.sqrt(1+th*th));
+    const cc=1/Math.sqrt(1+t*t),ss=t*cc;
+    const nA=A.map(r=>[...r]);
+    for(let r=0;r<3;r++){
+      if(r!==p&&r!==q){nA[r][p]=cc*A[r][p]-ss*A[r][q];nA[p][r]=nA[r][p];nA[r][q]=ss*A[r][p]+cc*A[r][q];nA[q][r]=nA[r][q];}
+    }
+    nA[p][p]=cc*cc*A[p][p]-2*ss*cc*A[p][q]+ss*ss*A[q][q];
+    nA[q][q]=ss*ss*A[p][p]+2*ss*cc*A[p][q]+cc*cc*A[q][q];
+    nA[p][q]=0;nA[q][p]=0;A=nA;
+    const nV=V.map(r=>[...r]);
+    for(let r=0;r<3;r++){const tmp=cc*V[r][p]-ss*V[r][q];nV[r][q]=ss*V[r][p]+cc*V[r][q];nV[r][p]=tmp;}
+    V=nV;
+  }
+  const eigs=[{val:A[0][0],vec:[V[0][0],V[1][0],V[2][0]]},{val:A[1][1],vec:[V[0][1],V[1][1],V[2][1]]},{val:A[2][2],vec:[V[0][2],V[1][2],V[2][2]]}];
+  eigs.sort((a,b)=>b.val-a.val);
+  return eigs;
+}
+
+function planeNormal(az,el){return[Math.cos(el)*Math.cos(az),Math.cos(el)*Math.sin(az),Math.sin(el)];}
+function orthoBasis(n){
+  let t=Math.abs(n[0])>0.9?[0,1,0]:[1,0,0];
+  const d=t[0]*n[0]+t[1]*n[1]+t[2]*n[2];
+  let u=[t[0]-d*n[0],t[1]-d*n[1],t[2]-d*n[2]];
+  const ul=Math.sqrt(u[0]**2+u[1]**2+u[2]**2)||1;u=u.map(x=>x/ul);
+  return[u,[n[1]*u[2]-n[2]*u[1],n[2]*u[0]-n[0]*u[2],n[0]*u[1]-n[1]*u[0]]];
+}
+function computeVarianceOnAxes(u,v){
+  const m=mean3(points);
+  const c=points.map(p=>[p[0]-m[0],p[1]-m[1],p[2]-m[2]]);
+  const p1=c.map(p=>p[0]*u[0]+p[1]*u[1]+p[2]*u[2]);
+  const p2=c.map(p=>p[0]*v[0]+p[1]*v[1]+p[2]*v[2]);
+  const m1=p1.reduce((a,b)=>a+b,0)/p1.length;
+  const m2=p2.reduce((a,b)=>a+b,0)/p2.length;
+  const v1=p1.reduce((a,x)=>a+(x-m1)**2,0)/p1.length;
+  const v2=p2.reduce((a,x)=>a+(x-m2)**2,0)/p2.length;
+  return{l1:v1,l2:v2};
+}
+function getPlaneAxes(){
+  if(mode==='pca'&&pcaAxes)return{u:pcaAxes[0].vec,v:pcaAxes[1].vec,n:pcaAxes[2].vec,l1:pcaAxes[0].val,l2:pcaAxes[1].val};
+  const n=planeNormal(planeAz,planeEl);const[u,v]=orthoBasis(n);
+  const{l1,l2}=computeVarianceOnAxes(u,v);
+  return{u,v,n,l1,l2};
+}
+function rot3(p,az,el){
+  const caz=Math.cos(az),saz=Math.sin(az);
+  const x1=p[0]*caz+p[1]*saz,y1=-p[0]*saz+p[1]*caz;
+  return[x1,y1*Math.cos(el)-p[2]*Math.sin(el),y1*Math.sin(el)+p[2]*Math.cos(el)];
+}
+function getScreenBounds(pts){
+  const margin=0.82;
+  const rotated=pts.map(p=>rot3(p,viewAz,viewEl));
+  const xs=rotated.map(p=>p[0]),ys=rotated.map(p=>p[1]);
+  const maxX=Math.max(...xs.map(Math.abs))||1;
+  const maxY=Math.max(...ys.map(Math.abs))||1;
+  return Math.min(W3*margin/2/maxX,H3*margin/2/maxY);
+}
+function proj3D(p,sc){
+  const[x,y,z]=rot3(p,viewAz,viewEl);
+  return[W3/2+x*sc,H3/2-y*sc,z];
+}
+
+function draw(){
+  if(!W3)return;
+  const{u,v,n,l1,l2}=getPlaneAxes();
+  const isPCA=mode==='pca';
+  const planeColor=isPCA?{fill:'rgba(29,158,117,0.13)',stroke:'rgba(29,158,117,0.6)'}
+                        :{fill:'rgba(55,138,221,0.13)',stroke:'rgba(55,138,221,0.6)'};
+  const projDotColor=isPCA?'rgba(29,158,117,0.8)':'rgba(55,138,221,0.65)';
+  const rightDotColor=isPCA?'#1D9E75':'#378ADD';
+  const m=mean3(points);
+  const centered=points.map(p=>[p[0]-m[0],p[1]-m[1],p[2]-m[2]]);
+  const projs2d=centered.map(p=>[p[0]*u[0]+p[1]*u[1]+p[2]*u[2],p[0]*v[0]+p[1]*v[1]+p[2]*v[2]]);
+  const totalVar=centered.reduce((s,p)=>s+p[0]**2+p[1]**2+p[2]**2,0)/centered.length;
+  const projVar=projs2d.reduce((s,p)=>s+p[0]**2+p[1]**2,0)/projs2d.length;
+  const mseVal=centered.reduce((s,p,i)=>{
+    const[a,b]=projs2d[i];const rx=a*u[0]+b*v[0],ry=a*u[1]+b*v[1],rz=a*u[2]+b*v[2];
+    return s+(p[0]-rx)**2+(p[1]-ry)**2+(p[2]-rz)**2;
+  },0)/centered.length;
+  document.getElementById('v1').textContent=l1.toFixed(2);
+  document.getElementById('v2').textContent=l2.toFixed(2);
+  document.getElementById('vTot').textContent=(totalVar>0?Math.round(projVar/totalVar*100):0)+'%';
+  document.getElementById('mse').textContent=mseVal.toFixed(2);
+
+  const planeSize=1.2;
+  const allPts=[...centered,
+    ...[[planeSize,planeSize],[-planeSize,planeSize],[-planeSize,-planeSize],[planeSize,-planeSize]]
+      .map(([a,b])=>[a*u[0]+b*v[0],a*u[1]+b*v[1],a*u[2]+b*v[2]])
+  ];
+  const sc=getScreenBounds(allPts);
+  const p3=p=>proj3D(p,sc);
+
+  ctx3.clearRect(0,0,W3,H3);ctx3.fillStyle='#ffffff';ctx3.fillRect(0,0,W3,H3);
+  const[ox,oy]=p3([0,0,0]);
+  const axLen=0.5;
+  const axDefs=[[axLen,0,0],[0,axLen,0],[0,0,axLen]];
+  const axCols=['#e24b4a','#1D9E75','#378ADD'],axLabels=['X','Y','Z'];
+  for(let i=0;i<3;i++){
+    const[ex,ey]=p3(axDefs[i]);
+    ctx3.strokeStyle=axCols[i]+'99';ctx3.lineWidth=1.5;
+    ctx3.beginPath();ctx3.moveTo(ox,oy);ctx3.lineTo(ex,ey);ctx3.stroke();
+    ctx3.fillStyle=axCols[i];ctx3.font='11px sans-serif';ctx3.textAlign='center';ctx3.textBaseline='middle';
+    ctx3.fillText(axLabels[i],ex+(ex-ox)*0.25,ey+(ey-oy)*0.25);
+  }
+  const corners=[[planeSize,planeSize],[-planeSize,planeSize],[-planeSize,-planeSize],[planeSize,-planeSize]];
+  const planePts=corners.map(([a,b])=>[a*u[0]+b*v[0],a*u[1]+b*v[1],a*u[2]+b*v[2]]);
+  ctx3.fillStyle=planeColor.fill;ctx3.strokeStyle=planeColor.stroke;
+  ctx3.lineWidth=1.2;ctx3.beginPath();
+  for(let i=0;i<4;i++){const[px,py]=p3(planePts[i]);i===0?ctx3.moveTo(px,py):ctx3.lineTo(px,py);}
+  ctx3.closePath();ctx3.fill();ctx3.stroke();
+  const sorted=centered.map((p,i)=>{const[,,z]=p3(p);return{p,i,z};}).sort((a,b)=>a.z-b.z);
+  for(const{p,i}of sorted){
+    const[a,b]=projs2d[i];
+    const rp=[a*u[0]+b*v[0],a*u[1]+b*v[1],a*u[2]+b*v[2]];
+    const[px3,py3]=p3(p);const[prx,pry]=p3(rp);
+    ctx3.strokeStyle='rgba(127,119,221,0.25)';ctx3.lineWidth=1;
+    ctx3.setLineDash([2,3]);ctx3.beginPath();ctx3.moveTo(px3,py3);ctx3.lineTo(prx,pry);ctx3.stroke();ctx3.setLineDash([]);
+    ctx3.fillStyle='rgba(127,119,221,0.88)';ctx3.beginPath();ctx3.arc(px3,py3,5.5,0,Math.PI*2);ctx3.fill();
+    ctx3.fillStyle=projDotColor;ctx3.beginPath();ctx3.arc(prx,pry,4,0,Math.PI*2);ctx3.fill();
+  }
+
+  ctx2.clearRect(0,0,W2,H2);ctx2.fillStyle='#ffffff';ctx2.fillRect(0,0,W2,H2);
+  const allX=projs2d.map(p=>p[0]),allY=projs2d.map(p=>p[1]);
+  const maxR=Math.max(Math.max(...allX.map(Math.abs)),Math.max(...allY.map(Math.abs)),0.1)*1.3;
+  const s2=Math.min(W2,H2)/2/maxR*0.82,cx=W2/2,cy=H2/2;
+  ctx2.strokeStyle='rgba(0,0,0,0.07)';ctx2.lineWidth=1;
+  ctx2.beginPath();ctx2.moveTo(0,cy);ctx2.lineTo(W2,cy);ctx2.stroke();
+  ctx2.beginPath();ctx2.moveTo(cx,0);ctx2.lineTo(cx,H2);ctx2.stroke();
+  ctx2.fillStyle='rgba(0,0,0,0.3)';ctx2.font='11px sans-serif';
+  ctx2.textAlign='center';ctx2.textBaseline='middle';
+  ctx2.fillText('PC1',W2-22,cy-8);ctx2.fillText('PC2',cx+4,14);
+  for(const[a,b]of projs2d){
+    ctx2.fillStyle=rightDotColor;ctx2.globalAlpha=0.82;
+    ctx2.beginPath();ctx2.arc(cx+a*s2,cy-b*s2,5.5,0,Math.PI*2);ctx2.fill();
+  }
+  ctx2.globalAlpha=1;
+}
+
+function resize(){
+  W3=c3d.parentElement.clientWidth;c3d.width=W3;c3d.height=H3;
+  W2=c2d.parentElement.clientWidth;c2d.width=W2;c2d.height=H2;draw();
+}
+
+c3d.addEventListener('mousedown',e=>{drag3={on:true,sx:e.clientX,sy:e.clientY,az:viewAz,el:viewEl};e.preventDefault();});
+window.addEventListener('mousemove',e=>{if(!drag3.on)return;viewAz=drag3.az-(e.clientX-drag3.sx)*0.01;viewEl=Math.max(-1.3,Math.min(1.3,drag3.el+(e.clientY-drag3.sy)*0.01));draw();});
+window.addEventListener('mouseup',()=>{drag3.on=false;});
+c3d.addEventListener('touchstart',e=>{const t=e.touches[0];drag3={on:true,sx:t.clientX,sy:t.clientY,az:viewAz,el:viewEl};e.preventDefault();},{passive:false});
+window.addEventListener('touchmove',e=>{if(!drag3.on)return;const t=e.touches[0];viewAz=drag3.az-(t.clientX-drag3.sx)*0.01;viewEl=Math.max(-1.3,Math.min(1.3,drag3.el+(t.clientY-drag3.sy)*0.01));draw();e.preventDefault();},{passive:false});
+window.addEventListener('touchend',()=>{drag3.on=false;});
+
+document.getElementById('sAz').addEventListener('input',function(){planeAz=parseInt(this.value)*Math.PI/100;document.getElementById('sAzV').textContent=this.value+'°';draw();});
+document.getElementById('sEl').addEventListener('input',function(){planeEl=parseInt(this.value)*Math.PI/180;document.getElementById('sElV').textContent=this.value+'°';draw();});
+
+function animatePCA(){
+  if(animFrame)cancelAnimationFrame(animFrame);
+  const sAz=planeAz,sEl=planeEl;
+  const tAz=Math.atan2(pcaAxes[2].vec[1],pcaAxes[2].vec[0]);
+  const tEl=Math.asin(Math.max(-1,Math.min(1,pcaAxes[2].vec[2])));
+  let dAz=tAz-sAz;while(dAz>Math.PI)dAz-=2*Math.PI;while(dAz<-Math.PI)dAz+=2*Math.PI;
+  let t=0;
+  function step(){
+    t+=0.04;if(t>=1){planeAz=tAz;planeEl=tEl;draw();return;}
+    const e=t<0.5?2*t*t:-1+(4-2*t)*t;
+    planeAz=sAz+dAz*e;planeEl=sEl+(tEl-sEl)*e;draw();animFrame=requestAnimationFrame(step);
+  }
+  step();
+}
+
+document.getElementById('btnManual').addEventListener('click',()=>{
+  mode='manual';if(animFrame){cancelAnimationFrame(animFrame);animFrame=null;}
+  document.getElementById('btnManual').classList.add('active');document.getElementById('btnPCA').classList.remove('active');
+  document.getElementById('sliderBox').style.opacity='1';document.getElementById('sliderBox').style.pointerEvents='auto';
+  document.getElementById('hint').textContent='左图拖动旋转三维视角。调整滑块改变投影平面方向，观察右图分布和保留方差的变化。';draw();
+});
+document.getElementById('btnPCA').addEventListener('click',()=>{
+  mode='pca';
+  document.getElementById('btnPCA').classList.add('active');document.getElementById('btnManual').classList.remove('active');
+  document.getElementById('sliderBox').style.opacity='0.4';document.getElementById('sliderBox').style.pointerEvents='none';
+  document.getElementById('hint').textContent='PCA 自动找到方差最大的二维平面（绿色）。右图两个轴是 PC1 和 PC2，保留了最多结构信息。';
+  pcaAxes=computePCA3D(points);animatePCA();
+});
+document.getElementById('btnRegen').addEventListener('click',()=>{
+  points=generatePoints();pcaAxes=null;
+  if(mode==='pca'){pcaAxes=computePCA3D(points);animatePCA();}else draw();
+});
+
+points=generatePoints(42);
+setTimeout(resize,30);
+window.addEventListener('resize',()=>setTimeout(resize,50));
+</script>
+</body>
+</html>

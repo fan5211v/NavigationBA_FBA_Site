@@ -1,0 +1,6309 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Foundations of Business Analytics">
+      
+      
+      
+        <link rel="canonical" href="https://NavigationBA.github.io/NavigationBA_FBA/Tutorial/Tut_Topic08/Tut_Topic08_Set01/Tut_Topic08_Set01/">
+      
+      
+        <link rel="prev" href="../../../Tut_Topic07/Tut_Topic07_Set01/Tut_Topic07_Set01/">
+      
+      
+        <link rel="next" href="../../../Tut_Topic09/Tut_Topic09_Set01/Tut_Topic09_Set01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>📝 Tut Topic 08 Set 01 - Foundations of Business Analytics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-topic-08-set-01-causal-analytics-improving-user-sign-up-experiences" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-header__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Business Analytics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📝 Tut Topic 08 Set 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Topics/Topic01/Topic01_00/Topic01_00/" class="md-tabs__link">
+          
+  
+  
+  Topics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Tut_Topic01/Tut_Topic01_Set01/Tut_Topic01_Set01/" class="md-tabs__link">
+          
+  
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Quiz/Quiz_Topic03/Quiz_Topic03/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Mid/Mid_01/Mid_01/" class="md-tabs__link">
+          
+  
+  
+  Mid Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-tabs__link">
+          
+  
+  
+  Assignments
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-tabs__link">
+          
+  
+  
+  Final Exam
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-nav__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Business Analytics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1 - 商业分析简介
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 1 - 商业分析简介
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_00/Topic01_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 1 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_01/Topic01_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.1 - 商业分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_02/Topic01_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.2 - 商业分析师的核心技能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_03/Topic01_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.3 - 商业分析中的伦理问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2 - R 语言基本介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 2 - R 语言基本介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_00/Topic02_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 2 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_01/Topic02_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.1 - R 语言简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_02/Topic02_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.2 - R 代码运行的方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_03/Topic02_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.3 - R 语言的基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_04/Topic02_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.4 - R 中的数据类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_05/Topic02_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.5 - R 中的数据结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3 - R 数据可视化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 3 - R 数据可视化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_00/Topic03_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 3 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_01/Topic03_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.1 - 数据可视化的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_02/Topic03_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.2 - R 数据可视化基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_03/Topic03_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.3 - R 中图像的修饰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_04/Topic03_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.4 - 完整的图像构建展示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4 - R 数据整理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 4 - R 数据整理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_00/Topic04_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 4 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_01/Topic04_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.1 - 数据筛选与排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_02/Topic04_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.2 - 数据列操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_03/Topic04_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.3 - 数据分组统计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5 - 数据整理：数据重塑与连接
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 5 - 数据整理：数据重塑与连接
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic05/Topic05_01/Topic05_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 5.1 - 数据重构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic05/Topic05_02/Topic05_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 5.2 - 数据连接
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6 - R 数据类型
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 6 - R 数据类型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_00/Topic06_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 6 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_01/Topic06_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.1 - 数据类型划分概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_02/Topic06_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.2 - 横截面数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_03/Topic06_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.3 - 时间序列数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_04/Topic06_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.4 - 面板数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_Extension01/Topic06_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 6 Extension 1 - 获取金融数据：单只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_Extension02/Topic06_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 6 Extension 2 - 获取金融数据：多只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7 - 数据分析 - 描述性分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 7 - 数据分析 - 描述性分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_00/Topic07_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 7 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_01/Topic07_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.1 - 描述性分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_02/Topic07_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.2 - 基于规则的分群方法 - RFM 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_03/Topic07_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.3 - 基于数据的分群方法 - K-Means 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_Extension01/Topic07_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 7 Extension 1 - K-Means 聚类算法详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_Extension02/Topic07_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 7 Extension 2 - K-Means 与 PCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8 - 数据分析 - 因果分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 8 - 数据分析 - 因果分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_00/Topic08_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 8 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_01/Topic08_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.1 - 因果分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_02/Topic08_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.2 - 基于模型的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_03/Topic08_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.3 - 基于设计的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 9 - 数据分析 - 预测分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 9 - 数据分析 - 预测分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_00/Topic09_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 9 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_01/Topic09_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.1 - 预测分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_02/Topic09_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.2 - 预测分析的方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_03/Topic09_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.3 - 预测分析的评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10 - 数据存储
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10 - 数据存储
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_00/Topic10_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 10 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_01/Topic10_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.1 - 数据存储方式概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_02/Topic10_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.2 - 数据存储：电子表格与平面文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_03/Topic10_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.3 - 数据存储：JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_04/Topic10_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.4 - 数据存储：数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11 - 数据获取
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11 - 数据获取
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_00/Topic11_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 11 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_01/Topic11_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 11.1 - 数据的三种类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_02/Topic11_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 11.2 - 使用 API 获取数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic01/Tut_Topic01_Set01/Tut_Topic01_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 01 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic02/Tut_Topic02_Set01/Tut_Topic02_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 02 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic03/Tut_Topic03_Set01/Tut_Topic03_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 03 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic04/Tut_Topic04_Set01/Tut_Topic04_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 04 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic05/Tut_Topic05_Set01/Tut_Topic05_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 05 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic06/Tut_Topic06_Set01/Tut_Topic06_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 06 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic07/Tut_Topic07_Set01/Tut_Topic07_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 07 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 08 Set 01
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 08 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-r-packages-and-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading R Packages and Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-understanding-the-business-context-to-see-why-we-use-experiments-to-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Understanding the Business Context to See Why We Use Experiments to Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-exploring-the-experimental-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Exploring the Experimental Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-working-with-web-log-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Working with Web Log Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-measuring-funnel-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Measuring Funnel Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-communicating-experimental-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Communicating Experimental Insights
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-6-understanding-mid-funnel-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 6: Understanding Mid-Funnel Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic09/Tut_Topic09_Set01/Tut_Topic09_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 09 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic10/Tut_Topic10_Set01/Tut_Topic10_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 10 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic11/Tut_Topic11_Set01/Tut_Topic11_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 11 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic03/Quiz_Topic03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic04/Quiz_Topic04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic05/Quiz_Topic05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic06/Quiz_Topic06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic07/Quiz_Topic07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic08/Quiz_Topic08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic09/Quiz_Topic09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic10/Quiz_Topic10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic11/Quiz_Topic11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic12/Quiz_Topic12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mid Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mid Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Mid/Mid_01/Mid_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Mid Exam Question Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment - Expedia Case
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignment - Expedia Case
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Demo1/Assign_Demo1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Final Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Choice Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multiple Choice Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_02/MC_Set_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_03/MC_Set_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_04/MC_Set_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Short Answer Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Short Answer Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q01/ES_Q01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q02/ES_Q02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q03/ES_Q03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q04/ES_Q04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-r-packages-and-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading R Packages and Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-understanding-the-business-context-to-see-why-we-use-experiments-to-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Understanding the Business Context to See Why We Use Experiments to Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-exploring-the-experimental-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Exploring the Experimental Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-working-with-web-log-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Working with Web Log Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-measuring-funnel-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Measuring Funnel Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-communicating-experimental-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Communicating Experimental Insights
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-6-understanding-mid-funnel-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 6: Understanding Mid-Funnel Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-topic-08-set-01-causal-analytics-improving-user-sign-up-experiences">Tutorial Topic 08 Set 01 - Causal Analytics &amp; Improving User Sign Up Experiences<a class="headerlink" href="#tutorial-topic-08-set-01-causal-analytics-improving-user-sign-up-experiences" title="Permanent link">&para;</a></h1>
+<h2 id="learning-goals">Learning Goals<a class="headerlink" href="#learning-goals" title="Permanent link">&para;</a></h2>
+<p>By the end of this tutorial, students should be able to:</p>
+<ul>
+<li>Describe how experiments help evaluate product or design changes.</li>
+<li>Join and prepare experimental and event-level datasets to compute key outcomes such as funnel completion rates.</li>
+<li>Compare and interpret results across variations, expressing differences in both percentage points and relative terms, and evaluating whether they are meaningful in a business context.</li>
+<li>Communicate analytic findings in clear, decision-oriented language suitable for a managerial audience, using one concise table or figure.</li>
+</ul>
+<h2 id="the-business-challenge">The Business Challenge<a class="headerlink" href="#the-business-challenge" title="Permanent link">&para;</a></h2>
+<p>A fast-growing fintech company has just completed an A/B test to evaluate a new sign-up process that existing users must complete before accessing a new feature release in their account dashboard. The goal of the experiment was to introduce this new process without creating excessive friction or drop-off during sign-up.</p>
+<p>The company rolled out a <strong>Test</strong> variation of the sign-up flow, updating the layout and copy of key steps, while a <strong>Control</strong> group kept the original version. You’ve received detailed event-level data showing when each user started, moved through the funnel, and confirmed. The product team wants to know not only whether the Test increased completions, but <em>why</em> — and whether it created any new friction for users.</p>
+<p>How do tech firms use analytics and experimentation?</p>
+<p>In modern tech firms, analysts are embedded within product teams and play a central role in decision-making. Their job is to evaluate changes to the user experience (UX) using data rather than intuition.</p>
+<p>Small design choices—such as layout, wording, or the number of steps—can meaningfully affect user behaviour at scale. To assess these changes, firms rely on A/B testing, comparing different versions of a feature on real users.</p>
+<p>Common metrics include:</p>
+<ul>
+<li>Completion rates.</li>
+<li>Drop-off at each step of a funnel.</li>
+<li>Time to complete key actions.</li>
+<li>Downstream engagement and retention.</li>
+</ul>
+<p>The stakes are commercial. Even modest improvements in conversion or retention can compound into large gains in revenue and growth.</p>
+<p>The analyst’s role is not just to determine whether a change worked, but to explain why, for whom, and with what trade-offs. This requires combining causal inference with careful behavioural analysis.</p>
+<p>Your Task</p>
+<ol>
+<li>Quantify the effect of the new variation on completion rates.</li>
+<li>Interpret the magnitude of the improvement — is it large, small, or somewhere in between?</li>
+<li>Explore additional metrics to understand user behaviour inside the sign-up process.</li>
+<li>Prepare an executive summary explaining whether the new sign-up process should be rolled out to all customers.</li>
+</ol>
+<h2 id="loading-r-packages-and-data">Loading R Packages and Data<a class="headerlink" href="#loading-r-packages-and-data" title="Permanent link">&para;</a></h2>
+<p>Here are the R packages we will need to complete the exercises:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">   </span><span class="c1"># data wrangling</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span><span class="w">   </span><span class="c1"># dates and times</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">janitor</span><span class="p">)</span><span class="w">     </span><span class="c1"># cleaning up and duplicate checks</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">vtable</span><span class="p">)</span><span class="w">      </span><span class="c1"># balance table</span>
+</code></pre></div>
+<p>The data comes in multiple files that we will load as we need them.</p>
+<h2 id="prepare-these-exercises-before-class">Prepare these Exercises before Class<a class="headerlink" href="#prepare-these-exercises-before-class" title="Permanent link">&para;</a></h2>
+<p>Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.</p>
+<h3 id="exercise-1-understanding-the-business-context-to-see-why-we-use-experiments-to-test">Exercise 1: Understanding the Business Context to See Why We Use Experiments to Test<a class="headerlink" href="#exercise-1-understanding-the-business-context-to-see-why-we-use-experiments-to-test" title="Permanent link">&para;</a></h3>
+<p>Before analysing the data, take a step back and think about the business motivation behind this experiment.</p>
+<p>The company has introduced a new personalised insights dashboard — but to use it, existing customers must complete an additional sign-up process. This is a risky move. Each additional step in the customer journey can introduce friction and reduce completion.</p>
+<p>Completion is not just a UX metric — it is directly tied to financial performance. If fewer users complete the process, fewer access the new feature, reducing engagement, retention, and ultimately revenue. At scale, even small drops in completion can translate into large losses in customer lifetime value.</p>
+<p>In product analytics, we often represent a sign-up process as a <strong>funnel</strong> — a sequence of steps where users either continue or drop out at each stage (for example, from start to confirm). Each step is a decision point.</p>
+<p>If we observe differences in completion rates or drop-off across steps, an important question arises: are these differences caused by the new design, or by other factors?</p>
+<p><strong>(a)</strong> </p>
+<p>Why might the company choose to test a new sign-up flow rather than launch it for all users immediately?</p>
+<p><strong>(b)</strong> </p>
+<p>What outcomes or trade-offs should the company pay attention to when evaluating the new flow (think about success from the users’ perspective vs the company’s perspective)?</p>
+<p><strong>(c)</strong> </p>
+<p>What can a funnel reveal about customer behaviour that a simple completion rate cannot?</p>
+<p><strong>(d)</strong> </p>
+<p>Rather than run an experiment, the company could just implement the new sign-up process for all users going forward and then compare completion rates before and after this change. Why is this problematic?</p>
+<p><strong>(e)</strong> </p>
+<p>How does random assignment in an A/B test help us isolate the effect of the new design?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>Why might the company choose to test a new sign-up flow rather than launch it for all users immediately?</p>
+<ul>
+<li>A/B testing reduces the risk of introducing a worse experience.</li>
+<li>It allows decisions to be based on observed behaviour rather than assumptions.</li>
+<li>It protects customers from large-scale exposure to a poor design.</li>
+<li>It generates insight into where and why users drop off.</li>
+</ul>
+<p><strong>(b)</strong></p>
+<p>What outcomes or trade-offs should the company pay attention to when evaluating the new flow (think about success from the users’ perspective vs the company’s perspective)?</p>
+<ul>
+<li>Completion vs. friction: Does the new flow increase completion at the cost of more effort?</li>
+<li>Speed vs. accuracy: Are users completing quickly but providing less useful information?</li>
+<li>Short-term vs. long-term engagement: Do users continue using the feature after signing up?</li>
+<li>Experience vs. conversion: Does higher completion come with worse perceived quality.</li>
+<li>Company success means more users complete the process and access the feature, supporting engagement and revenue. Customer success means the process is quick, intuitive, and does not introduce frustration or uncertainty.</li>
+</ul>
+<p><strong>(c)</strong></p>
+<p>What can a funnel reveal about customer behaviour that a simple completion rate cannot?</p>
+<ul>
+<li>Where users drop off (step-level insight, not just overall success/failure).</li>
+<li>How users move through the process — for example, skipping, looping, or hesitating.</li>
+<li>Severity of friction points: Identifies which steps drive the biggest loss or confusion.</li>
+<li>Where improvements will have the greatest impact.</li>
+</ul>
+<p><strong>(d)</strong></p>
+<p>Rather than run an experiment, the company could just implement the new sign-up process for all users going forward and then compare completion rates before and after this change. Why is this problematic?</p>
+<ul>
+<li>Other factors may change over time (e.g. marketing activity, seasonality, user composition).</li>
+<li>Any observed change may reflect these external influences rather than the new design.</li>
+<li>Before/after comparisons cannot isolate the causal effect of the change.</li>
+</ul>
+<p><strong>(e)</strong></p>
+<p>How does random assignment in an A/B test help us isolate the effect of the new design?</p>
+<ul>
+<li>Random assignment ensures the Control and Test groups are comparable on average.</li>
+<li>It balances both known and unknown factors between groups.</li>
+<li>Differences in outcomes can therefore be attributed to the new design rather than pre-existing differences.</li>
+</ul>
+<h3 id="exercise-2-exploring-the-experimental-data">Exercise 2: Exploring the Experimental Data<a class="headerlink" href="#exercise-2-exploring-the-experimental-data" title="Permanent link">&para;</a></h3>
+<p>It’s time to look at the data from the experiment.</p>
+<p>You have two datasets:</p>
+<ul>
+<li><code>ab_test_demographics</code>: information about each client.</li>
+<li><code>ab_test_experiment_clients</code>: information on which clients were assigned to the <strong>Control</strong> or <strong>Test</strong> variation.</li>
+</ul>
+<p>Our goal is to merge these datasets and check whether allocation to treatment and control groups is balanced across demographic characteristics.</p>
+<p><strong>(a)</strong> </p>
+<p>Load the two datasets into R by completing the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="w"> </span>
+<span class="n">treatment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">clean_names</span><span class="p">()</span>
+</code></pre></div>
+<p>What problem does <code>clean_names()</code> solve, and how might inconsistent column names affect later steps?</p>
+<p><strong>(b)</strong> </p>
+<p>Merge the treatment indicator variable into the <code>demogs</code> data by completing the code below. We recommend you use an <code>inner_join()</code> to do this.</p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p>What does a join do in this context, and why must these datasets be combined before analysing the experiment?</p>
+<p><strong>(c)</strong> </p>
+<p>Next, we want to inspect and clean the treatment variable. First, use <code>distinct()</code> to find the values that <code>variation</code> takes in our dataset.</p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p>What is this step checking, and why is it important to verify these values before proceeding?</p>
+<p>Second, use <code>drop_na()</code> to remove rows with missing treatment labels.</p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p>Why do we drop these observations?</p>
+<p><strong>(d)</strong> </p>
+<p>In a well-designed experiment, each variation should include comparable types of users. How does this connect back to the idea of random assignment?</p>
+<p><strong>(e)</strong> </p>
+<p>Complete the code below to compare demographic compositions of users across treatments.</p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">st</span><span class="p">(</span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;YOUR_TREATMENT_INDICATOR&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>What is this table helping us assess, and why do we check this before comparing outcomes?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/ab_test_demographics.txt&quot;</span><span class="p">)</span>
+
+<span class="n">treatment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/ab_test_experiment_clients.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">janitor</span><span class="o">::</span><span class="nf">clean_names</span><span class="p">()</span>
+</code></pre></div>
+<p><code>clean_names()</code> standardises column names into a consistent format, usually lowercase with underscores. This is useful because consistent variable names reduce errors and make later joins and data manipulation easier.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">inner_join</span><span class="p">(</span><span class="n">treatment</span><span class="p">,</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">client_id</span><span class="p">))</span>
+</code></pre></div>
+<p>A join combines the demographic data with the treatment assignment data using the common identifier <code>client_id</code>.</p>
+<p>This is necessary because:</p>
+<ul>
+<li>The demographic dataset contains user characteristics</li>
+<li>The treatment dataset contains variation assignment</li>
+</ul>
+<p>We need both in the same dataset before we can compare treatment groups (and so assess balance).</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># view unique values</span>
+<span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| variation &lt;chr&gt; |
+|-----------------|
+| Test            |
+| Control         |
+| NA              |
+</code></pre></div>
+<p>This checks the unique values in the variation variable. It is important because we need to verify that the treatment variable contains usable categories such as “Control” and “Test”, and identify missing or unexpected values.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># drop missing or unusable rows</span>
+<span class="n">demogs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">drop_na</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span>
+</code></pre></div>
+<p>This removes rows where variation is missing. We do this because observations without a valid treatment assignment cannot be used in a treatment-versus-control comparison.</p>
+<p><strong>(d)</strong> In a well-designed experiment, both variations should contain similar types of users. This connects directly to the idea of random assignment — if users are randomly allocated, differences in demographics should appear only by chance. Balanced characteristics increase confidence that later performance differences are due to the new sign-up flow, not underlying user differences.</p>
+<p><strong>(e)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">demogs</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">st</span><span class="p">(</span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;variation&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Summary Statistics
+
+| variation        | Control |        |        | Test  |        |        |
+|------------------|---------|--------|--------|-------|--------|--------|
+| Variable         | N       | Mean   | SD     | N     | Mean   | SD     |
+| clnt_tenure_yr   | 23527   | 12     | 6.9    | 26961 | 12     | 6.8    |
+| clnt_tenure_mnth | 23527   | 151    | 82     | 26961 | 150    | 82     |
+| clnt_age         | 23526   | 47     | 16     | 26961 | 47     | 16     |
+| gendr            | 23527   |        |        | 26961 |        |        |
+| ... F            | 7543    | 32%    |        | 8716  | 32%    |        |
+| ... M            | 7970    | 34%    |        | 8977  | 33%    |        |
+| ... U            | 8014    | 34%    |        | 9266  | 34%    |        |
+| ... X            | 0       | 0%     |        | 2     | 0%     |        |
+| num_accts        | 23527   | 2.3    | 0.54   | 26961 | 2.2    | 0.53   |
+| bal              | 23527   | 150147 | 295807 | 26961 | 148963 | 307374 |
+| calls_6_mnth     | 23527   | 3.1    | 2.2    | 26961 | 3.1    | 2.2    |
+| logons_6_mnth    | 23527   | 6.2    | 2.2    | 26961 | 6.1    | 2.2    |
+</code></pre></div>
+<p>We check balance first because it verifies that the experimental design was implemented credibly. The summary table (<code>st()</code>) should show nearly identical means and proportions across groups. Small random differences are expected, but no systematic gaps should appear.</p>
+<p>If Control and Test differ systematically at baseline, then later differences in completion or behaviour may not be caused by the new sign-up flow. Checking balance first protects the credibility of the causal comparison.</p>
+<h3 id="exercise-3-working-with-web-log-data">Exercise 3: Working with Web Log Data<a class="headerlink" href="#exercise-3-working-with-web-log-data" title="Permanent link">&para;</a></h3>
+<p>Now that you’ve checked that users were randomly assigned to the Test and Control groups, it’s time to examine what they actually did inside the experiment.</p>
+<p>In this step, you’ll work with <strong>event-level data</strong> — information about each time a user interacted with the sign-up process.</p>
+<p><strong>(a)</strong> </p>
+<p>Load and inspect the web log data. The data are split across two files. Run the code below to combine them into one dataset.</p>
+<div class="highlight"><pre><span></span><code><span class="n">weblogs_files</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&#39;data/ab_test_web_data_pt_1.txt&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;data/ab_test_web_data_pt_2.txt&#39;</span>
+<span class="p">)</span>
+
+<span class="n">weblog</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblogs_files</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">map_df</span><span class="p">(</span><span class="n">read_csv</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">)</span>
+</code></pre></div>
+<p>What problem does <code>map_df()</code> solve here, and why might the data be stored across multiple files?</p>
+<p><strong>(b)</strong> </p>
+<p>Explain the structure of the data. What kind of information does each row represent? How is this different from the demographic dataset used earlier?</p>
+<p><strong>(c)</strong> </p>
+<p>A common problem when working with event log data is duplicate rows, where the same information is recorded multiple times.</p>
+<p>Clean the data to remove duplicate rows by completing the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="n">weblog_clean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblog</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p>What might happen if we failed to remove duplicates before computing outcomes?</p>
+<p><strong>(d)</strong> </p>
+<p>Merge the cleaned web log data with the dataset that contains information on which clients are assigned to each treatment. Drop any observations with missing treatment assignments.</p>
+<div class="highlight"><pre><span></span><code><span class="n">weblog_clean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblog_clean</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p>Why do we restrict the dataset to users with valid treatment assignments before analysing behaviour?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">weblogs_files</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&#39;data/ab_test_web_data_pt_1.txt&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;data/ab_test_web_data_pt_2.txt&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="n">weblog</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblogs_files</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">map_df</span><span class="p">(</span><span class="n">read_csv</span><span class="p">)</span>
+
+<span class="nf">glimpse</span><span class="p">(</span><span class="n">weblog</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Rows: 755,405
+Columns: 5
+$ client_id    &lt;dbl&gt; 9988021, 9988021, 9988021, 9988021, 9988021, 9988021, ...
+$ visitor_id   &lt;chr&gt; &quot;580560515_7732621733&quot;, &quot;580560515_7732621733&quot;, ...
+$ visit_id     &lt;chr&gt; &quot;781255054_21935453173_531117&quot;, ...
+$ process_step &lt;chr&gt; &quot;step_3&quot;, &quot;step_2&quot;, &quot;step_3&quot;, &quot;step_2&quot;, &quot;step_3&quot;, ...
+$ date_time    &lt;dttm&gt; 2017-04-17 15:27:07, 2017-04-17 15:26:51, ...
+</code></pre></div>
+<p><code>map_df()</code> applies <code>read_csv()</code> to each file in <code>weblogs_files</code> and then combines the results into one dataset.</p>
+<p>This is useful because it saves us from reading and binding each file manually.</p>
+<p>The data may be stored across multiple files because behavioural datasets are often large, collected in batches, or split for storage and processing reasons.</p>
+<p><strong>(b)</strong></p>
+<p>Each row represents a single user (<code>client_id</code>) taking some action (<code>process_step</code>) at a particular point in time (<code>date_time</code>).</p>
+<p>This differs from the demographic dataset because:</p>
+<ul>
+<li>the demographic data are user-level, with one row per client</li>
+<li>the web log data are event-level, with multiple rows per client possible</li>
+</ul>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">weblog_clean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblog</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">()</span>
+</code></pre></div>
+<p><code>distinct()</code> drops any exact duplicate rows — ensuring that the same event isn’t counted twice.</p>
+<p>Removing duplicates prevents over-counting when later computing events per user or funnel completion rates.</p>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">weblog_clean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblog_clean</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">inner_join</span><span class="p">(</span><span class="n">treatment</span><span class="p">,</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">client_id</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">drop_na</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span>
+</code></pre></div>
+<p>Joining these data sets allows us to compare behaviour across the Test and Control groups.</p>
+<p><code>drop_na(variation)</code> removes observations without a valid treatment label. We restrict the dataset to users with valid treatment assignments because:</p>
+<ul>
+<li>only those users belong to the experiment in a usable way</li>
+<li>observations without treatment status cannot be placed in Control or Test</li>
+<li>keeping them would weaken the credibility of later comparisons</li>
+</ul>
+<h2 id="in-class-exercises">In-Class Exercises<a class="headerlink" href="#in-class-exercises" title="Permanent link">&para;</a></h2>
+<p>You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above, you will get the most value from the class if you have completed those above before coming to class.</p>
+<h3 id="exercise-4-measuring-funnel-completion">Exercise 4: Measuring Funnel Completion<a class="headerlink" href="#exercise-4-measuring-funnel-completion" title="Permanent link">&para;</a></h3>
+<p>Now that we’ve linked event-level data with the experimental information, let’s create our first outcome measure: <strong>funnel completion</strong>.</p>
+<p>Each client goes through a series of process steps (for example, <code>start</code>, <code>step_1</code>, <code>step_2</code>, <code>confirm</code>).<br />
+A funnel <em>completion</em> occurs if the client reaches the final step, <code>"confirm"</code>.</p>
+<p><strong>(a)</strong> </p>
+<p>Compute a client-level indicator for whether each client completed the funnel by completing the code below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_by_visitor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span>
+<span class="w">    </span><span class="n">completed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">any</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;confirm&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>What does <code>any()</code> do here, and why must we aggregate from event-level data to client-level outcomes?</p>
+<p><strong>(b)</strong> </p>
+<p>We want to see if the new sign-up process is more effective. Therefore, we first need to summarise completion rates by treatment.</p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_summary</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">completes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">total</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pct</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">completes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>What do <code>completes</code>, <code>total</code>, and <code>pct</code> represent, and why do we summarize at the treatment-group level?</p>
+<p><strong>(c)</strong> </p>
+<p>Create a simple visual to compare completion rates across the two variations. Use a bar chart to display the percentage of users who completed the funnel.</p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">pct</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)),</span><span class="w"> </span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Funnel Completion Rate by Variation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Completion Rate (%)&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>What does this visual add beyond the table, and why is a simple chart often preferred in a business setting?</p>
+<p><strong>(d)</strong> </p>
+<p>Complete the code below to compute and interpret the ‘effect’ of the new sign-up process on completion. Use <code>lag()</code> to compare the Test group to the previous row after ordering the summary table.</p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_diff</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">)</span>
+
+<span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pct_change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>Because the Control row has no previous row, the <code>lag()</code> result for Control will be missing. Report the Test row’s difference.</p>
+<p>By how many percentage points did the change in sign-up process influence completions? What is the difference in percentage points and percent change, and why do we typically report percentage points in this setting?</p>
+<p><strong>(e)</strong> </p>
+<p>Complete the code below to express the effect size in standard deviation units.</p>
+<div class="highlight"><pre><span></span><code><span class="n">diff_rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">completion_diff</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">pull</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">100</span>
+
+<span class="n">control_sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">completion_by_visitor</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">sd_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">pull</span><span class="p">(</span><span class="n">sd_rate</span><span class="p">)</span>
+
+<span class="n">diff_sd_units</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">diff_rate</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">control_sd</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">diff_sd_units</span><span class="p">)</span>
+</code></pre></div>
+<p>What does dividing by the standard deviation tell us about the size of the effect? What does this help us better understand?</p>
+<p><strong>(f)</strong> </p>
+<p>Would you consider this a small, moderate, or large effect in a typical online experiment? Explain your answer.</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_by_visitor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">weblog_clean</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">variation</span><span class="p">,</span><span class="w"> </span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">completed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">any</span><span class="p">(</span><span class="n">process_step</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;confirm&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>any(process_step == "confirm")</code> condition checks whether a client ever reached the “confirm” step.</p>
+<p>This converts multiple event-level rows into a single user-level outcome:</p>
+<ul>
+<li>TRUE if the user completed the funnel</li>
+<li>FALSE otherwise</li>
+</ul>
+<p>We aggregate because the data are recorded at the event level, but the outcome of interest is defined at the user level.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_summary</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">completion_by_visitor</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">completes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">completed</span><span class="p">),</span>
+<span class="w">    </span><span class="n">total</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">pct</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">completes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">.groups</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;drop&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>This summary table provides the key comparison for the experiment.</p>
+<p>We have the following arguments inside <code>summarise()</code>:</p>
+<ul>
+<li><code>completes</code> = number of users who completed</li>
+<li><code>total</code> = number of users in each group</li>
+<li><code>pct</code> = percentage of users who completed</li>
+</ul>
+<p>We summarise at the treatment-group level to compare outcomes between Control and Test.</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variation</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pct</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variation</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_col</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">pct</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)),</span><span class="w"> </span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Funnel Completion Rate by Variation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Completion Rate (%)&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div align="center">
+  <img src="../p1.png" width="600">
+</div>
+
+<p>The plot visually compares completion rates across variations.</p>
+<p>Bars make it easy to see which variation performs better and by how much.</p>
+<p>Adding text labels helps decision-makers read exact percentages directly from the chart.</p>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">completion_diff</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">  </span><span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pct</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">lag</span><span class="p">(</span><span class="n">pct</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">last</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="p">))</span>
+
+<span class="n">completion_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">variation</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">pct_change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pct</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">lag</span><span class="p">(</span><span class="n">pct</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">lag</span><span class="p">(</span><span class="n">pct</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| variation &lt;chr&gt; | completes &lt;int&gt; | total &lt;int&gt; | pct &lt;dbl&gt; | pct_change &lt;dbl&gt; |
+|-----------------|-----------------|-------------|-----------|------------------|
+| Control         | 15434           | 23532       | 65.58729  | NA               |
+| Test            | 18687           | 26968       | 69.29324  | 5.650411         |
+</code></pre></div>
+<p>The difference in completion rates (in percentage points) represents the estimated effect of the new sign-up flow.</p>
+<p>After ordering the rows so that Control comes before Test, <code>lag()</code> uses the Control completion rate as the comparison point for the Test row.</p>
+<p>If Control = 65.6 and Test = 69.3%, then the Test version increased completions by 3.7 percentage points, or ~5.6%.</p>
+<p>We report percentage points because:</p>
+<ul>
+<li>they measure absolute differences in rates</li>
+<li>they are clearer and standard in business settings</li>
+</ul>
+<p>Because treatment was randomly assigned and balance was confirmed earlier, this difference can be interpreted as the causal effect of the new design.</p>
+<p><strong>(e)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">diff_rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">completion_diff</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">    </span><span class="nf">pull</span><span class="p">(</span><span class="n">diff_pct_points</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">100</span>
+
+<span class="n">control_sd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span>
+<span class="w">    </span><span class="n">completion_by_visitor</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">filter</span><span class="p">(</span><span class="n">variation</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Control&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">summarise</span><span class="p">(</span><span class="n">sd_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">completed</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">pull</span><span class="p">(</span><span class="n">sd_rate</span><span class="p">)</span>
+
+<span class="n">diff_sd_units</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">diff_rate</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">control_sd</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">diff_sd_units</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] 0.07800477
+</code></pre></div>
+<p>This expresses the treatment effect in standard deviation units.</p>
+<ul>
+<li><code>control_sd</code> measures the natural variation in completion outcomes.</li>
+<li>Dividing the effect by the SD shows how large the effect is relative to that variation.</li>
+</ul>
+<p>An effect of around 0.08 SD is small in statistical terms but typical for online experiments.</p>
+<p>This provides a scale-free measure of magnitude, helping us judge whether the effect is meaningful beyond just the raw percentage-point difference.</p>
+<p><strong>(f)</strong></p>
+<p>The effect is small in statistical terms (~0.08 SD), but can still be economically meaningful.</p>
+<p>For example: </p>
+<ul>
+<li>
+<p>If 1,000,000 users go through the process, a 3.7 p.p. increase yields ≈ 37,000 additional completions.</p>
+</li>
+<li>
+<p>If each completion is worth:</p>
+<ul>
+<li>$10 → ≈ $370,000</li>
+<li>$50 → ≈ $1.85 million</li>
+</ul>
+</li>
+</ul>
+<p>Even modest improvements in conversion can therefore generate large gains at scale.</p>
+<h3 id="exercise-5-communicating-experimental-insights">Exercise 5: Communicating Experimental Insights<a class="headerlink" href="#exercise-5-communicating-experimental-insights" title="Permanent link">&para;</a></h3>
+<p>Now we need to translate your analytical results into a short executive brief written for a business audience.</p>
+<p>Your goal is to communicate <em>what was tested</em>, <em>what happened</em>, and <em>what the company should do next</em> — clearly and persuasively, without technical detail.</p>
+<p>WarningInstructions</p>
+<p><strong>Length:</strong> 400 words.<br />
+<strong>Exhibit:</strong> 1 table <strong>or</strong> figure.</p>
+<p>Write this as an <strong>executive brief</strong> to be read and understood by managers.</p>
+<ul>
+<li>Bullets must be written as <strong>full sentences</strong>.</li>
+<li>Use the writing principles from <em>Write Like an Amazonian</em> — short, declarative sentences; clarity before style.</li>
+<li><strong>No visible code</strong> in the brief.</li>
+<li>Do <strong>not</strong> produce new analysis, tables, or figures in this section — use the results already created in Exercise 4.</li>
+</ul>
+<p>INSERT YOUR FIGURE OR TABLE HERE - For example: your completion-rate comparison chart or summary table from Exercise 4.</p>
+<ol>
+<li>
+<p><strong>Executive Summary</strong> - Summarise in 3-4 sentences:</p>
+<ul>
+<li>The business problem</li>
+<li>The intervention</li>
+<li>The key result</li>
+<li>Why it matters (economic significance)</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Insights</strong></p>
+<ul>
+<li>Up to <strong>3 bullets</strong> describing what the data and analysis show.</li>
+<li>Use clear, declarative statements to describe what the data show.</li>
+<li>Report results in percentage points</li>
+<li>Avoid technical language</li>
+</ul>
+</li>
+<li>
+<p><strong>Business Implications</strong></p>
+<ul>
+<li>Up to <strong>3 bullets</strong> on why these findings matter for the organisation.</li>
+<li>Connect the analytics result back to strategic goals.</li>
+</ul>
+</li>
+<li>
+<p><strong>Recommended Actions</strong></p>
+<ul>
+<li>Up to <strong>3 bullets</strong> outlining clear, actionable next steps.</li>
+<li>Recommendations should be specific, realistic, and aligned with business priorities.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Solution</strong></p>
+<p>There is no unique correct answer, but the following is a strong example of how to answer this question.</p>
+<ol>
+<li>
+<p><strong>Executive Summary:</strong> We tested a new sign-up flow required for users to access a personalised insights dashboard. We randomly assigned users to the existing (Control) or redesigned (Test) flow. The new flow increased completion rates from 65.6% to 69.3%, a 3.7 percentage-point improvement. While modest, this uplift is meaningful at scale and supports adopting the new design.</p>
+</li>
+<li>
+<p><strong>Key Insights</strong></p>
+<ul>
+<li>Completion rates were 3.7 percentage points higher in the Test group than in Control.</li>
+<li>This represents a consistent, real-world improvement typical of successful online experiments.</li>
+<li>The results suggest the redesigned flow reduces friction and improves user progression through the funnel.</li>
+</ul>
+</li>
+<li>
+<p><strong>Business Implications</strong></p>
+<ul>
+<li>Higher completion enables more users to access the dashboard, increasing engagement and product usage.</li>
+<li>Even small improvements in conversion can generate large gains when applied across a large user base.</li>
+<li>Improved user experience reduces the risk of drop-off during critical onboarding steps.</li>
+</ul>
+</li>
+<li>
+<p><strong>Recommended Actions</strong>  </p>
+<ul>
+<li>Roll out the new sign-up flow to all users.</li>
+<li>Monitor downstream metrics (e.g. engagement, retention) to confirm sustained impact.</li>
+<li>Conduct follow-up tests to identify which design elements drove the improvement.</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercise-6-understanding-mid-funnel-outcomes">Exercise 6: Understanding Mid-Funnel Outcomes<a class="headerlink" href="#exercise-6-understanding-mid-funnel-outcomes" title="Permanent link">&para;</a></h3>
+<p>After reviewing your executive brief, one manager comments: "This tells me how many users finished the sign-up flow — but I want to understand what happened in the middle. Where exactly are we gaining or losing customers?"</p>
+<p><strong>(a)</strong> </p>
+<p>What does the manager mean by “mid-funnel outcomes”? How are these different from overall completion rates?</p>
+<p><strong>(b)</strong> </p>
+<p>Why might focusing only on completions hide important insights about customer experience or friction points?</p>
+<p><strong>(c)</strong> </p>
+<p>Using the same event-level data, how could you explore mid-funnel performance? Describe two or three possible approaches (e.g. visual summaries or simple metrics).</p>
+<p>How does the structure of event-level data (multiple rows per user) enable this type of analysis?</p>
+<p><strong>(d)</strong> </p>
+<p>What kinds of business questions could mid-funnel analysis help answer that top-line completion rates cannot?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>“Mid-funnel outcomes” refer to the intermediate steps users take before reaching the final confirmation — such as start → step 1 → step 2 → confirm. Instead of only asking who finished (which summarises behaviour into a single final outcome), the manager wants to know where users drop off or loop back inside the process.</p>
+<p><strong>(b)</strong></p>
+<p>Completion rates compress all behaviour into one number.</p>
+<p>A process could improve completion overall, but still introduce friction at specific steps. Without mid-funnel analysis, we cannot see where users struggle or whether improvements come at the cost of a worse experience elsewhere.</p>
+<p><strong>(c)</strong></p>
+<p>Because each user generates multiple rows of data, we can reconstruct their path through the funnel and analyse behaviour at each stage. Possible intuitive approaches (that are feasible with this data):</p>
+<ul>
+<li>Step-level conversion chart: show the percentage of users moving from each step to the next (e.g., 100% start → 90% step 1 → 75% step 2 → 69% confirm).</li>
+<li>Drop-off table or waterfall plot: visualise where the biggest losses occur.</li>
+<li>“Go-back” rate: count how often users return to earlier steps as a proxy for confusion or friction.</li>
+<li>Average steps completed: compare how far users get, on average, before quitting.</li>
+</ul>
+<p><strong>(d)</strong></p>
+<p>Mid-funnel analysis helps answer questions such as:</p>
+<ul>
+<li>Which specific steps are causing users to drop off?</li>
+<li>Does the new design improve early steps but worsen later ones?</li>
+<li>Are certain user groups struggling at particular stages?</li>
+<li>Where should the team focus improvements for the greatest impact?</li>
+</ul>
+<p>These insights cannot be obtained from completion rates alone, because they require understanding behaviour within the process.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "toc.follow", "toc.sticky"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

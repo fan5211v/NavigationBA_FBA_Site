@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCA 降维可视化 — 2D → 1D</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#ffffff;color:#1a1a1a;padding:2rem 1rem;min-height:100vh;}
+.container{max-width:860px;margin:0 auto;}
+header{margin-bottom:1.5rem;}
+header h1{font-size:1.5rem;font-weight:600;letter-spacing:-0.02em;}
+header p{font-size:0.88rem;color:#666;margin-top:0.3rem;}
+.top-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.top-row label{font-size:13px;color:#666;}
+button{padding:6px 16px;font-size:12px;font-weight:500;border-radius:8px;border:1px solid #d0cec9;background:#fff;color:#333;cursor:pointer;transition:background 0.15s;}
+button:hover{background:#f2f0ec;}
+button.active{background:#2c2c2a;color:#fff;border-color:#2c2c2a;}
+.canvases{display:flex;gap:12px;align-items:flex-start;}
+.panel{flex:1;min-width:0;}
+.panel-label{font-size:11px;color:#888;margin-bottom:5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;}
+canvas{display:block;width:100%;border:1px solid #e5e3de;border-radius:8px;background:#fff;}
+.stat-row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.stat{background:#f5f4f0;border-radius:8px;padding:8px 12px;flex:1;min-width:100px;}
+.stat-label{font-size:11px;color:#888;margin-bottom:2px;}
+.stat-val{font-size:17px;font-weight:500;color:#111;}
+.hint{font-size:12px;color:#777;margin-top:8px;line-height:1.6;padding:8px 12px;background:#f9f8f6;border-radius:8px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>PCA 降维可视化 — 2D → 1D</h1>
+    <p>手动拖动投影方向，或让 PCA 自动找到最优方向</p>
+  </header>
+  <div class="top-row">
+    <label>投影方式：</label>
+    <button id="btnManual" class="active">手动拖动</button>
+    <button id="btnPCA">自动 PCA</button>
+    <button id="btnRegen" style="margin-left:auto;">重新生成</button>
+  </div>
+  <div class="canvases">
+    <div class="panel" style="flex:1.4;">
+      <div class="panel-label">二维空间（左右拖动旋转直线）</div>
+      <canvas id="c2d" height="300"></canvas>
+    </div>
+    <div class="panel" style="flex:0.6;">
+      <div class="panel-label">投影后一维分布</div>
+      <canvas id="c1d" height="300"></canvas>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-label">保留方差</div><div class="stat-val" id="varPct">—</div></div>
+    <div class="stat"><div class="stat-label">投影误差</div><div class="stat-val" id="mse">—</div></div>
+    <div class="stat"><div class="stat-label">当前模式</div><div class="stat-val" id="modeLabel" style="font-size:13px;">手动</div></div>
+  </div>
+  <div class="hint" id="hint">在左图中按住并左右拖动来旋转投影直线，右图纵轴范围固定，点越分散（范围越大）说明保留信息越多。</div>
+</div>
+<script>
+const c2d=document.getElementById('c2d');
+const c1d=document.getElementById('c1d');
+const ctx2=c2d.getContext('2d');
+const ctx1=c1d.getContext('2d');
+let W2=0,H2=300,W1=0,H1=300;
+let points=[],angle=Math.PI/5,pcaAngle=0;
+let mode='manual',dragging=false,dragStartX=0,dragStartAngle=0;
+let animFrame=null,animAngle=null,globalAxisRange=3;
+
+function seededRand(seed){
+  let s=seed>>>0;
+  return ()=>{s=(Math.imul(1664525,s)+1013904223)>>>0;return s/4294967296;};
+}
+
+function generatePoints(seed){
+  const r=seededRand(seed||((Date.now()*1234567)&0xffff));
+  const pts=[],a=r()*Math.PI,cos=Math.cos(a),sin=Math.sin(a);
+  for(let i=0;i<40;i++){
+    const u=(r()-0.5)*3.5,v=(r()-0.5)*0.7;
+    pts.push({x:cos*u-sin*v,y:sin*u+cos*v});
+  }
+  return pts;
+}
+
+function computeGlobalRange(pts){
+  let maxR=0;
+  for(let a=0;a<Math.PI;a+=0.05){
+    const projs=pts.map(p=>p.x*Math.cos(a)+p.y*Math.sin(a));
+    const span=Math.max(...projs)-Math.min(...projs);
+    if(span>maxR)maxR=span;
+  }
+  return maxR/2*1.2;
+}
+
+function computePCA(pts){
+  const mx=pts.reduce((s,p)=>s+p.x,0)/pts.length;
+  const my=pts.reduce((s,p)=>s+p.y,0)/pts.length;
+  let xx=0,xy=0,yy=0;
+  for(const p of pts){const dx=p.x-mx,dy=p.y-my;xx+=dx*dx;xy+=dx*dy;yy+=dy*dy;}
+  xx/=pts.length;xy/=pts.length;yy/=pts.length;
+  const tr=xx+yy,det=xx*yy-xy*xy;
+  const l1=tr/2+Math.sqrt(Math.max(0,tr*tr/4-det));
+  const ex=l1-yy,ey=xy,len=Math.sqrt(ex*ex+ey*ey)||1;
+  return Math.atan2(ey/len,ex/len);
+}
+
+function toC2(x,y){const s=Math.min(W2,H2)/6;return[W2/2+x*s,H2/2-y*s];}
+function getAng(){return animAngle!==null?animAngle:(mode==='pca'?pcaAngle:angle);}
+function project(p,ang){return p.x*Math.cos(ang)+p.y*Math.sin(ang);}
+
+function draw(){
+  if(!W2)return;
+  const ang=getAng(),s=Math.min(W2,H2)/6,cx=W2/2,cy=H2/2;
+  ctx2.clearRect(0,0,W2,H2);ctx2.fillStyle='#ffffff';ctx2.fillRect(0,0,W2,H2);
+  ctx2.strokeStyle='rgba(0,0,0,0.07)';ctx2.lineWidth=1;
+  ctx2.beginPath();ctx2.moveTo(0,cy);ctx2.lineTo(W2,cy);ctx2.stroke();
+  ctx2.beginPath();ctx2.moveTo(cx,0);ctx2.lineTo(cx,H2);ctx2.stroke();
+  const ext=Math.max(W2,H2)/s*0.9;
+  const lineColor=(mode==='pca'&&animAngle===null)?'#1D9E75':'#378ADD';
+  ctx2.strokeStyle=lineColor;ctx2.lineWidth=2;
+  ctx2.beginPath();
+  ctx2.moveTo(cx+Math.cos(ang)*ext*s,cy-Math.sin(ang)*ext*s);
+  ctx2.lineTo(cx-Math.cos(ang)*ext*s,cy+Math.sin(ang)*ext*s);
+  ctx2.stroke();
+  const projs=points.map(p=>project(p,ang));
+  const totalVar=(()=>{
+    const mx=points.reduce((a,p)=>a+p.x,0)/points.length;
+    const my=points.reduce((a,p)=>a+p.y,0)/points.length;
+    return points.reduce((a,p)=>a+(p.x-mx)**2+(p.y-my)**2,0)/points.length;
+  })();
+  const pm=projs.reduce((a,p)=>a+p,0)/projs.length;
+  const pv=projs.reduce((a,p)=>a+(p-pm)**2,0)/projs.length;
+  const mse=points.reduce((a,p,i)=>{
+    const pr=projs[i];return a+(p.x-Math.cos(ang)*pr)**2+(p.y-Math.sin(ang)*pr)**2;
+  },0)/points.length;
+  document.getElementById('varPct').textContent=(totalVar>0?Math.round(pv/totalVar*100):0)+'%';
+  document.getElementById('mse').textContent=mse.toFixed(2);
+  for(let i=0;i<points.length;i++){
+    const p=points[i],pr=projs[i];
+    const[px,py]=toC2(p.x,p.y);
+    const pfx=cx+Math.cos(ang)*pr*s,pfy=cy-Math.sin(ang)*pr*s;
+    ctx2.strokeStyle='rgba(55,138,221,0.2)';ctx2.lineWidth=1;
+    ctx2.setLineDash([3,3]);
+    ctx2.beginPath();ctx2.moveTo(px,py);ctx2.lineTo(pfx,pfy);ctx2.stroke();
+    ctx2.setLineDash([]);
+    ctx2.fillStyle='rgba(127,119,221,0.85)';
+    ctx2.beginPath();ctx2.arc(px,py,5,0,Math.PI*2);ctx2.fill();
+    ctx2.fillStyle=(mode==='pca'&&animAngle===null)?'rgba(29,158,117,0.7)':'rgba(55,138,221,0.5)';
+    ctx2.beginPath();ctx2.arc(pfx,pfy,3.5,0,Math.PI*2);ctx2.fill();
+  }
+  const endx=cx+Math.cos(ang)*ext*s,endy=cy-Math.sin(ang)*ext*s;
+  ctx2.fillStyle=lineColor;ctx2.beginPath();ctx2.arc(endx,endy,7,0,Math.PI*2);ctx2.fill();
+  ctx2.fillStyle='#fff';ctx2.font='bold 9px sans-serif';
+  ctx2.textAlign='center';ctx2.textBaseline='middle';ctx2.fillText('PC1',endx,endy);
+  ctx1.clearRect(0,0,W1,H1);ctx1.fillStyle='#ffffff';ctx1.fillRect(0,0,W1,H1);
+  const mg=28,axisRange=globalAxisRange;
+  const toY=v=>mg+(1-(v+axisRange)/(2*axisRange))*(H1-2*mg);
+  ctx1.strokeStyle='rgba(0,0,0,0.1)';ctx1.lineWidth=1;
+  ctx1.beginPath();ctx1.moveTo(W1/2,mg);ctx1.lineTo(W1/2,H1-mg);ctx1.stroke();
+  const tickVals=[-2,-1,0,1,2].filter(v=>Math.abs(v)<=axisRange*0.95);
+  ctx1.fillStyle='rgba(0,0,0,0.3)';ctx1.font='10px sans-serif';
+  ctx1.textAlign='right';ctx1.textBaseline='middle';
+  for(const v of tickVals){
+    const y=toY(v);
+    ctx1.beginPath();ctx1.moveTo(W1/2-4,y);ctx1.lineTo(W1/2,y);ctx1.stroke();
+    ctx1.fillText(v.toFixed(0),W1/2-7,y);
+  }
+  const dotColor=(mode==='pca'&&animAngle===null)?'#1D9E75':'#378ADD';
+  for(let i=0;i<points.length;i++){
+    const pr=projs[i],y=toY(pr);
+    const jitter=(((i*2654435761)&0xffff)/0xffff-0.5)*16;
+    ctx1.globalAlpha=0.8;ctx1.fillStyle=dotColor;
+    ctx1.beginPath();ctx1.arc(W1/2+jitter,y,4.5,0,Math.PI*2);ctx1.fill();
+  }
+  ctx1.globalAlpha=1;
+  const spread=Math.max(...projs)-Math.min(...projs);
+  ctx1.fillStyle='rgba(0,0,0,0.25)';ctx1.font='10px sans-serif';ctx1.textAlign='center';
+  ctx1.fillText('分布范围: '+spread.toFixed(2),W1/2,H1-8);
+}
+
+function resize(){
+  W2=c2d.parentElement.clientWidth;c2d.width=W2;c2d.height=H2;
+  W1=c1d.parentElement.clientWidth;c1d.width=W1;c1d.height=H1;draw();
+}
+
+function getCanvasX(e){
+  const r=c2d.getBoundingClientRect(),scaleX=c2d.width/r.width;
+  const src=e.touches?e.touches[0]:e;
+  return(src.clientX-r.left)*scaleX;
+}
+
+c2d.addEventListener('mousedown',e=>{if(mode!=='manual')return;dragging=true;dragStartX=getCanvasX(e);dragStartAngle=angle;e.preventDefault();});
+c2d.addEventListener('touchstart',e=>{if(mode!=='manual')return;dragging=true;dragStartX=getCanvasX(e);dragStartAngle=angle;e.preventDefault();},{passive:false});
+window.addEventListener('mousemove',e=>{if(!dragging)return;angle=dragStartAngle+(getCanvasX(e)-dragStartX)*0.012;draw();});
+window.addEventListener('touchmove',e=>{if(!dragging)return;angle=dragStartAngle+(getCanvasX(e)-dragStartX)*0.012;draw();e.preventDefault();},{passive:false});
+window.addEventListener('mouseup',()=>{dragging=false;});
+window.addEventListener('touchend',()=>{dragging=false;});
+c2d.style.cursor='ew-resize';
+
+function animateTo(target){
+  if(animFrame)cancelAnimationFrame(animFrame);
+  const start=angle;let diff=target-start;
+  while(diff>Math.PI/2)diff-=Math.PI;
+  while(diff<-Math.PI/2)diff+=Math.PI;
+  let t=0;
+  function step(){
+    t+=0.045;
+    if(t>=1){animAngle=null;angle=target;draw();return;}
+    const ease=t<0.5?2*t*t:-1+(4-2*t)*t;
+    animAngle=start+diff*ease;draw();animFrame=requestAnimationFrame(step);
+  }
+  step();
+}
+
+document.getElementById('btnManual').addEventListener('click',()=>{
+  mode='manual';animAngle=null;if(animFrame){cancelAnimationFrame(animFrame);animFrame=null;}
+  document.getElementById('btnManual').classList.add('active');
+  document.getElementById('btnPCA').classList.remove('active');
+  document.getElementById('modeLabel').textContent='手动';
+  document.getElementById('hint').textContent='按住画布左右拖动旋转直线。右图纵轴范围固定，点越分散（范围越大）说明保留信息越多。';
+  draw();
+});
+document.getElementById('btnPCA').addEventListener('click',()=>{
+  mode='pca';
+  document.getElementById('btnPCA').classList.add('active');
+  document.getElementById('btnManual').classList.remove('active');
+  document.getElementById('modeLabel').textContent='PCA 最优';
+  document.getElementById('hint').textContent='PCA 找到方差最大的方向（绿线），此时投影分布最散、范围最大，保留的信息最多。';
+  pcaAngle=computePCA(points);animateTo(pcaAngle);
+});
+document.getElementById('btnRegen').addEventListener('click',()=>{
+  points=generatePoints();angle=Math.PI/5;globalAxisRange=computeGlobalRange(points);
+  if(mode==='pca'){pcaAngle=computePCA(points);animateTo(pcaAngle);}else draw();
+});
+
+points=generatePoints(42);
+globalAxisRange=computeGlobalRange(points);
+setTimeout(resize,30);
+window.addEventListener('resize',()=>setTimeout(resize,50));
+</script>
+</body>
+</html>

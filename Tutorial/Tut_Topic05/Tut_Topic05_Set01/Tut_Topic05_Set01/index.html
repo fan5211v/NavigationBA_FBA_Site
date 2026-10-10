@@ -1,0 +1,6543 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Foundations of Business Analytics">
+      
+      
+      
+        <link rel="canonical" href="https://NavigationBA.github.io/NavigationBA_FBA/Tutorial/Tut_Topic05/Tut_Topic05_Set01/Tut_Topic05_Set01/">
+      
+      
+        <link rel="prev" href="../../../Tut_Topic04/Tut_Topic04_Set01/Tut_Topic04_Set01/">
+      
+      
+        <link rel="next" href="../../../Tut_Topic06/Tut_Topic06_Set01/Tut_Topic06_Set01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>📝 Tut Topic 05 Set 01 - Foundations of Business Analytics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-topic-05-set-01-shaping-and-joining-data-for-business-analytics" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-header__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foundations of Business Analytics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📝 Tut Topic 05 Set 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Topics/Topic01/Topic01_00/Topic01_00/" class="md-tabs__link">
+          
+  
+  
+  Topics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Tut_Topic01/Tut_Topic01_Set01/Tut_Topic01_Set01/" class="md-tabs__link">
+          
+  
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Quiz/Quiz_Topic03/Quiz_Topic03/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Mid/Mid_01/Mid_01/" class="md-tabs__link">
+          
+  
+  
+  Mid Exam
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-tabs__link">
+          
+  
+  
+  Assignments
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-tabs__link">
+          
+  
+  
+  Final Exam
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Foundations of Business Analytics" class="md-nav__button md-logo" aria-label="Foundations of Business Analytics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Foundations of Business Analytics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1 - 商业分析简介
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 1 - 商业分析简介
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_00/Topic01_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 1 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_01/Topic01_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.1 - 商业分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_02/Topic01_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.2 - 商业分析师的核心技能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic01/Topic01_03/Topic01_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 1.3 - 商业分析中的伦理问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2 - R 语言基本介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 2 - R 语言基本介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_00/Topic02_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 2 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_01/Topic02_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.1 - R 语言简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_02/Topic02_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.2 - R 代码运行的方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_03/Topic02_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.3 - R 语言的基本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_04/Topic02_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.4 - R 中的数据类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic02/Topic02_05/Topic02_05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 2.5 - R 中的数据结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3 - R 数据可视化
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 3 - R 数据可视化
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_00/Topic03_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 3 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_01/Topic03_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.1 - 数据可视化的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_02/Topic03_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.2 - R 数据可视化基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_03/Topic03_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.3 - R 中图像的修饰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic03/Topic03_04/Topic03_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 3.4 - 完整的图像构建展示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4 - R 数据整理
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 4 - R 数据整理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_00/Topic04_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 4 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_01/Topic04_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.1 - 数据筛选与排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_02/Topic04_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.2 - 数据列操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic04/Topic04_03/Topic04_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 4.3 - 数据分组统计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5 - 数据整理：数据重塑与连接
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 5 - 数据整理：数据重塑与连接
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic05/Topic05_01/Topic05_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 5.1 - 数据重构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic05/Topic05_02/Topic05_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 5.2 - 数据连接
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6 - R 数据类型
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 6 - R 数据类型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_00/Topic06_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 6 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_01/Topic06_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.1 - 数据类型划分概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_02/Topic06_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.2 - 横截面数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_03/Topic06_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.3 - 时间序列数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_04/Topic06_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 6.4 - 面板数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_Extension01/Topic06_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 6 Extension 1 - 获取金融数据：单只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic06/Topic06_Extension02/Topic06_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 6 Extension 2 - 获取金融数据：多只股票
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 7 - 数据分析 - 描述性分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 7 - 数据分析 - 描述性分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_00/Topic07_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 7 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_01/Topic07_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.1 - 描述性分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_02/Topic07_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.2 - 基于规则的分群方法 - RFM 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_03/Topic07_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 7.3 - 基于数据的分群方法 - K-Means 分群
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_Extension01/Topic07_Extension01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 7 Extension 1 - K-Means 聚类算法详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic07/Topic07_Extension02/Topic07_Extension02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ☑️ Topic 7 Extension 2 - K-Means 与 PCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 8 - 数据分析 - 因果分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 8 - 数据分析 - 因果分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_00/Topic08_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 8 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_01/Topic08_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.1 - 因果分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_02/Topic08_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.2 - 基于模型的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic08/Topic08_03/Topic08_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 8.3 - 基于设计的推断
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 9 - 数据分析 - 预测分析
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 9 - 数据分析 - 预测分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_00/Topic09_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 9 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_01/Topic09_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.1 - 预测分析的概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_02/Topic09_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.2 - 预测分析的方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic09/Topic09_03/Topic09_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 9.3 - 预测分析的评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10 - 数据存储
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10 - 数据存储
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_00/Topic10_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 10 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_01/Topic10_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.1 - 数据存储方式概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_02/Topic10_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.2 - 数据存储：电子表格与平面文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_03/Topic10_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.3 - 数据存储：JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic10/Topic10_04/Topic10_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 10.4 - 数据存储：数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11 - 数据获取
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11 - 数据获取
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_00/Topic11_00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✴️ Topic 11 - 章节概览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_01/Topic11_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 11.1 - 数据的三种类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Topics/Topic11/Topic11_02/Topic11_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✅ Topic 11.2 - 使用 API 获取数据
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic01/Tut_Topic01_Set01/Tut_Topic01_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 01 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic02/Tut_Topic02_Set01/Tut_Topic02_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 02 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic03/Tut_Topic03_Set01/Tut_Topic03_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 03 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic04/Tut_Topic04_Set01/Tut_Topic04_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 04 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 05 Set 01
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 05 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Business Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-topic-what-shapes-how-the-market-values-australian-firms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Topic: What shapes how the market values Australian firms?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-packages-for-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R packages for today
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-identifying-issues-with-untidy-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Identifying Issues with Untidy Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-combining-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Combining Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-tidying-data-to-make-analysis-easier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Tidying Data to Make Analysis Easier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-adding-pe-ratios-with-a-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Adding P/E Ratios with a Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-comparing-industries-with-grouped-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Comparing Industries with Grouped Summaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-6-auditing-missing-pe-ratios-before-an-analytics-meeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 6: Auditing Missing P/E Ratios Before an Analytics Meeting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic06/Tut_Topic06_Set01/Tut_Topic06_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 06 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic07/Tut_Topic07_Set01/Tut_Topic07_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 07 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic08/Tut_Topic08_Set01/Tut_Topic08_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 08 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic09/Tut_Topic09_Set01/Tut_Topic09_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 09 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic10/Tut_Topic10_Set01/Tut_Topic10_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 10 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tut_Topic11/Tut_Topic11_Set01/Tut_Topic11_Set01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Tut Topic 11 Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quiz
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic03/Quiz_Topic03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic04/Quiz_Topic04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic05/Quiz_Topic05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic06/Quiz_Topic06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic07/Quiz_Topic07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 08
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 08
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic08/Quiz_Topic08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 09
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 09
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic09/Quiz_Topic09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic10/Quiz_Topic10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic11/Quiz_Topic11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic 12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Quiz/Quiz_Topic12/Quiz_Topic12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Quiz Topic 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mid Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mid Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Mid/Mid_01/Mid_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Mid Exam Question Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment - Expedia Case
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Assignment - Expedia Case
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Assign/Assign_Expedia/Assign_Demo1/Assign_Demo1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Expedia Case Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Exam
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Final Exam
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Choice Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multiple Choice Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_01/MC_Set_01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_02/MC_Set_02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_03/MC_Set_03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/MC_Questions/MC_Set_04/MC_Set_04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Multiple Choice Questions Set 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Short Answer Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Short Answer Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q01/ES_Q01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q02/ES_Q02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q03/ES_Q03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Final/ES_Questions/ES_Q04/ES_Q04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ✏️ Short Answer Questions 04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-business-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Business Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Business Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-topic-what-shapes-how-the-market-values-australian-firms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Topic: What shapes how the market values Australian firms?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-packages-for-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R packages for today
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-these-exercises-before-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare these Exercises before Class
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare these Exercises before Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-identifying-issues-with-untidy-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Identifying Issues with Untidy Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-combining-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Combining Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-class-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-Class Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Class Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-tidying-data-to-make-analysis-easier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Tidying Data to Make Analysis Easier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-adding-pe-ratios-with-a-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Adding P/E Ratios with a Join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-5-comparing-industries-with-grouped-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 5: Comparing Industries with Grouped Summaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-6-auditing-missing-pe-ratios-before-an-analytics-meeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 6: Auditing Missing P/E Ratios Before an Analytics Meeting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-topic-05-set-01-shaping-and-joining-data-for-business-analytics">Tutorial Topic 05 Set 01 - Shaping and Joining Data for Business Analytics<a class="headerlink" href="#tutorial-topic-05-set-01-shaping-and-joining-data-for-business-analytics" title="Permanent link">&para;</a></h1>
+<h2 id="learning-goals">Learning Goals<a class="headerlink" href="#learning-goals" title="Permanent link">&para;</a></h2>
+<p>By the end of this tutorial, you should be able to:</p>
+<ul>
+<li>Explain the difference between tidy and messy data, and use <code>pivot_longer()</code> to tidy up wide data.</li>
+<li>Summarize and visualise financial data, and explain why tidy formats make analysis easier.</li>
+<li>Plot and interpret relationships between share price and earnings per share (EPS).</li>
+<li>Combine data from multiple tables using joins (<code>left_join()</code>, <code>inner_join()</code>, <code>anti_join()</code>), and understand what each join includes or excludes.</li>
+</ul>
+<h2 id="the-business-challenge">The Business Challenge<a class="headerlink" href="#the-business-challenge" title="Permanent link">&para;</a></h2>
+<h3 id="the-topic-what-shapes-how-the-market-values-australian-firms">The Topic: What shapes how the market values Australian firms?<a class="headerlink" href="#the-topic-what-shapes-how-the-market-values-australian-firms" title="Permanent link">&para;</a></h3>
+<p>Investors do not just care about whether a company is profitable. They also care about how much they are paying for those earnings.</p>
+<p>In this tutorial, we will work with data on large Australian firms to explore a simple question: <strong>How strongly are share prices and valuation ratios related to company earnings, and how do those patterns vary across firms and industries?</strong></p>
+<p>To answer that question, we first need to prepare the data. Some of the financial variables are stored in a messy wide format, and other information is spread across separate files. So before we can analyse anything, we need to:</p>
+<ul>
+<li>reshape the data into tidy form</li>
+<li>join together firm, industry, and valuation data</li>
+<li>check what information is missing after those joins</li>
+</ul>
+<p>Two key variables in today’s tutorial are:</p>
+<div class="arithmatex">\[
+\text{EPS} = \frac{\text{Profit}}{\text{Shares Outstanding}}
+\]</div>
+<div class="arithmatex">\[
+\text{P/E} = \frac{\text{Share Price}}{\text{EPS}}
+\]</div>
+<ul>
+<li>
+<p>EPS tells us how much profit a company earns for each share.</p>
+</li>
+<li>
+<p>The P/E ratio tells us how much investors are willing to pay for each dollar of earnings.</p>
+</li>
+</ul>
+<p>By the end of the tutorial, you will have built and explored a dataset that lets you compare firms and industries using share prices, earnings, and valuation ratios.</p>
+<h2 id="r-packages-for-today">R packages for today<a class="headerlink" href="#r-packages-for-today" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">  </span><span class="c1"># collection of packages for data manipulation and visualization</span>
+</code></pre></div>
+<h2 id="prepare-these-exercises-before-class">Prepare these Exercises before Class<a class="headerlink" href="#prepare-these-exercises-before-class" title="Permanent link">&para;</a></h2>
+<p>Prepare these exercises before coming to class. Plan to spend 30 minutes on these exercises.</p>
+<h3 id="exercise-1-identifying-issues-with-untidy-data">Exercise 1: Identifying Issues with Untidy Data<a class="headerlink" href="#exercise-1-identifying-issues-with-untidy-data" title="Permanent link">&para;</a></h3>
+<p>We will start with a deliberately messy version of the ASX stock price data. Run the following code to load the dataset.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/asx_prices_messy.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Then inspect a subset of the data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">conm</span><span class="p">,</span><span class="w"> </span><span class="n">price_2023</span><span class="p">,</span><span class="w"> </span><span class="n">price_2024</span><span class="p">,</span><span class="w"> </span><span class="n">eps_2023</span><span class="p">,</span><span class="w"> </span><span class="n">eps_2024</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gvkey &lt;chr&gt; | conm &lt;chr&gt;                | price_2023 &lt;dbl&gt; | price_2024 &lt;dbl&gt; | eps_2023 &lt;dbl&gt; | eps_2024 &lt;dbl&gt; |
+|-------------|---------------------------|------------------|------------------|----------------|----------------|
+| 272690      | 1300 SMILES LTD           | NA               | NA               | NA             | NA             |
+| 327267      | 1414 DEGREES LTD          | 0.040            | 0.067            | -0.0091        | -0.0107        |
+| 349318      | 29METALS LIMITED          | 0.375            | NA               | -0.7986        | NA             |
+| 284698      | 3D ENERGI LIMITED         | 0.056            | 0.070            | 0.0129         | -0.0075        |
+| 346142      | 3D METALFORGE LIMITED     | NA               | NA               | NA             | NA             |
+| 317959      | 3P LEARNING LTD           | 1.270            | 1.020            | 0.0230         | -0.2077        |
+| 253413      | 3Q HOLDINGS LTD           | NA               | NA               | NA             | NA             |
+| 339106      | 4DMEDICAL LTD             | 0.450            | 0.675            | -0.1049        | -0.0971        |
+| 314650      | 4DS MEMORY LTD            | 0.135            | 0.084            | -0.0038        | -0.0031        |
+| 324960      | 5E ADVANCED MATERIALS INC | 2.260            | 0.540            | -0.7000        | -1.1800        |
+</code></pre></div>
+<p><strong>(a)</strong> </p>
+<p>In what ways is this data frame not tidy? What principles of tidy data are violated?</p>
+<p><strong>(b)</strong> </p>
+<p>Use the starter code below to compute the average share price across all firms for 2023 and 2024.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="c1"># Add up all 2023 share prices</span>
+<span class="w">    </span><span class="n">sum_prices_2023</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="c1"># Add up all 2024 share prices</span>
+<span class="w">    </span><span class="n">sum_prices_2024</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="c1"># Count how many firms have a non-missing share price in 2023</span>
+<span class="w">    </span><span class="n">count_firms_2023</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">price_2023</span><span class="p">)),</span>
+<span class="w">    </span><span class="c1"># Count how many firms have a non-missing share price in 2024</span>
+<span class="w">    </span><span class="n">count_firms_2024</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">price_2024</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">    </span><span class="c1"># Combine the 2023 and 2024 price totals</span>
+<span class="w">    </span><span class="n">total_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span>
+<span class="w">    </span><span class="c1"># Combine the number of non-missing firm prices across both years</span>
+<span class="w">    </span><span class="n">total_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count_firms_2023</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count_firms_2024</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">  </span><span class="c1"># Divide the total sum of prices by the total number of firms</span>
+<span class="w">    </span><span class="n">avg_price_23_24</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">avg_price_23_24</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong> </p>
+<p>Why does the approach in part (b) not scale well as more years are added?</p>
+<p><strong>(d)</strong> </p>
+<p>The code below plots share price against earnings per share in 2024.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">eps_2024</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps_2024</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price_2024</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="n">YOUR_CODE_HERE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="n">YOUR_CODE_HERE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_LABEL_HERE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_LABEL_HERE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;YOUR_LABEL_HERE&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<p>What relationship do you see? Why does this make sense economically?</p>
+<p><strong>(e)</strong> </p>
+<p>Suppose you also wanted to include 2023 in this analysis. Briefly explain:</p>
+<ul>
+<li>which extra columns you would need</li>
+<li>what you would need to change in the plotting process</li>
+<li>why this approach would become awkward if extended to 2019 to 2024</li>
+</ul>
+<p><strong>(f)</strong> </p>
+<p>In two or three sentences, explain to a manager why this data structure makes analysis harder than it needs to be.</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong> </p>
+<p>This data frame is not tidy because the year is stored in the column names rather than in its own variable. Columns such as <code>price_2023</code> and <code>price_2024</code> contain values of the variable <code>year</code>, which should instead appear in a separate column. The data also mix two variables, the measure (<code>price</code> or <code>eps</code>) and the year, inside a single column name. More broadly, one firm-year observation is spread across multiple columns rather than appearing as one row.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="c1"># Add up all 2023 share prices</span>
+<span class="w">    </span><span class="n">sum_prices_2023</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">price_2023</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="c1"># Add up all 2024 share prices</span>
+<span class="w">    </span><span class="n">sum_prices_2024</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">price_2024</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="c1"># Count how many firms have a non-missing share price in 2023</span>
+<span class="w">    </span><span class="n">count_firms_2023</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">price_2023</span><span class="p">)),</span>
+<span class="w">    </span><span class="c1"># Count how many firms have a non-missing share price in 2024</span>
+<span class="w">    </span><span class="n">count_firms_2024</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">price_2024</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">    </span><span class="c1"># Combine the 2023 and 2024 price totals</span>
+<span class="w">    </span><span class="n">total_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum_prices_2023</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum_prices_2024</span><span class="p">,</span>
+<span class="w">    </span><span class="c1"># Combine the number of non-missing firm prices across both years</span>
+<span class="w">    </span><span class="n">total_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count_firms_2023</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count_firms_2024</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">    </span><span class="c1"># Divide the total sum of prices by the total number of firms</span>
+<span class="w">    </span><span class="n">avg_price_23_24</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total_sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total_count</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">avg_price_23_24</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| avg_price_23_24 &lt;dbl&gt; |
+|-----------------------|
+| 2.765119              |
+</code></pre></div>
+<p><strong>(c)</strong> </p>
+<p>This approach does not scale well because every new year adds more columns that must be handled manually. We would need to keep adding extra sums, counts, and references to year-specific variables, making the code longer and easier to break.</p>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">eps_2024</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps_2024</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price_2024</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price vs EPS (2024)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Earnings per Share (EPS, 2024)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price (2024)&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<div align="center">
+    <img src="../p1.png" width="600">
+</div>
+
+<p>The plot suggests a positive relationship between earnings per share and share price in 2024. This makes sense economically because investors are buying a claim on the firm’s future earnings, so firms with stronger earnings tend to attract more demand and higher share prices.</p>
+<p><strong>(e)</strong> </p>
+<p>A good answer would explain that we would need to bring in the 2023 columns, such as <code>eps_2023</code> and <code>price_2023</code>, in addition to the 2024 ones. The plotting process would become more complicated because we would need to manually combine or stack information from multiple years before plotting. This would become increasingly awkward from 2019 to 2024 because each extra year would add more column references and more manual work, making the analysis repetitive and harder to maintain.</p>
+<p><strong>(f)</strong> </p>
+<p>A manager-friendly explanation might be: The current structure makes even simple comparisons across years more cumbersome than they need to be. Reorganising the data would make it easier to summarise trends, build plots, and update the analysis when new years of data are added.</p>
+<h3 id="exercise-2-combining-datasets">Exercise 2: Combining Datasets<a class="headerlink" href="#exercise-2-combining-datasets" title="Permanent link">&para;</a></h3>
+<p>In this exercise, you will combine information from two datasets using a join.</p>
+<p>To start, load the data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">firm_codes</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/asx_200_2024.csv&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">conm</span><span class="p">,</span><span class="w"> </span><span class="n">gsubind</span><span class="p">)</span>
+
+<span class="n">subindustry_names</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/GICS_subindustry.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Take a quick look at the two datasets:</p>
+<div class="highlight"><pre><span></span><code><span class="n">firm_codes</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gvkey &lt;chr&gt; | conm &lt;chr&gt;             | gsubind &lt;dbl&gt; |
+|-------------|------------------------|---------------|
+| 013312      | BHP GROUP LTD          | 15104020      |
+| 210216      | TELSTRA GROUP LIMITED  | 50101020      |
+| 223003      | CSL LTD                | 35201010      |
+| 212650      | TRANSURBAN GROUP       | 20305020      |
+| 100894      | WOOLWORTHS GROUP LTD   | 30101030      |
+| 212427      | FORTESCUE LTD          | 15104050      |
+| 101601      | WESFARMERS LTD         | 25503030      |
+| 226744      | RAMSAY HEALTH CARE LTD | 35102020      |
+| 220244      | QANTAS AIRWAYS LTD     | 20302010      |
+| 017525      | ORIGIN ENERGY LTD      | 55101010      |
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">subindustry_names</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gsubind &lt;dbl&gt; | subind &lt;chr&gt;                               |
+|---------------|--------------------------------------------|
+| 10101010      | Oil &amp; Gas Drilling                     |
+| 10101020      | Oil &amp; Gas Equipment &amp; Services     |
+| 10102010      | Integrated Oil &amp; Gas                   |
+| 10102020      | Oil &amp; Gas Exploration &amp; Production |
+| 10102030      | Oil &amp; Gas Refining &amp; Marketing     |
+| 10102040      | Oil &amp; Gas Storage &amp; Transportation |
+| 10102050      | Coal &amp; Consumable Fuels                |
+| 15101010      | Commodity Chemicals                        |
+| 15101020      | Diversified Chemicals                      |
+| 15101030      | Fertilizers &amp; Agricultural Chemicals   |
+</code></pre></div>
+<p><strong>(a)</strong> </p>
+<p>Look at the variables in <code>firm_codes</code> and <code>subindustry_names</code>. Which variable or variables look like they could be used to join these two datasets?</p>
+<p><strong>(b)</strong> </p>
+<p>Which join variable would you choose? Explain why it is the best choice here.</p>
+<p><strong>(c)</strong> </p>
+<p>Use a left join to add the subindustry name to each firm in <code>firm_codes</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">firm_info</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">YOUR_DATASET_NAME</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">YOUR_DATASET_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">YOUR_VARIABLE_NAME</span><span class="p">))</span>
+
+<span class="n">firm_info</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(d)</strong> </p>
+<p>What changed after the join? Briefly explain:</p>
+<ul>
+<li>what information was added</li>
+<li>whether the join mainly added rows or columns</li>
+<li>why this makes the dataset more useful for analysis</li>
+</ul>
+<p><strong>(e)</strong> </p>
+<p>Look at how <code>gsubind</code> behaves in the two datasets.</p>
+<ul>
+<li>In which dataset would you expect each <code>gsubind</code> to appear only once?</li>
+<li>In which dataset can the same <code>gsubind</code> appear many times?</li>
+<li>Why does that make sense?</li>
+</ul>
+<p><strong>(f)</strong> </p>
+<p>Fill in the variable name in each sentence below.</p>
+<p>In <code>subindustry_names</code>, <code>_____</code> behaves like a <strong>primary key</strong> because each code identifies one subindustry label.</p>
+<p>In <code>firm_codes</code>, <code>_____</code> behaves like a <strong>foreign key</strong> because many firms can share the same subindustry code.</p>
+<p><strong>(g)</strong> </p>
+<p>Suppose we reversed the join and started with <code>subindustry_names</code> on the left-hand side. What would be different about the resulting dataset, and why?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong> The most plausible join variable is <code>gsubind</code>. Depending on the columns shown in <code>subindustry_names</code>, students may also mention other code-like variables, but <code>gsubind</code> is the key variable we want here because it appears in both tables and represents the subindustry code.</p>
+<p><strong>(b)</strong> <code>gsubind</code> is the best choice because it is a structured code variable designed to represent the same subindustry in both tables. In general, numeric or code-based match keys are usually safer than text variables because they are more standardised and less likely to vary across datasets. A text variable like <code>conm</code> would be a worse choice because company names can be abbreviated, misspelled, formatted differently, or written inconsistently across files. So the key point is not just that <code>gsubind</code> fits the business meaning here, but that coded identifiers are often much more reliable join keys than text labels.</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">firm_info</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">firm_codes</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">subindustry_names</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gsubind</span><span class="p">))</span>
+
+<span class="n">firm_info</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gvkey &lt;chr&gt; | conm &lt;chr&gt;             | gsubind &lt;dbl&gt; | subind &lt;chr&gt;                          |
+|-------------|------------------------|---------------|---------------------------------------|
+| 013312      | BHP GROUP LTD          | 15104020      | Diversified Metals &amp; Mining       |
+| 210216      | TELSTRA GROUP LIMITED  | 50101020      | Integrated Telecommunication Services |
+| 223003      | CSL LTD                | 35201010      | Biotechnology                         |
+| 212650      | TRANSURBAN GROUP       | 20305020      | Highways &amp; Railtracks             |
+| 100894      | WOOLWORTHS GROUP LTD   | 30101030      | Food Retail                           |
+| 212427      | FORTESCUE LTD          | 15104050      | Steel                                 |
+| 101601      | WESFARMERS LTD         | 25503030      | Broadline Retail (New)                |
+| 226744      | RAMSAY HEALTH CARE LTD | 35102020      | Health Care Facilities                |
+| 220244      | QANTAS AIRWAYS LTD     | 20302010      | Passenger Airlines (New name)         |
+| 017525      | ORIGIN ENERGY LTD      | 55101010      | Electric Utilities                    |
+</code></pre></div>
+<p><strong>(d)</strong> </p>
+<p>The join adds subindustry names to the firm-level dataset. It mainly adds columns rather than rows, because we are attaching descriptive information to each existing firm. This makes the dataset more useful because we can now analyse firms using meaningful industry labels rather than just codes.</p>
+<p><strong>(e)</strong> </p>
+<p>In <code>subindustry_names</code>, we would expect each <code>gsubind</code> to appear only once because each code should map to one subindustry label. In <code>firm_codes</code>, the same <code>gsubind</code> can appear many times because many firms can belong to the same subindustry. That makes sense because <code>subindustry_names</code> is a lookup table, while <code>firm_codes</code> is a firm-level table.</p>
+<p><strong>(f)</strong> </p>
+<p>In both sentences, the missing variable name is <code>gsubind</code>.</p>
+<p>In <code>subindustry_names</code>, <code>gsubind</code> behaves like a <strong>primary key</strong> because each code identifies one subindustry label.</p>
+<p>In <code>firm_codes</code>, <code>gsubind</code> behaves like a <strong>foreign key</strong> because many firms can share the same subindustry code.</p>
+<p><strong>(g)</strong> </p>
+<p>If we started with <code>subindustry_names</code> on the left-hand side, the resulting dataset would keep all subindustry rows rather than all firm rows. That means the structure of the output would be organised around subindustries, not firms. In a <code>left_join()</code>, the table on the left determines which rows are preserved.</p>
+<div class="highlight"><pre><span></span><code><span class="n">subindustry_first</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">subindustry_names</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">firm_codes</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gsubind</span><span class="p">))</span>
+
+<span class="n">subindustry_first</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gsubind &lt;dbl&gt; | subind &lt;chr&gt;                       | gvkey &lt;chr&gt; | conm &lt;chr&gt;               |
+|---------------|------------------------------------|-------------|--------------------------|
+| 10101010      | Oil &amp; Gas Drilling                 | NA          | NA                       |
+| 10101020      | Oil &amp; Gas Equipment &amp; Services     | NA          | NA                       |
+| 10102010      | Integrated Oil &amp; Gas               | NA          | NA                       |
+| 10102020      | Oil &amp; Gas Exploration &amp; Production | 101392      | BEACH ENERGY LTD         |
+| 10102020      | Oil &amp; Gas Exploration &amp; Production | 253322      | AMPLITUDE ENERGY LIMITED |
+| 10102020      | Oil &amp; Gas Exploration &amp; Production | 271330      | STRIKE ENERGY LTD        |
+| 10102030      | Oil &amp; Gas Refining &amp; Marketing     | NA          | NA                       |
+| 10102040      | Oil &amp; Gas Storage &amp; Transportation | NA          | NA                       |
+| 10102050      | Coal &amp; Consumable Fuels            | 284808      | WHITEHAVEN COAL LIMITED  |
+| 10102050      | Coal &amp; Consumable Fuels            | 258444      | NEW HOPE CORP LTD        |
+</code></pre></div>
+<p>This version starts from the subindustry lookup table and then brings in the firms that match each subindustry code. The result is therefore anchored on subindustries rather than firms, which is different from the earlier join where every firm row was preserved first.</p>
+<h2 id="in-class-exercises">In-Class Exercises<a class="headerlink" href="#in-class-exercises" title="Permanent link">&para;</a></h2>
+<p>You will discuss these exercises in class with your peers in small groups and with your tutor. These exercises build from the exercises you have prepared above, you will get the most value from the class if you have completed those above before coming to class.</p>
+<h3 id="exercise-3-tidying-data-to-make-analysis-easier">Exercise 3: Tidying Data to Make Analysis Easier<a class="headerlink" href="#exercise-3-tidying-data-to-make-analysis-easier" title="Permanent link">&para;</a></h3>
+<p><strong>(a)</strong> </p>
+<p>Look at the column names in <code>asx_prices_messy</code>, and answer the following:</p>
+<ul>
+<li>What two pieces of information are stored in these column names?</li>
+<li>What character separates those two pieces of information?</li>
+</ul>
+<p><strong>(b)</strong> </p>
+<p>We now want to reshape the stock price data so that each row corresponds to one firm in one year. Complete the starter code below to turn the data into a tidy format.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">pivot_YOUR_CODE</span><span class="p">(</span>
+<span class="w">    </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">names_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;.value&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fyear&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">values_drop_na</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">fyear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">fyear</span><span class="p">))</span>
+
+<span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong> </p>
+<p>In Exercise 1, calculating the average share price across 2023 and 2024 took several steps. Use the tidy dataset to calculate the average share price across those two years.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">fyear</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">YOUR_YEARS</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span><span class="n">avg_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">YOUR_VARIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>Why is the calculation in part (c) easier to write using the tidy dataset than it was in Exercise 1?</p>
+<p>What would we need to do if we added many more years of data?</p>
+<p><strong>(e)</strong> </p>
+<p>We now want to recreate our plot of share price against EPS using the tidy dataset.</p>
+<p>Complete the code below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">eps</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="c1"># create a scatterplot with EPS on the x-axis and price on the y-axis</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add points</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a fitted straight line</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a title and axis labels</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># use a theme</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p><strong>(f)</strong> </p>
+<p>Modify your code from part (e) so that the plot only shows observations from 2023 and 2024. Make this change by adding just one line to your existing pipeline.</p>
+<p><strong>(g)</strong> </p>
+<p>Look at your plot from part (e) and answer the following:</p>
+<ul>
+<li>What overall relationship do you observe between EPS and share price?</li>
+<li>What might explain firms that lie well above or below the fitted line?</li>
+<li>Do firms with very low or negative EPS seem to follow the same straight-line pattern as the rest of the data?</li>
+</ul>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>The column names contain two pieces of information:</p>
+<ul>
+<li>the variable being measured, such as <code>price</code> or <code>eps</code></li>
+<li>the financial year, such as <code>2023</code> or <code>2024</code></li>
+</ul>
+<p>These two pieces are separated by an underscore (<code>_</code>).</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_messy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">pivot_longer</span><span class="p">(</span>
+<span class="w">    </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">starts_with</span><span class="p">(</span><span class="s">&quot;price&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nf">starts_with</span><span class="p">(</span><span class="s">&quot;eps&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">names_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;.value&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fyear&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">names_sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">values_drop_na</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">fyear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">fyear</span><span class="p">))</span>
+
+<span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| gvkey &lt;chr&gt; | conm &lt;chr&gt;       | fyear &lt;dbl&gt; | price &lt;dbl&gt; | eps &lt;dbl&gt; |
+|-------------|------------------|-------------|-------------|-----------|
+| 272690      | 1300 SMILES LTD  | 2019        | 6.280       | 0.3282    |
+| 272690      | 1300 SMILES LTD  | 2020        | 6.110       | 0.3018    |
+| 272690      | 1300 SMILES LTD  | 2021        | 8.100       | 0.4065    |
+| 327267      | 1414 DEGREES LTD | 2019        | 0.200       | -0.0258   |
+| 327267      | 1414 DEGREES LTD | 2020        | 0.135       | -0.0165   |
+| 327267      | 1414 DEGREES LTD | 2021        | 0.100       | -0.0311   |
+| 327267      | 1414 DEGREES LTD | 2022        | 0.076       | -0.0068   |
+| 327267      | 1414 DEGREES LTD | 2023        | 0.040       | -0.0091   |
+| 327267      | 1414 DEGREES LTD | 2024        | 0.067       | -0.0107   |
+| 349318      | 29METALS LIMITED | 2021        | 2.740       | 0.4857    |
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">fyear</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2023</span><span class="p">,</span><span class="w"> </span><span class="m">2024</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">fyear</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span><span class="n">avg_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| fyear &lt;dbl&gt; | avg_price &lt;dbl&gt; |
+|-------------|-----------------|
+| 2023        | 2.746548        |
+| 2024        | 2.788560        |
+</code></pre></div>
+<p><strong>(d)</strong></p>
+<p>This version is easier because all share prices are stored in one <code>price</code> column and all years are stored in one <code>fyear</code> column. That means we can filter the years we want, then calculate the mean once, rather than referring to separate columns such as <code>price_2023</code> and <code>price_2024</code> individually.</p>
+<p>If we added many more years of data, this tidy version would still work with the same basic code. We would just change the years inside <code>filter()</code>. In the wide version, we would need to keep adding more year-specific columns to the calculation, which becomes repetitive and harder to manage.</p>
+<p><strong>(e)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">eps</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="c1"># create a scatterplot with EPS on the x-axis and price on the y-axis</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add points</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a fitted straight line</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a title and axis labels</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price vs EPS (2019–2024)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Earnings per Share&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># use a theme</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<div align="center">
+    <img src="../p2.png" width="600">
+</div>
+
+<p><strong>(f)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">eps</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">-5</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">fyear</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2023</span><span class="p">,</span><span class="w"> </span><span class="m">2024</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="c1"># create a scatterplot with EPS on the x-axis and price on the y-axis</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add points</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a fitted straight line</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># add a title and axis labels</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price vs EPS (2023–2024)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Earnings per Share&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Share Price&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="c1"># use a theme</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<div align="center">
+    <img src="../p3.png" width="600">
+</div>
+
+<p><strong>(g)</strong></p>
+<p>The plot shows that:</p>
+<ul>
+<li>There is a positive relationship between EPS and share price. In general, firms with higher earnings per share tend to have higher share prices.</li>
+<li>Firms above the fitted line may have strong growth expectations, valuable intangible assets, or high investor confidence that is not fully captured by current EPS. Firms below the line may reflect lower growth prospects, greater risk, or weaker investor sentiment.</li>
+<li>Firms with very low or negative EPS do not seem to follow the straight-line pattern as well as the rest of the data. This suggests that a simple straight line may be a rough summary for the middle of the data, but not a perfect description of the full relationship.</li>
+</ul>
+<h3 id="exercise-4-adding-pe-ratios-with-a-join">Exercise 4: Adding P/E Ratios with a Join<a class="headerlink" href="#exercise-4-adding-pe-ratios-with-a-join" title="Permanent link">&para;</a></h3>
+<p><strong>(a)</strong> </p>
+<p>We want to add P/E ratios to our tidy ASX firm-year dataset.</p>
+<p>Run the code below to load and prepare the P/E ratio data.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pe_data</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;data/pe.csv&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">,</span><span class="w"> </span><span class="n">pe</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">pe</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+</code></pre></div>
+<p>What variables in <code>pe_data</code> seem to identify each row?</p>
+<p><strong>(b)</strong> </p>
+<p>In <code>asx_tidy</code>, what does one row represent?</p>
+<p>Which variable or variables together identify a unique observation in this dataset?</p>
+<p><strong>(c)</strong> </p>
+<p>Which <strong>two</strong> variables should we use to join <code>asx_tidy</code> and <code>pe_data</code>?</p>
+<p><strong>(d)</strong> </p>
+<p>Why do we need both of these variables in the join?</p>
+<p><strong>(e)</strong> </p>
+<p>Complete the code below to add the <code>pe</code> variable from <code>pe_data</code> to <code>asx_tidy</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_with_pe</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(f)</strong> </p>
+<p>After the join, what changed in the dataset? In your answer, explain:</p>
+<ul>
+<li>what new information was added</li>
+<li>whether the join mainly added rows or columns</li>
+</ul>
+<p><strong>(g)</strong> </p>
+<p>Now suppose we join the two datasets using only <code>gvkey</code>.</p>
+<p>Run the code below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_wrong_join</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>What goes wrong here, and why?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>The variables that seem to identify each row are <code>gvkey</code> and <code>fyear</code>.</p>
+<p>That is because each row appears to represent one firm in one year, with <code>pe</code> giving the P/E ratio for that firm-year observation.</p>
+<p><strong>(b)</strong></p>
+<p>One row in <code>asx_tidy</code> represents one firm in one year.</p>
+<p>So the variables that together identify a unique observation are <code>gvkey</code> and <code>fyear</code>.</p>
+<p><strong>(c)</strong></p>
+<p>The two variables we should use are <code>gvkey</code> and <code>fyear</code>.</p>
+<p><strong>(d)</strong></p>
+<p>We need both variables because <code>gvkey</code> tells us which firm we are looking at, but it does not tell us which year. Since each firm appears in multiple years, joining only on <code>gvkey</code> would not uniquely identify the correct match. Adding <code>fyear</code> makes the match happen at the firm-year level, which is the correct observational unit in both datasets.</p>
+<p><strong>(e)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_with_pe</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(f)</strong></p>
+<p>The join added a new variable, <code>pe</code>, to the dataset.</p>
+<p>It mainly added a column rather than rows, because we matched one firm-year observation in <code>asx_tidy</code> to one firm-year observation in <code>pe_data</code>.</p>
+<p><strong>(g)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_wrong_join</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>This goes wrong because each firm in <code>asx_tidy</code> can now match multiple years in <code>pe_data</code> for the same firm. That creates duplicated rows and incorrect matches across years.</p>
+<p>For example, a 2023 observation for one firm could be matched not only to its 2023 P/E ratio, but also to that firm’s 2022 or 2024 P/E ratios. So the join runs, but the resulting dataset is no longer correctly aligned at the firm-year level.</p>
+<h3 id="exercise-5-comparing-industries-with-grouped-summaries">Exercise 5: Comparing Industries with Grouped Summaries<a class="headerlink" href="#exercise-5-comparing-industries-with-grouped-summaries" title="Permanent link">&para;</a></h3>
+<p><strong>(a)</strong> </p>
+<p>We now want to compare valuation patterns across industries.</p>
+<p>To do that, we first need to add industry codes to <code>asx_with_pe</code>.</p>
+<p>Complete the code below to join <code>firm_info</code>, which you created in Exercise 2, onto <code>asx_with_pe</code> using <code>gvkey</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_analysis</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_with_pe</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">YOUR_CODE</span><span class="p">(</span>
+<span class="w">    </span><span class="n">YOUR_CODE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YOUR_CODE_HERE</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>What new information does this join add?</p>
+<p><strong>(b)</strong> </p>
+<p>Using <code>asx_analysis</code>, create a summary dataset called <code>industry_year_summary</code> that does all of the following:</p>
+<ul>
+<li>groups the data by subindustry and year</li>
+<li>calculates the average P/E ratio</li>
+<li>calculates the average share price</li>
+<li>calculates the average EPS</li>
+<li>calculates the number of firms in each subindustry-year</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">industry_year_summary</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_analysis</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p><strong>(c)</strong> </p>
+<p>Why do we need to group by both <strong>subindustry</strong> and <strong>year</strong> here, rather than just one of them?</p>
+<p><strong>(d)</strong> </p>
+<p>Using <code>industry_year_summary</code>, create a scatterplot that does all of the following:</p>
+<ul>
+<li>puts average P/E ratio on the x-axis</li>
+<li>puts average share price on the y-axis</li>
+<li>shows one point for each subindustry-year observation</li>
+<li>includes a summary line describing the pattern in the data</li>
+<li>includes a clear title and axis labels</li>
+<li>uses a theme</li>
+<li>only includes subindustries that have at least 3 firms</li>
+<li>only includes subindustries with average P/E ratios less than 100</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">industry_year_summary</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">YOUR_CODE</span>
+</code></pre></div>
+<p><strong>(e)</strong> </p>
+<p>What do you notice in the plot?</p>
+<p>In a 2-3 sentences, comment on:</p>
+<ul>
+<li>whether industry-year observations with higher average P/E ratios also tend to have higher average share prices</li>
+<li>whether there are any clear clusters or outliers</li>
+<li>what kinds of industry differences might help explain the pattern</li>
+</ul>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_analysis</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_with_pe</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">firm_info</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">conm</span><span class="p">),</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>This join adds firm code information based on <code>gvkey</code>, so the analysis dataset now carries the industry classification needed for grouped summaries.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">industry_year_summary</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_analysis</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="c1"># remark adding subind just keeps us the human readable names</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">gsubind</span><span class="p">,</span><span class="w"> </span><span class="n">subind</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">avg_pe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">pe</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">avg_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">avg_eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">n_firms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">()</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p><strong>(c)</strong></p>
+<p>We need to group by both industry and year because we want each row in the summary dataset to represent one industry in one year. Grouping only by industry would average across all years, and grouping only by year would average across all industries. Using both variables lets us compare industries while still keeping track of time.</p>
+<p><strong>(d)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">industry_year_summary</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">n_firms</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">avg_pe</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_pe</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avg_price</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Average Share Price vs Average P/E Ratio by Industry-Year&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Average P/E Ratio&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Average Share Price&quot;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<div align="center">
+    <img src="../p4.png" width="600">
+</div>
+
+<p><strong>(e)</strong></p>
+<p>The plot shows whether industry-year observations with higher average P/E ratios also tend to have higher average share prices, but the relationship is not necessarily very tight.</p>
+<p>Some industries may cluster together, while others may stand out as outliers with unusually high average prices or valuation multiples.</p>
+<p>Industry differences in growth expectations, profitability, risk, or business model may help explain why some industry-year observations sit in different parts of the plot.</p>
+<h3 id="exercise-6-auditing-missing-pe-ratios-before-an-analytics-meeting">Exercise 6: Auditing Missing P/E Ratios Before an Analytics Meeting<a class="headerlink" href="#exercise-6-auditing-missing-pe-ratios-before-an-analytics-meeting" title="Permanent link">&para;</a></h3>
+<p>Suppose your team is preparing for an analytics meeting. You have built a firm-year dataset with share prices, earnings, and P/E ratios, but many firm-year observations still have missing <code>pe</code> values.</p>
+<p>Before moving ahead, you want to understand:</p>
+<ul>
+<li>what the full dataset looks like</li>
+<li>what the complete-match dataset looks like</li>
+<li>which observations are missing P/E</li>
+<li>what you should ask the data team before continuing</li>
+</ul>
+<p><strong>(a)</strong> </p>
+<p>In Exercise 4, we used a <code>left_join()</code> to add P/E ratios from <code>pe_data</code> to <code>asx_tidy</code>.</p>
+<p>What happened to the rows in <code>asx_tidy</code> that did <strong>not</strong> have a matching P/E ratio in <code>pe_data</code>? Briefly explain what the join did in those cases.</p>
+<p><strong>(b)</strong> Run the code below, which uses a different kind of join, called <code>inner_join()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_with_pe_inner</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">inner_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>How is <code>asx_with_pe_inner</code> different from <code>asx_with_pe</code>? What does <code>inner_join()</code> keep that <code>left_join()</code> does not?</p>
+<p><strong>(c)</strong> </p>
+<p>Run the code below, which uses another kind of join, called <code>anti_join()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">missing_pe</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">anti_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p>What does <code>missing_pe</code> represent? How is this different from the dataset created with <code>inner_join()</code> in part (b)?</p>
+<p><strong>(d)</strong> </p>
+<p>Compare the number of rows in the following datasets.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">nrow</span><span class="p">(</span><span class="n">asx_prices_tidy</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">asx_with_pe</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">asx_with_pe_inner</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">missing_pe</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1] 9484
+[1] 9484
+[1] 2407
+[1] 7077
+</code></pre></div>
+<p>What do you notice? What does this tell you about how much of the firm-year dataset has valid P/E coverage?</p>
+<p><strong>(e)</strong> </p>
+<p>Look at the observations in <code>missing_pe</code>.</p>
+<p>Use code to investigate whether missing P/E ratios seem to be concentrated in certain years or associated with certain EPS values. Write one or two short findings based on what you see.</p>
+<p><strong>(f)</strong> </p>
+<p>The <code>pe_data</code> file was provided to us as a separate dataset.</p>
+<p>Why might some firm-year observations in <code>asx_tidy</code> still fail to find a matching P/E ratio in that file, even when <code>price</code> and <code>eps</code> are present?</p>
+<p>In your answer, think about possible differences in:</p>
+<ul>
+<li>which firms were included</li>
+<li>which years were covered</li>
+<li>how P/E ratios were defined or filtered before the file was given to us</li>
+</ul>
+<p><strong>(g)</strong> </p>
+<p>Suppose you are preparing for a meeting with the data team before using <code>pe</code> in your analysis.</p>
+<p>What are two or three specific questions you would ask to check whether the missing P/E values reflect:</p>
+<ul>
+<li>a normal feature of the data</li>
+<li>a difference in firm or year coverage</li>
+<li>a problem in how the file was sourced or matched</li>
+</ul>
+<p>If the missing values seem to come from incomplete firm coverage, what might your team do next to source the missing data?</p>
+<p><strong>Solution</strong></p>
+<p><strong>(a)</strong></p>
+<p>Rows in <code>asx_tidy</code> that did not have a matching P/E ratio in <code>pe_data</code> were still kept in the dataset.</p>
+<p>The <code>left_join()</code> added <code>pe</code> where a match was found, and left <code>pe</code> as missing (<code>NA</code>) where no match was found.</p>
+<p><strong>(b)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">asx_with_pe_inner</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">inner_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p><code>asx_with_pe_inner</code> contains only the firm-year observations that have a match in both <code>asx_tidy</code> and <code>pe_data</code>.</p>
+<p>Compared with <code>asx_with_pe</code>, it drops the rows where no matching P/E ratio was found.</p>
+<p>So <code>inner_join()</code> keeps only complete matches, while <code>left_join()</code> keeps all rows from <code>asx_tidy</code> whether they match or not.</p>
+<p><strong>(c)</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">missing_pe</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">asx_prices_tidy</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">anti_join</span><span class="p">(</span>
+<span class="w">    </span><span class="n">pe_data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">join_by</span><span class="p">(</span><span class="n">gvkey</span><span class="p">,</span><span class="w"> </span><span class="n">fyear</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<p><code>missing_pe</code> contains the firm-year observations in <code>asx_tidy</code> that did not find a match in <code>pe_data</code>.</p>
+<p>This is different from the <code>inner_join()</code> result because <code>inner_join()</code> keeps the matched observations, while <code>anti_join()</code> keeps the unmatched ones.</p>
+<p><strong>(d)</strong></p>
+<p><code>asx_tidy</code> and <code>asx_with_pe</code> should have the same number of rows, because the <code>left_join()</code> keeps every row from <code>asx_tidy</code>.</p>
+<p><code>asx_with_pe_inner</code> should have fewer rows if some firm-year observations do not have a matching P/E ratio.</p>
+<p><code>missing_pe</code> shows exactly the observations that were left out of the inner join.</p>
+<p>Together, these row counts show how much of the firm-year dataset has valid P/E coverage and how much is missing.</p>
+<p><strong>(e)</strong></p>
+<p>Students’ exact answers will vary, but a good answer would identify one or two patterns in <code>missing_pe</code>.</p>
+<p>For example:</p>
+<ul>
+<li>missing P/E ratios may be concentrated in certain years</li>
+<li>missing P/E ratios may occur more often when EPS is negative or very close to zero</li>
+<li>missing P/E rations for certain firms</li>
+</ul>
+<p>Illustrative code could include:</p>
+<div class="highlight"><pre><span></span><code><span class="n">missing_pe</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">fyear</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| fyear &lt;dbl&gt; | n &lt;int&gt; |
+|-------------|---------|
+| 2019        | 1178    |
+| 2020        | 1189    |
+| 2021        | 1186    |
+| 2022        | 1286    |
+| 2023        | 1245    |
+| 2024        | 993     |
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">missing_pe</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">summarise</span><span class="p">(</span>
+<span class="w">    </span><span class="n">min_eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">max_eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">avg_eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| min_eps &lt;dbl&gt; | max_eps &lt;dbl&gt; | avg_eps &lt;dbl&gt; |
+|---------------|---------------|---------------|
+| -2267         | 2.0479        | -0.4205366    |
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">missing_pe</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">conm</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>| conm &lt;chr&gt;                   | n &lt;int&gt; |
+|------------------------------|---------|
+| 1414 DEGREES LTD             | 6       |
+| 4DS MEMORY LTD               | 6       |
+| 5G NETWORKS LIMITED          | 6       |
+| 8COMMON LTD                  | 6       |
+| ACCELERATE RESOURC           | 6       |
+| ...                          | ...     |
+| WOODSIDE ENERGY GROUP LTD    | 1       |
+| WORLD.NET SERVICES LTD       | 1       |
+| XCD ENERGY LTD               | 1       |
+| YANCOAL AUSTRALIA LTD        | 1       |
+| YOUFOODZ HOLDINGS LTD        | 1       |
+</code></pre></div>
+<p><strong>(f)</strong></p>
+<p>Possible explanations include:</p>
+<ul>
+<li>The supplied <code>pe_data</code> file may not cover every firm in our ASX dataset.</li>
+<li>Some firms may appear in <code>asx_tidy</code> but be missing from <code>pe_data</code> for certain years.</li>
+<li>The P/E file may cover a different time period from the main ASX dataset.</li>
+<li>P/E ratios may be intentionally omitted when EPS is negative or very close to zero.</li>
+<li>The data team may have filtered the file before giving it to us, so only a subset of firm-years was included.</li>
+<li>The two datasets may have been sourced under different rules, even if they use the same identifiers.</li>
+</ul>
+<p><strong>(g)</strong></p>
+<p>Possible questions for the data team include:</p>
+<ul>
+<li>Does <code>pe_data</code> cover all firms in our ASX dataset, or only a subset?</li>
+<li>Are some years intentionally missing from the P/E file?</li>
+<li>How is P/E defined in this dataset, and are firms with negative or near-zero EPS excluded?</li>
+<li>Was the P/E file filtered before it was given to us?</li>
+<li>Should missing P/E values be treated as expected missingness, or as a sign that the match or source file needs to be checked?</li>
+</ul>
+<p>If the missing values seem to reflect incomplete firm coverage, the team might:</p>
+<ul>
+<li>check whether the missing firms can be sourced from the original provider</li>
+<li>request a broader extract from the data team</li>
+<li>look for an additional source covering those firms and years</li>
+<li>decide whether the analysis should be restricted to firms with reliable P/E coverage</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "toc.follow", "toc.sticky"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
