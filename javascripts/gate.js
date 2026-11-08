@@ -3,7 +3,7 @@
  * 注意:这是纯前端校验,只能挡住普通访客,不是真正的访问控制。 */
 (function () {
   var SALT = "navba-gate-fba:";
-  var HASH = "73c459a87164a1b3d3d708dd812360bf81f21a0fa1b459cb529f5d2b42194b10";
+  var HASH = "5f855f546e60bb56bf258f4a9ce6c16a9e1893cd67b09b6f937d5d690172354b";
   var REMEMBER_MINUTES = 60;
   var KEY = "navba-gate-fba";
 
